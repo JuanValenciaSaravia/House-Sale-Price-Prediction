@@ -230,15 +230,16 @@ sapply(test, function(x) sum(is.na(x)))
 ```
 		 
  Removed attributes 
--PoolQC has 2,909 missing values
+ 
+	-PoolQC has 2,909 missing values
 
--MiscFeature has 2,814 missing values
+	-MiscFeature has 2,814 missing values
 
--Alley has 2,721 missing values
+	-Alley has 2,721 missing values
 
--Fence has 2,348 missing values
+	-Fence has 2,348 missing values
 
--FireplaceQu has 1,420 missing values
+	-FireplaceQu has 1,420 missing values
 
  
 # Select Categorical Variables (factors)
