@@ -178,8 +178,8 @@ print(dim(data))
  ![](images/Percent Missing Values%20spaces.png)
  
  ``` 
- Overview of train dataset
-  ```
+ Overview of the train dataset
+ ```
  glimpse(train)
  summary(train)
  head(train)
@@ -189,7 +189,8 @@ print(dim(data))
  
  ```
 
- Overview test dataset
+ Overview of the test dataset
+ ```
  glimpse(test)
  summary(test)
  head(test)
@@ -197,7 +198,7 @@ print(dim(data))
  sum(is.na(test))
  sapply(test, function(x) sum(is.na(x)))
      
-  ```
+ ```
 
  ```
 ## Removing attributes with high incidence of na- train dataset
