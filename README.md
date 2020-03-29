@@ -33,7 +33,7 @@ library(downloader)
 ``` 
 		
 # Connceting Data
-Sale Price and attributes of houses in e city of Ames,state of Iowa in United States of America
+Sale Price and attributes of houses in the city of Ames,state of Iowa in United States of America
 
 Source:Kaggle web site
 
