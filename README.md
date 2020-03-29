@@ -256,18 +256,18 @@ summary(fact_atrib)
 
 ```
 
-#Summary of Categorical variables -train dataset	
+Summary of Categorical variables -train dataset	
 
 ```
 >summary(fact_atrib)
 
 ```
 	MSZoning       Street      LotShape  LandContour  Utilities      LotConfig     LandSlope   Neighborhood   Condition1  
-C (all):  10   Grvl:   6   IR1:484   Bnk:  63     AllPub:1459    Corner : 263   Gtl:1382   NAmes  :225    Norm   :1260  
-FV     :  65   Pave:1454   IR2: 41   HLS:  50     NoSeWa:   1    CulDSac:  94   Mod:  65   CollgCr:150    Feedr  :  81  
-RH     :  16               IR3: 10   Low:  36                    FR2    :  47   Sev:  13   OldTown:113    Artery :  48  
-RL     :1151               Reg:925   Lvl:1311                    FR3    :   4              Edwards:100    RRAn   :  26  
-RM     : 218                                                     Inside : 1052              Somerst: 86   PosN   :  19  
+	C (all):  10   Grvl:   6   IR1:484   Bnk:  63     AllPub:1459    Corner : 263   Gtl:1382   NAmes  :225    Norm   :1260  
+	FV     :  65   Pave:1454   IR2: 41   HLS:  50     NoSeWa:   1    CulDSac:  94   Mod:  65   CollgCr:150    Feedr  :  81  
+	RH     :  16               IR3: 10   Low:  36                    FR2    :  47   Sev:  13   OldTown:113    Artery :  48  
+	RL     :1151               Reg:925   Lvl:1311                    FR3    :   4              Edwards:100    RRAn   :  26  
+	RM     : 218                                                     Inside : 1052              Somerst: 86   PosN   :  19  
                                                                                       	    Gilbert: 79   RRAe   :  11  
                                                                                       	    (Other):707   (Other):  15  
 											 
