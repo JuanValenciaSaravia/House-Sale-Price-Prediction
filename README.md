@@ -400,7 +400,8 @@ Subset only factor variables from the train dataset
 fact_atrib<-train[,c(2,5:15,20:24,26:32,34,38:41,52,54,56,58,61:63,73,74)]
 
 ```
-Categorical  variables with missing values
+Categorical  variables with missing values:
+
 GarageCond, GarageFinish, GarageQual, GarageType,BsmtExposure, BsmtFinType1,BsmtFinType2,BsmtCond,BsmtQual, 				MasVnrType,Electrical,Utilities
 
 ## Visualize the percentage of missing values Categorical data
