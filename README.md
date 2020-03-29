@@ -150,7 +150,7 @@ print(dim(data))
 
 ## Description of the dependent variable
 - Mean: 180,921;
-- Median: 163,000;
+
 
  - Minimum: 34,900;
  - 1st Quartile:129,975;
