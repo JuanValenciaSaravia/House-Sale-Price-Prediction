@@ -36,7 +36,8 @@ library(downloader)
 		
 # Connceting Data
 Sale Price and attributes of houses in Ames-Iowa: Source:Kaggle web site
-Original location https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+Original location
+https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
 
 ```
 setwd("C:/Users/j2valenc/Downloads")
@@ -63,8 +64,7 @@ print(dim(data))
 
 ```
 		
-## Summary(data)
-data.frame':	2919 obs. of  81 variables:
+ data.frame':	2919 obs. of  81 variables:
  $ Id           : int  1 2 3 4 5 6 7 8 9 10 ...
  $ MSSubClass   : int  60 20 60 70 60 50 20 60 50 190 ...
  $ MSZoning     : Factor w/ 5 levels "C (all)","FV",..: 4 4 4 4 4 4 4 4 5 4 ...
