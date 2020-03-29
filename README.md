@@ -30,7 +30,7 @@ library("plyr")
 library("ggplot2")
 library(downloader)
 
-``` 
+```{r} 
 		
 # Connceting Data
 Sale Price and attributes of houses in the city of Ames,state of Iowa in United States of America
@@ -50,11 +50,13 @@ data <- bind_rows(train, test)
 
 ```
 
-```
+```{r}
 glimpse(data)
 summary(data)
 head(data)
 print(dim(data))
+
+```
 
 # Dataset
 - 2919 Records
@@ -160,7 +162,7 @@ print(dim(data))
  
  # Missing values in the dataset
  
- ```
+ ```{r}
  sum(is.na(data))
  sapply(data, function(x) sum(is.na(x)))
  sapply(data,class)
@@ -168,7 +170,8 @@ print(dim(data))
  ```
  
  Graphic of missing values
- ```
+ 
+ ```{r}
  x1 <- map_df (data, function(x){sum(is.na(x))})
  missing <- x1 %>% gather(key = "Variable") %>% filter(value > 0) %>% mutate(value = value/nrow(data))
  ggplot(missing, aes(x = reorder(Variable, -value),y = value)) + 
@@ -179,7 +182,8 @@ print(dim(data))
  
  ``` 
  Overview of the train dataset
- ```
+ 
+ ```{r}
  glimpse(train)
  summary(train)
  head(train)
@@ -190,7 +194,8 @@ print(dim(data))
  ```
 
  Overview of the test dataset
- ```
+ 
+ ```{r}
  glimpse(test)
  summary(test)
  head(test)
@@ -203,7 +208,8 @@ print(dim(data))
 Removing attributes with high incidence of na- train dataset
 
 Attributes that have high incidence (40% plus of missing values were removed)
-```
+
+```{r}
 train$PoolQC<-NULL
 train$MiscFeature<-NULL
 train$Alley<-NULL
@@ -217,7 +223,8 @@ sapply(train, function(x) sum(is.na(x)))
 
 
 Removing attributes with high incidence of na - test dataset
-```
+
+```{r}
 test$PoolQC<-NULL
 test$MiscFeature<-NULL
 test$Alley<-NULL
@@ -245,7 +252,7 @@ sapply(test, function(x) sum(is.na(x)))
 # Select Categorical Variables (factors)
 Subset only factor variables from the train dataset
 
-```
+```{r}
 fact_atrib<-train[,c(2,5:15,20:24,26:32,34,38:41,52,54,56,58,61:63,73,74)]
 fact_atrib
 names(fact_atrib)
@@ -258,7 +265,7 @@ summary(fact_atrib)
 
 Summary of Categorical variables -train dataset	
 
-```
+```{r}
 >summary(fact_atrib)
 
 ```
@@ -309,7 +316,7 @@ Summary of Categorical variables -train dataset
 
 # Extracting  numeric variables - train set
 
-```
+```{r}
 num_cols<-unlist(lapply(train, is.numeric))
 num_cols
 train_num<-train[,num_cols]
@@ -320,7 +327,7 @@ train_num<-na.omit(train_num)
 
 ## Summary of Numeric variables -train set
 
-```
+```{r}
 > train_num<-na.omit(train_num)
 > summary(train_num)
 
@@ -384,7 +391,7 @@ LotFrontage, GarageYrBlt, MasVnrArea, GarageFinish,BsmtFullBath, BsmtHalfBath,To
 
 Using median values
 
-```
+```{r}
 train$LotFrontage <-ifelse(is.na(train$LotFrontage),median(train$LotFrontage,na.rm=TRUE),train$LotFrontage)
 train$GarageYrBlt <-ifelse(is.na(train$GarageYrBlt),median(train$GarageYrBlt,na.rm=TRUE),train$GarageYrBlt)
 train$MasVnrArea <-ifelse(is.na(train$MasVnrArea),median(train$MasVnrArea,na.rm=TRUE),train$MasVnrArea)
@@ -399,18 +406,19 @@ train$TotRmsAbvGrd<-ifelse(is.na(train$TotRmsAbvGrd),median(train$TotRmsAbvGrd,n
 
 Subset only factor variables from the train dataset
 
-```
+```{r}
 fact_atrib<-train[,c(2,5:15,20:24,26:32,34,38:41,52,54,56,58,61:63,73,74)]
 
 ```
 Categorical  variables with missing values:
 
-GarageCond, GarageFinish, GarageQual, GarageType,BsmtExposure, BsmtFinType1,BsmtFinType2,BsmtCond,BsmtQual, 				MasVnrType,Electrical,Utilities
+GarageCond, GarageFinish, GarageQual, GarageType, BsmtExposure, BsmtFinType1,
+BsmtFinType2, BsmtCond, BsmtQual, MasVnrType, Electrical,Utilities
 
 
 ## Visualize the percentage of missing values Categorical data
 
-```
+```{r}
 install.packages("VIM")
 library(VIM)
 mice_plot <- aggr(fact_atrib,col=c('navyblue','yellow'),
@@ -424,7 +432,7 @@ mice_plot <- aggr(fact_atrib,col=c('navyblue','yellow'),
 
 Using 'mice package' as the imputation method we used 'polyreg'=polytomous regression, which deals with cateogorical attributes
 
-```
+```{r}
 install.packages("mice")
 library(mice)
 install.packages("MASS")
@@ -437,7 +445,7 @@ imp<- mice(fact_atrib, m=5 ,maxit=10, method ='polyreg')
 
 verify that missing values were imputed
 
-```
+```{r}
 imp
 summary(imp)
 
@@ -448,7 +456,7 @@ imputed<-complete(imp)
 	
 Check for missings in the imputed dataset
 
-```
+```{r}
 sapply(imputed, function(x) sum(is.na(x)))
 summary(imputed)
 print(dim(imputed))
@@ -464,7 +472,7 @@ imp$method
 # Correlation for Categorical Variables
 
 
-```
+```{r}
 library(corrplot)
 install.packages ("GGally")
 library(GGally)
@@ -477,7 +485,7 @@ ggcorr(train,
 
 ## Plot of Variables with high correlation 
 
-```
+```{r}
 qplot(train$GarageYrBlt, 
   	train$YearBuilt,
   	data = train, 
@@ -500,7 +508,7 @@ Distribution levels for categorical variables
 
 verify levels of each factor
 
-```
+```{r}
 levels (fact_atrib$Neighborhood)
 table(fact_atrib$Neighborhood)
 
@@ -508,7 +516,7 @@ table(fact_atrib$Neighborhood)
 
 ## Plot Categorical Variables
 
-```
+```{r}
 barplot(table(fact_atrib$MSZoning))
 barplot(table(fact_atrib$Street))
 barplot(table(fact_atrib$LotShape))
@@ -593,14 +601,14 @@ plot(x =fact_atrib$SaleCondition,y = train$SalePrice)
 
 SalePrice in Function of the Neighboorhood
 
-```
+```{r}
 ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
 
 ```
 
 SalePrice in Function of Zoning Classification
 
-```
+```{r}
 ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
 
 ```
@@ -608,7 +616,7 @@ ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZonin
 
 # Correlation for Numeric Variables 
 
-```
+```{r}
 install.packages("corr")
 install.packages("corrplot")
 install.packages ("corrgram")
@@ -627,7 +635,7 @@ data(M)
 
 Correlation matrix for numeric variables
 
-```
+```{r}
 correlations <-(round(cor(M[,1:8], method="perason")),2)
 
 # display the correlation matrix
@@ -638,7 +646,7 @@ print(correlations)
 
 ## Plot correlations
 
-```
+```{r}
 M = dataframe of numerical variables
 train_num<-na.omit(train_num)
 M<-cor(train_num)
@@ -656,7 +664,7 @@ a correlation cannot be computed for factor variable. We need to make sure we dr
 
 data frame inside cor()
 
-```
+```{r}
 > Correlation_Numeric <-(M)
 > round(cor(M),2)
 > print(correlation_Numeric)
@@ -723,9 +731,9 @@ data frame inside cor()
  	
 # Histogram of the dependent variable 
 
-The target variable histogram shows that it is right skewed because there is a long tail on the righ side 
+The target variable (Sale Price) histogram shows that it is right skewed because there is a long tail on the righ side 
 
-```
+```{r}
 library(ggplot2)
 format(x,scientific=F)
 options(scipen=999)
@@ -733,18 +741,17 @@ ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
 
 ```
 
-
 SalePrice and YearBuilt
 
-```
+```{r}
 
 ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
 
 ```
 
-Sale Price and GrLivArea
+SalePrice and GrLivArea
 
-```
+```{r}
 ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
 
 ```
@@ -761,7 +768,7 @@ same distribution,we should see the points forming a line that is roughly straig
 
 average price, the plot deviates heavily from the qq line.
 
-```
+```{r}
 qqnorm(train$SalePrice)
 qqline(train$SalePrice)
 
@@ -770,7 +777,7 @@ qqline(train$SalePrice)
 
 # Outliers detection
 
-```
+```{r}
 require(ggplot2)
 #adding normal distribution curve
 m<- mean(train$SalePrice)
@@ -852,7 +859,7 @@ zv: remove attributes with a zero variance (all the same value).
 nzv: remove attributes with a near zero variance (close to the same value).
 
 
-```
+```{r}
 install.packages("caret")
 names(train)[nearZeroVar(train)]
 
@@ -864,7 +871,7 @@ names(train)[nearZeroVar(train)]
 
 # Plot variables with low variance
 
-```
+```{r}
 barplot(table(train$Street),ylab="Frequency",col="green",border="blue",main= "Street")
 barplot(table(train$LandContour),ylab="Frequency",col="green",border="blue",main= "LandContour")
 barplot(table(train$LandSlope),ylab="Frequency",col="green",border="blue",main= "LandSlope")
