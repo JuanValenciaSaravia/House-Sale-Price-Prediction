@@ -496,7 +496,7 @@ qplot(train$GrLivArea,
 
 ```
 
-# Distribution of each level for categorical variables
+Distribution levels for categorical variables
 
 verify levels of each factor
 
@@ -594,14 +594,14 @@ plot(x =fact_atrib$SaleCondition,y = train$SalePrice)
 SalePrice in Function of the Neighboorhood
 
 ```
-ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In 		Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
+ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
 
 ```
 
 SalePrice in Function of Zoning Classification
 
 ```
-ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In 		Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
+ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
 
 ```
 
