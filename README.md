@@ -733,6 +733,22 @@ ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
 
 ```
 
+
+SalePrice and YearBuilt
+
+```
+
+ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
+
+```
+
+Sale Price and GrLivArea
+
+```
+ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
+
+```
+
 # Quantile-Quantile Plot (Plot/Line) dependent variable
 
 QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
@@ -751,22 +767,6 @@ qqline(train$SalePrice)
 
 ```
 
-	# SalePrice and YearBuilt
-
-```
-summary(train$SalePrice)
-
-ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
-
-
-```
-
-	# Sale Price and GrLivArea
-
-```
-ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
-
-```
 
 # Outliers detection
 
