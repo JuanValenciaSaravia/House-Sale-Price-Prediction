@@ -381,6 +381,7 @@ LotFrontage, GarageYrBlt, MasVnrArea, GarageFinish,BsmtFullBath, BsmtHalfBath,To
 
 
 ## Imputation to Numeric variables
+
 Using median values
 
 ```
@@ -395,7 +396,9 @@ train$TotRmsAbvGrd<-ifelse(is.na(train$TotRmsAbvGrd),median(train$TotRmsAbvGrd,n
 ```
 
 ## Categorical
+
 Subset only factor variables from the train dataset
+
 ```
 fact_atrib<-train[,c(2,5:15,20:24,26:32,34,38:41,52,54,56,58,61:63,73,74)]
 
@@ -403,6 +406,7 @@ fact_atrib<-train[,c(2,5:15,20:24,26:32,34,38:41,52,54,56,58,61:63,73,74)]
 Categorical  variables with missing values:
 
 GarageCond, GarageFinish, GarageQual, GarageType,BsmtExposure, BsmtFinType1,BsmtFinType2,BsmtCond,BsmtQual, 				MasVnrType,Electrical,Utilities
+
 
 ## Visualize the percentage of missing values Categorical data
 
@@ -417,6 +421,7 @@ mice_plot <- aggr(fact_atrib,col=c('navyblue','yellow'),
 	    
 
 ## Imputation to Categorical Variables
+
 Using 'mice package' as the imputation method we used 'polyreg'=polytomous regression, which deals with cateogorical attributes
 
 ```
@@ -492,6 +497,7 @@ qplot(train$GrLivArea,
 ```
 
 # Distribution of each level for categorical variables
+
 verify levels of each factor
 
 ```
@@ -623,6 +629,7 @@ data(M)
 
 ```
 correlations <-(round(cor(M[,1:8], method="perason")),2)
+
 # display the correlation matrix
 print(correlations)
 
@@ -739,12 +746,14 @@ qqnorm(train$SalePrice)
 qqline(train$SalePrice)
 
 ```
+
 # SalePrice and YearBuilt
 
 ```
 summary(train$SalePrice)
 
 ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
+
 
 ```
 
