@@ -698,7 +698,7 @@ data frame inside cor()
 
 	> correlations2 <- cor(M[,17:24])
 	> print(correlations2)
-    	     	BsmtFullBath BsmtHalfBath   FullBath   HalfBath BedroomAbvGr KitchenAbvGr TotRmsAbvGrd Fireplaces
+    	     		BsmtFullBath BsmtHalfBath   FullBath   HalfBath BedroomAbvGr KitchenAbvGr TotRmsAbvGrd Fireplaces
 	BsmtFullBath    1.0000000  -0.20541362 -0.0652792 -0.1542255  -0.38789072  -0.21741148   -0.1447363  0.2468905
 	BsmtHalfBath   -0.2054136   1.00000000 -0.3481238 -0.1254230  -0.08656331  -0.02729678   -0.2694118 -0.1534202
 	FullBath       -0.0652792  -0.34812385  1.0000000  0.3825315   0.40962501  -0.02838370    0.7620008  0.4718709
@@ -847,7 +847,8 @@ boxplot(train_num$OverallCond)$out
 	
 # Variables with low variance
 
-Zero variance in a regression model could cause the model fit to be unstable. Using caret package "nearZeroVar we look for variables that have zero or  near zero variance
+Zero variance in a regression model could cause the model fit to be unstable. Using caret package "nearZeroVar we looked for variables that have zero or  near zero variance
+
 zv: remove attributes with a zero variance (all the same value).
 
 nzv: remove attributes with a near zero variance (close to the same value).
