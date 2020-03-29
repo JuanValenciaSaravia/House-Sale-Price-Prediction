@@ -30,7 +30,7 @@ library("plyr")
 library("ggplot2")
 library(downloader)
 
-```{r} 
+```
 		
 # Connceting Data
 Sale Price and attributes of houses in the city of Ames,state of Iowa in United States of America
@@ -39,7 +39,7 @@ Source:Kaggle web site
 
 https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
 
-```
+```{r}
 setwd("C:/Users/j2valenc/Downloads")
 test <- read.csv("test.csv",stringsAsFactors=FALSE)
 train <- read.csv("train.csv",stringsAsFactors=FALSE)
@@ -62,7 +62,6 @@ print(dim(data))
 - 2919 Records
 - 81   Attributes
 
-```
 	data.frame':	2919 obs. of  81 variables:
 
 	$ Id           : int  1 2 3 4 5 6 7 8 9 10 ...
