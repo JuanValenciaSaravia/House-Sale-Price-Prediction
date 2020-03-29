@@ -33,8 +33,10 @@ library(downloader)
 ``` 
 		
 # Connceting Data
-Sale Price and attributes of houses in Ames-Iowa: Source:Kaggle web site
-Original location
+Sale Price and attributes of houses in e city of Ames,state of Iowa in United States of America
+
+Source:Kaggle web site
+
 https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
 
 ```
