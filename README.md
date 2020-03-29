@@ -62,7 +62,6 @@ print(dim(data))
 - 2919 Records
 - 81   Attributes
 
-
 	data.frame':	2919 obs. of  81 variables:
 
 	$ Id           : int  1 2 3 4 5 6 7 8 9 10 ...
