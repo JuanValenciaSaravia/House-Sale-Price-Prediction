@@ -377,7 +377,8 @@ train_num<-na.omit(train_num)
 
 ## Numeric
 The variables with missing values are:
-LotFrontage, GarageYrBlt, GarageFinish,BsmtFullBath, BsmtHalfBath,TotRmsAbvGrd
+LotFrontage, GarageYrBlt, MasVnrArea, GarageFinish,BsmtFullBath, BsmtHalfBath,TotRmsAbvGrd
+
 
 ## Imputation to Numeric variables
 Using median values
@@ -395,10 +396,12 @@ train$TotRmsAbvGrd<-ifelse(is.na(train$TotRmsAbvGrd),median(train$TotRmsAbvGrd,n
 
 ## Categorical
 Subset only factor variables from the train dataset
+```
 fact_atrib<-train[,c(2,5:15,20:24,26:32,34,38:41,52,54,56,58,61:63,73,74)]
 
+```
 Categorical  variables with missing values
-GarageCond, GarageFinish, GarageQual, GarageType,BsmtExposure, BsmtFinType1,BsmtFinType2,BsmtCond,BsmtQual, 				MasVnrArea,MasVnrType,Electrical,Utilities
+GarageCond, GarageFinish, GarageQual, GarageType,BsmtExposure, BsmtFinType1,BsmtFinType2,BsmtCond,BsmtQual, 				MasVnrType,Electrical,Utilities
 
 ## Visualize the percentage of missing values Categorical data
 
@@ -496,7 +499,7 @@ table(fact_atrib$Neighborhood)
 
 ```
 
-## Plot of Categorical Variables
+## Plot Categorical Variables
 
 ```
 barplot(table(fact_atrib$MSZoning))
@@ -581,11 +584,17 @@ plot(x =fact_atrib$SaleCondition,y = train$SalePrice)
 
 ```
 
-## Price in Function of the Neighboorhood
+Price in Function of the Neighboorhood
+``
 ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In 		Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
 
-## Price in Function of Zoning Classification
-ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In 		Function Of Zoning Classification", y =" SalePrice")+coord_flip()                                           
+```
+
+Price in Function of Zoning Classification
+```
+ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In 		Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
+
+```
 
 
 # Correlation for Numeric Variables 
@@ -604,6 +613,8 @@ load the libraries
 library(mlbench)
 load the dataset
 data(M)
+
+```
 
 ## Correlation matrix for numeric variables
 
@@ -628,8 +639,10 @@ corrplot(M, method="color",tl.cex=0.7)
 
 ## Correlation matrix - Numeric variables
 
-A correlation matrix represents the pair correlation of all the variables.	
-a correlation cannot be computed for factor variable. We need to make sure we drop categorical feature before we pass the 	 	 data frame inside cor()
+A correlation matrix represents the pair correlation of all the variables.
+
+a correlation cannot be computed for factor variable. We need to make sure we drop categorical feature before we pass the
+data frame inside cor()
 
 ```
 > Correlation_Numeric <-(M)
@@ -643,60 +656,61 @@ a correlation cannot be computed for factor variable. We need to make sure we dr
 ```
 
          	        MSSubClass LotFrontage LotArea   OverallQual  OverallCond YearBuilt   YearRemodAdd MasVnrArea
-MSSubClass    1.00000000  -0.6723859 -0.51385068  -0.1453619 -0.06886341 -0.07492835  -0.09199908 -0.0971567
-LotFrontage  -0.67238594   1.0000000  0.73264888   0.4560600 -0.26767225  0.26422047   0.21277702  0.4406207
-LotArea      -0.51385068   0.7326489  1.00000000   0.3116059 -0.17676899  0.13655180   0.08095627  0.3001137
-OverallQual  -0.14536187   0.4560600  0.31160594   1.0000000 -0.58807156  0.85620630   0.84827002  0.7825370
-OverallCond  -0.06886341  -0.2676722 -0.17676899  -0.5880716  1.00000000 -0.71014143  -0.42985549 -0.5560941
-YearBuilt    -0.07492835   0.2642205  0.13655180   0.8562063 -0.71014143  1.00000000   0.89924601  0.6731973
-YearRemodAdd -0.09199908   0.2127770  0.08095627   0.8482700 -0.42985549  0.89924601   1.00000000  0.5610407
-MasVnrArea   -0.09715670   0.4406207  0.30011374   0.7825370 -0.55609410  0.67319733   0.56104069  1.0000000
+	MSSubClass    1.00000000  -0.6723859 -0.51385068  -0.1453619 -0.06886341 -0.07492835  -0.09199908 -0.0971567
+	LotFrontage  -0.67238594   1.0000000  0.73264888   0.4560600 -0.26767225  0.26422047   0.21277702  0.4406207
+	LotArea      -0.51385068   0.7326489  1.00000000   0.3116059 -0.17676899  0.13655180   0.08095627  0.3001137
+	OverallQual  -0.14536187   0.4560600  0.31160594   1.0000000 -0.58807156  0.85620630   0.84827002  0.7825370
+	OverallCond  -0.06886341  -0.2676722 -0.17676899  -0.5880716  1.00000000 -0.71014143  -0.42985549 -0.5560941
+	YearBuilt    -0.07492835   0.2642205  0.13655180   0.8562063 -0.71014143  1.00000000   0.89924601  0.6731973
+	YearRemodAdd -0.09199908   0.2127770  0.08095627   0.8482700 -0.42985549  0.89924601   1.00000000  0.5610407
+	MasVnrArea   -0.09715670   0.4406207  0.30011374   0.7825370 -0.55609410  0.67319733   0.56104069  1.0000000
 
-> correlations1 <- cor(M[,9:16])
-> print(correlations1)
-    	      BsmtFinSF1  BsmtFinSF2  BsmtUnfSF TotalBsmtSF   X1stFlrSF   X2ndFlrSF LowQualFinSF   GrLivArea
-BsmtFinSF1    1.00000000  0.05794615 -0.3369508  0.64911517  0.62528283 -0.28441846  -0.21759921  0.24437901
-BsmtFinSF2    0.05794615  1.00000000 -0.3902274 -0.06358589 -0.06531842 -0.32276866   0.02471454 -0.30906664
-BsmtUnfSF    -0.33695078 -0.39022743  1.0000000  0.47120488  0.46528202  0.11854650  -0.07141840  0.45210860
-TotalBsmtSF   0.64911517 -0.06358589  0.4712049  1.00000000  0.97229358 -0.23299875  -0.25905954  0.55239198
-X1stFlrSF     0.62528283 -0.06531842  0.4652820  0.97229358  1.00000000 -0.19329001  -0.21208710  0.60816998
-X2ndFlrSF    -0.28441846 -0.32276866  0.1185465 -0.23299875 -0.19329001  1.00000000   0.09472676  0.65978628
-LowQualFinSF -0.21759921  0.02471454 -0.0714184 -0.25905954 -0.21208710  0.09472676   1.00000000 -0.03758891
-GrLivArea     0.24437901 -0.30906664  0.4521086  0.55239198  0.60816998  0.65978628  -0.03758891  1.00000000
+	> correlations1 <- cor(M[,9:16])
+	> print(correlations1)
+    	     	 	BsmtFinSF1  BsmtFinSF2  BsmtUnfSF TotalBsmtSF   X1stFlrSF   X2ndFlrSF LowQualFinSF   GrLivArea
+	BsmtFinSF1    1.00000000  0.05794615 -0.3369508  0.64911517  0.62528283 -0.28441846  -0.21759921  0.24437901
+	BsmtFinSF2    0.05794615  1.00000000 -0.3902274 -0.06358589 -0.06531842 -0.32276866   0.02471454 -0.30906664
+	BsmtUnfSF    -0.33695078 -0.39022743  1.0000000  0.47120488  0.46528202  0.11854650  -0.07141840  0.45210860
+	TotalBsmtSF   0.64911517 -0.06358589  0.4712049  1.00000000  0.97229358 -0.23299875  -0.25905954  0.55239198
+	X1stFlrSF     0.62528283 -0.06531842  0.4652820  0.97229358  1.00000000 -0.19329001  -0.21208710  0.60816998
+	X2ndFlrSF    -0.28441846 -0.32276866  0.1185465 -0.23299875 -0.19329001  1.00000000   0.09472676  0.65978628
+	LowQualFinSF -0.21759921  0.02471454 -0.0714184 -0.25905954 -0.21208710  0.09472676   1.00000000 -0.03758891
+	GrLivArea     0.24437901 -0.30906664  0.4521086  0.55239198  0.60816998  0.65978628  -0.03758891  1.00000000
 
-> correlations2 <- cor(M[,17:24])
-> print(correlations2)
-    	     BsmtFullBath BsmtHalfBath   FullBath   HalfBath BedroomAbvGr KitchenAbvGr TotRmsAbvGrd Fireplaces
-BsmtFullBath    1.0000000  -0.20541362 -0.0652792 -0.1542255  -0.38789072  -0.21741148   -0.1447363  0.2468905
-BsmtHalfBath   -0.2054136   1.00000000 -0.3481238 -0.1254230  -0.08656331  -0.02729678   -0.2694118 -0.1534202
-FullBath       -0.0652792  -0.34812385  1.0000000  0.3825315   0.40962501  -0.02838370    0.7620008  0.4718709
-HalfBath       -0.1542255  -0.12542298  0.3825315  1.0000000   0.43598312  -0.13817482    0.5444692  0.3105448
-BedroomAbvGr   -0.3878907  -0.08656331  0.4096250  0.4359831   1.00000000   0.30915930    0.8025793  0.2451442
-KitchenAbvGr   -0.2174115  -0.02729678 -0.0283837 -0.1381748   0.30915930   1.00000000    0.1794536 -0.2804036
-TotRmsAbvGrd   -0.1447363  -0.26941183  0.7620008  0.5444692   0.80257933   0.17945361    1.0000000  0.5720233
-Fireplaces      0.2468905  -0.15342018  0.4718709  0.3105448   0.24514423  -0.28040360    0.5720233  1.0000000
+	> correlations2 <- cor(M[,17:24])
+	> print(correlations2)
+    	     	BsmtFullBath BsmtHalfBath   FullBath   HalfBath BedroomAbvGr KitchenAbvGr TotRmsAbvGrd Fireplaces
+	BsmtFullBath    1.0000000  -0.20541362 -0.0652792 -0.1542255  -0.38789072  -0.21741148   -0.1447363  0.2468905
+	BsmtHalfBath   -0.2054136   1.00000000 -0.3481238 -0.1254230  -0.08656331  -0.02729678   -0.2694118 -0.1534202
+	FullBath       -0.0652792  -0.34812385  1.0000000  0.3825315   0.40962501  -0.02838370    0.7620008  0.4718709
+	HalfBath       -0.1542255  -0.12542298  0.3825315  1.0000000   0.43598312  -0.13817482    0.5444692  0.3105448
+	BedroomAbvGr   -0.3878907  -0.08656331  0.4096250  0.4359831   1.00000000   0.30915930    0.8025793  0.2451442
+	KitchenAbvGr   -0.2174115  -0.02729678 -0.0283837 -0.1381748   0.30915930   1.00000000    0.1794536 -0.2804036
+	TotRmsAbvGrd   -0.1447363  -0.26941183  0.7620008  0.5444692   0.80257933   0.17945361    1.0000000  0.5720233
+	Fireplaces      0.2468905  -0.15342018  0.4718709  0.3105448   0.24514423  -0.28040360    0.5720233  1.0000000
 
-> correlations3 <- cor(M[,25:32])
-> print(correlations3)
-          	     GarageYrBlt GarageCars GarageArea WoodDeckSF OpenPorchSF EnclosedPorch  X3SsnPorch ScreenPorch
-GarageYrBlt     1.0000000  0.8698746  0.84259150  0.5387439  0.56573977   -0.67266924 -0.02663060 -0.20770737
-GarageCars      0.8698746  1.0000000  0.97885295  0.5270854  0.60328408   -0.53818900 -0.06880340 -0.11983281
-GarageArea      0.8425915  0.9788529  1.00000000  0.5211545  0.61155539   -0.51001867 -0.06906734 -0.10693649
-WoodDeckSF      0.5387439  0.5270854  0.52115453  1.0000000  0.30164088   -0.42545359 -0.16749206 -0.22693486
-OpenPorchSF     0.5657398  0.6032841  0.61155539  0.3016409  1.00000000   -0.44677009 -0.11551430  0.08170367
-EnclosedPorch  -0.6726692 -0.5381890 -0.51001867 -0.4254536 -0.44677009    1.00000000 -0.05846854 -0.06526839
-X3SsnPorch     -0.0266306 -0.0688034 -0.06906734 -0.1674921 -0.11551430   -0.05846854  1.00000000 -0.11802191
-ScreenPorch    -0.2077074 -0.1198328 -0.10693649 -0.2269349  0.08170367   -0.06526839 -0.11802191  1.00000000
+	> correlations3 <- cor(M[,25:32])
+	> print(correlations3)
+          	     	GarageYrBlt GarageCars GarageArea WoodDeckSF OpenPorchSF EnclosedPorch  X3SsnPorch ScreenPorch
+	GarageYrBlt     1.0000000  0.8698746  0.84259150  0.5387439  0.56573977   -0.67266924 -0.02663060 -0.20770737
+	GarageCars      0.8698746  1.0000000  0.97885295  0.5270854  0.60328408   -0.53818900 -0.06880340 -0.11983281
+	GarageArea      0.8425915  0.9788529  1.00000000  0.5211545  0.61155539   -0.51001867 -0.06906734 -0.10693649
+	WoodDeckSF      0.5387439  0.5270854  0.52115453  1.0000000  0.30164088   -0.42545359 -0.16749206 -0.22693486
+	OpenPorchSF     0.5657398  0.6032841  0.61155539  0.3016409  1.00000000   -0.44677009 -0.11551430  0.08170367
+	EnclosedPorch  -0.6726692 -0.5381890 -0.51001867 -0.4254536 -0.44677009    1.00000000 -0.05846854 -0.06526839
+	X3SsnPorch     -0.0266306 -0.0688034 -0.06906734 -0.1674921 -0.11551430   -0.05846854  1.00000000 -0.11802191
+	ScreenPorch    -0.2077074 -0.1198328 -0.10693649 -0.2269349  0.08170367   -0.06526839 -0.11802191  1.00000000
 
-> correlations4 <- cor(M[,33:36])
-> print( correlations4)
-       	  PoolArea     MiscVal     MoSold      YrSold
-PoolArea  1.0000000  0.15798969 -0.1813847 -0.16211548
-MiscVal   0.1579897  1.00000000 -0.0269147  0.04271006
-MoSold   -0.1813847 -0.02691470  1.0000000 -0.33214935
-YrSold   -0.1621155  0.04271006 -0.3321493  1.00000000
+	> correlations4 <- cor(M[,33:36])
+	> print( correlations4)
+       	  	PoolArea     MiscVal     MoSold      YrSold
+	PoolArea  1.0000000  0.15798969 -0.1813847 -0.16211548
+	MiscVal   0.1579897  1.00000000 -0.0269147  0.04271006
+	MoSold   -0.1813847 -0.02691470  1.0000000 -0.33214935
+	YrSold   -0.1621155  0.04271006 -0.3321493  1.00000000
  	
 # Histogram of the dependent variable 
+
 The target variable histogram shows that it is right skewed because there is a long tail on the righ side 
 
 ```
@@ -708,8 +722,14 @@ ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
 ```
 
 # Quantile-Quantile Plot (Plot/Line) dependent variable
-QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and    	  upper rigth some data points fall a bit off the line. 
-At the Q-Q Plot the sample quartiles and the theoretical quantiles are plotted against each other. If they both came from the 	 	 same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from 	the the average price, the plot deviates heavily from the qq line.
+QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
+
+upper rigth some data points fall a bit off the line. 
+
+At the Q-Q Plot the sample quartiles and the theoretical quantiles are plotted against each other. If they both came from the 
+
+same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the
+average price, the plot deviates heavily from the qq line.
 
 ```
 qqnorm(train$SalePrice)
@@ -803,21 +823,27 @@ boxplot(train_num$OverallCond)$out
 ```
 
 	
-# Variables with low vriance
+# Variables with low variance
 For many models the zero variance could cause the model fit to be unstable.
+
 An attriute that has near zero variance is a good candidate for removal.
+
 Using caret package "nearZeroVar we look for variables that have zero or  near zero variance
+
 zv: remove attributes with a zero variance (all the same value).
+
 nzv: remove attributes with a near zero variance (close to the same value).
+
 
 ```
 install.packages("caret")
 names(train)[nearZeroVar(train)]
 
 ```
-[1] "Street"        "LandContour"   "Utilities"     "LandSlope"     "Condition2"    "RoofMatl"      "BsmtCond"      			    "BsmtFinType2" 
-[9] "BsmtFinSF2"    "Heating"       "LowQualFinSF"  "KitchenAbvGr"  "Functional"    "GarageQual"    "GarageCond"    			    "EnclosedPorch"
-[17] "X3SsnPorch"    "ScreenPorch"   "PoolArea"      "MiscVal"     
+
+	[1] "Street"        "LandContour"   "Utilities"     "LandSlope"     "Condition2"    "RoofMatl"      "BsmtCond"      			    "BsmtFinType2" 
+	[9] "BsmtFinSF2"    "Heating"       "LowQualFinSF"  "KitchenAbvGr"  "Functional"    "GarageQual"    "GarageCond"    			    "EnclosedPorch"
+	[17] "X3SsnPorch"    "ScreenPorch"   "PoolArea"      "MiscVal"     
 
 # Plot variables with low variance
 
