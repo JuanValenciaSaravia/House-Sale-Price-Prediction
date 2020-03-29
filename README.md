@@ -274,8 +274,8 @@ Summary of Categorical variables -train dataset
 	RH     :  16               IR3: 10   Low:  36                    FR2    :  47   Sev:  13   OldTown:113    Artery :  48  
 	RL     :1151               Reg:925   Lvl:1311                    FR3    :   4              Edwards:100    RRAn   :  26  
 	RM     : 218                                                     Inside : 1052              Somerst: 86   PosN   :  19  
-                                                                                      	    Gilbert: 79   RRAe   :  11  
-                                                                                      	    (Other):707   (Other):  15  
+                                                                                      	           Gilbert: 79    RRAe   :  11  
+                                                                                      	           (Other):707    (Other):  15  
 											 
 	Condition2     BldgType      HouseStyle    RoofStyle       RoofMatl     Exterior1st   Exterior2nd    MasVnrType 
 	Norm   :1445   1Fam  :1220   1Story :726   Flat   :  13   CompShg:1434   VinylSd:515   VinylSd:504   BrkCmn : 15  
@@ -292,7 +292,7 @@ Summary of Categorical variables -train dataset
 	Gd:488    Gd: 146   PConc :647   Gd  :618   Po  :   2   Mn  :114     GLQ :418     GLQ :  14     GasW :  18   Gd:241   
 	TA:906    Po:   1   Slab  : 24   TA  :649   TA  :1311   No  :953     LwQ : 74     LwQ :  46     Grav :   7   Po:  1   
     	TA:1282             Stone :  6   NA's: 37   NA's:  37   NA's: 38     Rec :133     Rec :  54     OthW :   2   TA:428   
-     		    Wood  :  3                                       Unf :430     Unf :1256     Wall :   4            
+     		            Wood  :  3                                       Unf :430     Unf :1256     Wall :   4            
                                                                   	     NA's: 37     NA's:  38        
 								     
 	CentralAir Electrical   KitchenQual Functional    GarageType  GarageFinish GarageQual  GarageCond  PavedDrive
@@ -302,7 +302,7 @@ Summary of Categorical variables -train dataset
         	   Mix  :   1   TA:735      Min2:  34   BuiltIn: 88   NA's: 81     Po  :   3   Po  :   7             
         	   SBrkr:1334               Mod :  15   CarPort:  9                TA  :1311   TA  :1326             
         	   NA's :   1               Sev :   1   Detchd :387                NA's:  81   NA's:  81             
-                                        Typ :1360   NA's   : 81  
+                                            Typ :1360   NA's   : 81  
 				    
 	SaleType    	SaleCondition 
 	WD     :1267    Abnorml: 101  
