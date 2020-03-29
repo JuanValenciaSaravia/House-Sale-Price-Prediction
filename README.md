@@ -63,7 +63,7 @@ print(dim(data))
 - 81   Attributes
 
 ```
-data.frame':	2919 obs. of  81 variables:
+	data.frame':	2919 obs. of  81 variables:
 
 	$ Id           : int  1 2 3 4 5 6 7 8 9 10 ...
 	$ MSSubClass   : int  60 20 60 70 60 50 20 60 50 190 ...
