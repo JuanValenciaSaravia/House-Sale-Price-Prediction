@@ -591,14 +591,14 @@ plot(x =fact_atrib$SaleCondition,y = train$SalePrice)
 
 ```
 
-	Price in Function of the Neighboorhood
+SalePrice in Function of the Neighboorhood
 
-``
+```
 ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In 		Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
 
 ```
 
-Price in Function of Zoning Classification
+SalePrice in Function of Zoning Classification
 
 ```
 ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In 		Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
@@ -625,12 +625,13 @@ data(M)
 
 ```
 
-## Correlation matrix for numeric variables
+Correlation matrix for numeric variables
 
 ```
 correlations <-(round(cor(M[,1:8], method="perason")),2)
 
 # display the correlation matrix
+
 print(correlations)
 
 ```
@@ -638,7 +639,7 @@ print(correlations)
 ## Plot correlations
 
 ```
-# M = dataframe of numerical variables
+M = dataframe of numerical variables
 train_num<-na.omit(train_num)
 M<-cor(train_num)
 corrplot(M, method="number")
