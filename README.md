@@ -50,8 +50,6 @@ data <- bind_rows(train, test)
 
 ```
 
-## Size of the merged dataset
-
 ```
 glimpse(data)
 summary(data)
