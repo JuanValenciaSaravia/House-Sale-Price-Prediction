@@ -1,7 +1,9 @@
 # House-Sale-Price-Prediction
- title: "Sale Home Price Prediction"
- author: "Juan Valencia"
- html_document: default
+
+ title: Sale Home Price Prediction
+ 
+ author: Juan Valencia
+
 ---
 
 ```{R, load_libraries, message=F, warning=F}
