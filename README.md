@@ -653,6 +653,7 @@ corrplot(M, method="color",tl.cex=0.7)
 A correlation matrix represents the pair correlation of all the variables.
 
 a correlation cannot be computed for factor variable. We need to make sure we drop categorical feature before we pass the
+
 data frame inside cor()
 
 ```
@@ -733,6 +734,7 @@ ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
 ```
 
 # Quantile-Quantile Plot (Plot/Line) dependent variable
+
 QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
 
 upper rigth some data points fall a bit off the line. 
@@ -740,6 +742,7 @@ upper rigth some data points fall a bit off the line.
 At the Q-Q Plot the sample quartiles and the theoretical quantiles are plotted against each other. If they both came from the 
 
 same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the
+
 average price, the plot deviates heavily from the qq line.
 
 ```
@@ -748,7 +751,7 @@ qqline(train$SalePrice)
 
 ```
 
-# SalePrice and YearBuilt
+	# SalePrice and YearBuilt
 
 ```
 summary(train$SalePrice)
@@ -758,7 +761,7 @@ ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() +
 
 ```
 
-# Sale Price and GrLivArea
+	# Sale Price and GrLivArea
 
 ```
 ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
@@ -837,6 +840,7 @@ boxplot(train_num$OverallCond)$out
 
 	
 # Variables with low variance
+
 For many models the zero variance could cause the model fit to be unstable.
 
 An attriute that has near zero variance is a good candidate for removal.
