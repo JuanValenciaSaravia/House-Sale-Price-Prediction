@@ -50,6 +50,8 @@ data <- bind_rows(train, test)
 ```
 
 ## Size of the merged dataset
+
+```
 glimpse(data)
 summary(data)
 head(data)
@@ -58,6 +60,8 @@ print(dim(data))
 # Dataset
 - 2919 Records
 - 81   Attributes
+
+```
 		
 ## Summary(data)
 data.frame':	2919 obs. of  81 variables:
