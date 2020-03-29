@@ -271,41 +271,41 @@ Summary of Categorical variables -train dataset
                                                                                       	    Gilbert: 79   RRAe   :  11  
                                                                                       	    (Other):707   (Other):  15  
 											 
-Condition2     BldgType      HouseStyle    RoofStyle       RoofMatl     Exterior1st   Exterior2nd    MasVnrType 
-Norm   :1445   1Fam  :1220   1Story :726   Flat   :  13   CompShg:1434   VinylSd:515   VinylSd:504   BrkCmn : 15  
-Feedr  :   6   2fmCon:  31   2Story :445   Gable  :1141   Tar&Grv:  11   HdBoard:222   MetalSd:214   BrkFace:445  
-Artery :   2   Duplex:  52   1.5Fin :154   Gambrel:  11   WdShngl:   6   MetalSd:220   HdBoard:207   None   :864  
-PosN   :   2   Twnhs :  43   SLvl   : 65   Hip    : 286   WdShake:   5   Wd Sdng:206   Wd Sdng:197   Stone  :128  
-RRNn   :   2   TwnhsE: 114   SFoyer : 37   Mansard:   7   ClyTile:   1   Plywood:108   Plywood:142   NA's   :  8  
-PosA   :   1                 1.5Unf : 14   Shed   :   2   Membran:   1   CemntBd: 61   CmentBd: 60                
-(Other):   2                 (Other): 19                  (Other):   2   (Other):128   (Other):136                
+	Condition2     BldgType      HouseStyle    RoofStyle       RoofMatl     Exterior1st   Exterior2nd    MasVnrType 
+	Norm   :1445   1Fam  :1220   1Story :726   Flat   :  13   CompShg:1434   VinylSd:515   VinylSd:504   BrkCmn : 15  
+	Feedr  :   6   2fmCon:  31   2Story :445   Gable  :1141   Tar&Grv:  11   HdBoard:222   MetalSd:214   BrkFace:445  
+	Artery :   2   Duplex:  52   1.5Fin :154   Gambrel:  11   WdShngl:   6   MetalSd:220   HdBoard:207   None   :864  
+	PosN   :   2   Twnhs :  43   SLvl   : 65   Hip    : 286   WdShake:   5   Wd Sdng:206   Wd Sdng:197   Stone  :128  
+	RRNn   :   2   TwnhsE: 114   SFoyer : 37   Mansard:   7   ClyTile:   1   Plywood:108   Plywood:142   NA's   :  8  
+	PosA   :   1                 1.5Unf : 14   Shed   :   2   Membran:   1   CemntBd: 61   CmentBd: 60                
+	(Other):   2                 (Other): 19                  (Other):   2   (Other):128   (Other):136                
 
-ExterQual ExterCond Foundation   BsmtQual   BsmtCond    BsmtExposure BsmtFinType1 BsmtFinType2  Heating     HeatingQC
-Ex: 52    Ex:   3   BrkTil:146   Ex  :121   Fa  :  45   Av  :221     ALQ :220     ALQ :  19     Floor:   1   Ex:741   
-Fa: 14    Fa:  28   CBlock:634   Fa  : 35   Gd  :  65   Gd  :134     BLQ :148     BLQ :  33     GasA :1428   Fa: 49   
-Gd:488    Gd: 146   PConc :647   Gd  :618   Po  :   2   Mn  :114     GLQ :418     GLQ :  14     GasW :  18   Gd:241   
-TA:906    Po:   1   Slab  : 24   TA  :649   TA  :1311   No  :953     LwQ : 74     LwQ :  46     Grav :   7   Po:  1   
-    TA:1282             Stone :  6   NA's: 37   NA's:  37   NA's: 38     Rec :133     Rec :  54     OthW :   2   TA:428   
+	ExterQual ExterCond Foundation   BsmtQual   BsmtCond    BsmtExposure BsmtFinType1 BsmtFinType2  Heating     HeatingQC
+	Ex: 52    Ex:   3   BrkTil:146   Ex  :121   Fa  :  45   Av  :221     ALQ :220     ALQ :  19     Floor:   1   Ex:741   
+	Fa: 14    Fa:  28   CBlock:634   Fa  : 35   Gd  :  65   Gd  :134     BLQ :148     BLQ :  33     GasA :1428   Fa: 49   
+	Gd:488    Gd: 146   PConc :647   Gd  :618   Po  :   2   Mn  :114     GLQ :418     GLQ :  14     GasW :  18   Gd:241   
+	TA:906    Po:   1   Slab  : 24   TA  :649   TA  :1311   No  :953     LwQ : 74     LwQ :  46     Grav :   7   Po:  1   
+    	TA:1282             Stone :  6   NA's: 37   NA's:  37   NA's: 38     Rec :133     Rec :  54     OthW :   2   TA:428   
      		    Wood  :  3                                       Unf :430     Unf :1256     Wall :   4            
                                                                   	     NA's: 37     NA's:  38        
 								     
-CentralAir Electrical   KitchenQual Functional    GarageType  GarageFinish GarageQual  GarageCond  PavedDrive
-N:  95     FuseA:  94   Ex:100      Maj1:  14   2Types :  6   Fin :352     Ex  :   3   Ex  :   2   N:  90    
-Y:1365     FuseF:  27   Fa: 39      Maj2:   5   Attchd :870   RFn :422     Fa  :  48   Fa  :  35   P:  30    
+	CentralAir Electrical   KitchenQual Functional    GarageType  GarageFinish GarageQual  GarageCond  PavedDrive
+	N:  95     FuseA:  94   Ex:100      Maj1:  14   2Types :  6   Fin :352     Ex  :   3   Ex  :   2   N:  90    
+	Y:1365     FuseF:  27   Fa: 39      Maj2:   5   Attchd :870   RFn :422     Fa  :  48   Fa  :  35   P:  30    
         	   FuseP:   3   Gd:586      Min1:  31   Basment: 19   Unf :605     Gd  :  14   Gd  :   9   Y:1340    
         	   Mix  :   1   TA:735      Min2:  34   BuiltIn: 88   NA's: 81     Po  :   3   Po  :   7             
         	   SBrkr:1334               Mod :  15   CarPort:  9                TA  :1311   TA  :1326             
         	   NA's :   1               Sev :   1   Detchd :387                NA's:  81   NA's:  81             
                                         Typ :1360   NA's   : 81  
 				    
-SaleType    	SaleCondition 
-WD     :1267    Abnorml: 101  
-New    : 122    AdjLand:   4  
-COD    :  43    Alloca :  12  
-ConLD  :   9    Family :  20  
-ConLI  :   5    Normal :1198  
-ConLw  :   5    Partial: 125  
-(Other):   9                        
+	SaleType    	SaleCondition 
+	WD     :1267    Abnorml: 101  
+	New    : 122    AdjLand:   4  
+	COD    :  43    Alloca :  12  
+	ConLD  :   9    Family :  20  
+	ConLI  :   5    Normal :1198  
+	ConLw  :   5    Partial: 125  
+	(Other):   9                        
 
 # Extracting  numeric variables - train set
 
@@ -325,53 +325,53 @@ train_num<-na.omit(train_num)
 > summary(train_num)
 
 ```
-MSSubClass      LotFrontage        LotArea        OverallQual      OverallCond      YearBuilt     YearRemodAdd 
-Min.   : 20.00   Min.   : 21.00   Min.   :  1300   Min.   : 2.000   Min.   :2.000   Min.   :1880   Min.   :1950  
-1st Qu.: 20.00   1st Qu.: 60.00   1st Qu.:  7590   1st Qu.: 5.000   1st Qu.:5.000   1st Qu.:1953   1st Qu.:1966  
-Median : 50.00   Median : 70.00   Median :  9416   Median : 6.000   Median :5.000   Median :1974   Median :1995  
-Mean   : 56.15   Mean   : 70.67   Mean   : 10123   Mean   : 6.212   Mean   :5.561   Mean   :1972   Mean   :1986  
-3rd Qu.: 70.00   3rd Qu.: 80.00   3rd Qu.: 11361   3rd Qu.: 7.000   3rd Qu.:6.000   3rd Qu.:2003   3rd Qu.:2005  
-Max.   :190.00   Max.   :313.00   Max.   :215245   Max.   :10.000   Max.   :9.000   Max.   :2010   Max.   :2010  
+	MSSubClass      LotFrontage        LotArea        OverallQual      OverallCond      YearBuilt     YearRemodAdd 
+	Min.   : 20.00   Min.   : 21.00   Min.   :  1300   Min.   : 2.000   Min.   :2.000   Min.   :1880   Min.   :1950  
+	1st Qu.: 20.00   1st Qu.: 60.00   1st Qu.:  7590   1st Qu.: 5.000   1st Qu.:5.000   1st Qu.:1953   1st Qu.:1966  
+	Median : 50.00   Median : 70.00   Median :  9416   Median : 6.000   Median :5.000   Median :1974   Median :1995  
+	Mean   : 56.15   Mean   : 70.67   Mean   : 10123   Mean   : 6.212   Mean   :5.561   Mean   :1972   Mean   :1986  
+	3rd Qu.: 70.00   3rd Qu.: 80.00   3rd Qu.: 11361   3rd Qu.: 7.000   3rd Qu.:6.000   3rd Qu.:2003   3rd Qu.:2005  
+	Max.   :190.00   Max.   :313.00   Max.   :215245   Max.   :10.000   Max.   :9.000   Max.   :2010   Max.   :2010  
 
-MasVnrArea       BsmtFinSF1       BsmtFinSF2        BsmtUnfSF       TotalBsmtSF     X1stFlrSF      X2ndFlrSF     
-Min.   :   0.0   Min.   :   0.0   Min.   :   0.00   Min.   :   0.0   Min.   :   0   Min.   : 438   Min.   :   0.0  
-1st Qu.:   0.0   1st Qu.:   0.0   1st Qu.:   0.00   1st Qu.: 250.0   1st Qu.: 803   1st Qu.: 894   1st Qu.:   0.0  
-Median :   0.0   Median : 374.0   Median :   0.00   Median : 506.0   Median :1008   Median :1097   Median :   0.0  
-Mean   : 108.5   Mean   : 438.4   Mean   :  44.59   Mean   : 594.1   Mean   :1077   Mean   :1174   Mean   : 353.3  
-3rd Qu.: 170.0   3rd Qu.: 702.0   3rd Qu.:   0.00   3rd Qu.: 840.0   3rd Qu.:1324   3rd Qu.:1411   3rd Qu.: 728.0  
-Max.   :1600.0   Max.   :5644.0   Max.   :1474.00   Max.   :2336.0   Max.   :6110   Max.   :4692   Max.   :2065.0  
+	MasVnrArea       BsmtFinSF1       BsmtFinSF2        BsmtUnfSF       TotalBsmtSF     X1stFlrSF      X2ndFlrSF     
+	Min.   :   0.0   Min.   :   0.0   Min.   :   0.00   Min.   :   0.0   Min.   :   0   Min.   : 438   Min.   :   0.0  
+	1st Qu.:   0.0   1st Qu.:   0.0   1st Qu.:   0.00   1st Qu.: 250.0   1st Qu.: 803   1st Qu.: 894   1st Qu.:   0.0  
+	Median :   0.0   Median : 374.0   Median :   0.00   Median : 506.0   Median :1008   Median :1097   Median :   0.0  
+	Mean   : 108.5   Mean   : 438.4   Mean   :  44.59   Mean   : 594.1   Mean   :1077   Mean   :1174   Mean   : 353.3  
+	3rd Qu.: 170.0   3rd Qu.: 702.0   3rd Qu.:   0.00   3rd Qu.: 840.0   3rd Qu.:1324   3rd Qu.:1411   3rd Qu.: 728.0  
+	Max.   :1600.0   Max.   :5644.0   Max.   :1474.00   Max.   :2336.0   Max.   :6110   Max.   :4692   Max.   :2065.0  
 
-LowQualFinSF       GrLivArea     BsmtFullBath     BsmtHalfBath        FullBath        HalfBath       BedroomAbvGr  
-Min.   :  0.000   Min.   : 438   Min.   :0.0000   Min.   :0.00000   Min.   :0.000   Min.   :0.0000   Min.   :0.000  
-1st Qu.:  0.000   1st Qu.:1155   1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:2.000  
-Median :  0.000   Median :1479   Median :0.0000   Median :0.00000   Median :2.000   Median :0.0000   Median :3.000  
-Mean   :  4.568   Mean   :1531   Mean   :0.4139   Mean   :0.05531   Mean   :1.581   Mean   :0.3818   Mean   :2.864  
-3rd Qu.:  0.000   3rd Qu.:1776   3rd Qu.:1.0000   3rd Qu.:0.00000   3rd Qu.:2.000   3rd Qu.:1.0000   3rd Qu.:3.000  
-Max.   :572.000   Max.   :5642   Max.   :2.0000   Max.   :2.00000   Max.   :3.000   Max.   :2.0000   Max.   :6.000  
+	LowQualFinSF       GrLivArea     BsmtFullBath     BsmtHalfBath        FullBath        HalfBath       BedroomAbvGr  
+	Min.   :  0.000   Min.   : 438   Min.   :0.0000   Min.   :0.00000   Min.   :0.000   Min.   :0.0000   Min.   :0.000  
+	1st Qu.:  0.000   1st Qu.:1155   1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:2.000  
+	Median :  0.000   Median :1479   Median :0.0000   Median :0.00000   Median :2.000   Median :0.0000   Median :3.000  
+	Mean   :  4.568   Mean   :1531   Mean   :0.4139   Mean   :0.05531   Mean   :1.581   Mean   :0.3818   Mean   :2.864  
+	3rd Qu.:  0.000   3rd Qu.:1776   3rd Qu.:1.0000   3rd Qu.:0.00000   3rd Qu.:2.000   3rd Qu.:1.0000   3rd Qu.:3.000  
+	Max.   :572.000   Max.   :5642   Max.   :2.0000   Max.   :2.00000   Max.   :3.000   Max.   :2.0000   Max.   :6.000  
 
-KitchenAbvGr    TotRmsAbvGrd      Fireplaces      GarageYrBlt     GarageCars      GarageArea     WoodDeckSF    
-Min.   :1.000   Min.   : 3.000   Min.   :0.0000   Min.   :1900   Min.   :1.000   Min.   : 160   Min.   :  0.00  
-1st Qu.:1.000   1st Qu.: 5.000   1st Qu.:0.0000   1st Qu.:1959   1st Qu.:1.000   1st Qu.: 360   1st Qu.:  0.00  
-Median :1.000   Median : 6.000   Median :1.0000   Median :1981   Median :2.000   Median : 484   Median :  0.00  
-Mean   :1.043   Mean   : 6.576   Mean   :0.6039   Mean   :1978   Mean   :1.879   Mean   : 503   Mean   : 92.61  
-3rd Qu.:1.000   3rd Qu.: 7.000   3rd Qu.:1.0000   3rd Qu.:2003   3rd Qu.:2.000   3rd Qu.: 600   3rd Qu.:168.00  
-Max.   :3.000   Max.   :12.000   Max.   :3.0000   Max.   :2010   Max.   :4.000   Max.   :1418   Max.   :857.00  
+	KitchenAbvGr    TotRmsAbvGrd      Fireplaces      GarageYrBlt     GarageCars      GarageArea     WoodDeckSF    
+	Min.   :1.000   Min.   : 3.000   Min.   :0.0000   Min.   :1900   Min.   :1.000   Min.   : 160   Min.   :  0.00  
+	1st Qu.:1.000   1st Qu.: 5.000   1st Qu.:0.0000   1st Qu.:1959   1st Qu.:1.000   1st Qu.: 360   1st Qu.:  0.00  
+	Median :1.000   Median : 6.000   Median :1.0000   Median :1981   Median :2.000   Median : 484   Median :  0.00  
+	Mean   :1.043   Mean   : 6.576   Mean   :0.6039   Mean   :1978   Mean   :1.879   Mean   : 503   Mean   : 92.61  
+	3rd Qu.:1.000   3rd Qu.: 7.000   3rd Qu.:1.0000   3rd Qu.:2003   3rd Qu.:2.000   3rd Qu.: 600   3rd Qu.:168.00  
+	Max.   :3.000   Max.   :12.000   Max.   :3.0000   Max.   :2010   Max.   :4.000   Max.   :1418   Max.   :857.00  
 
-OpenPorchSF     EnclosedPorch      X3SsnPorch       ScreenPorch       PoolArea          MiscVal            MoSold     
-Min.   :  0.00   Min.   :  0.00   Min.   :  0.000   Min.   :  0.0   Min.   :  0.000   Min.   :   0.00   Min.   : 1.00  
-1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:  0.000   1st Qu.:  0.0   1st Qu.:  0.000   1st Qu.:   0.00   1st Qu.: 5.00  
-Median : 27.00   Median :  0.00   Median :  0.000   Median :  0.0   Median :  0.000   Median :   0.00   Median : 6.00  
-Mean   : 46.13   Mean   : 21.84   Mean   :  3.349   Mean   : 16.1   Mean   :  2.935   Mean   :  23.43   Mean   : 6.34  
-3rd Qu.: 68.00   3rd Qu.:  0.00   3rd Qu.:  0.000   3rd Qu.:  0.0   3rd Qu.:  0.000   3rd Qu.:   0.00   3rd Qu.: 8.00  
-Max.   :547.00   Max.   :552.00   Max.   :508.000   Max.   :480.0   Max.   :648.000   Max.   :2500.00   Max.   :12.00  
+	OpenPorchSF     EnclosedPorch      X3SsnPorch       ScreenPorch       PoolArea          MiscVal            MoSold     
+	Min.   :  0.00   Min.   :  0.00   Min.   :  0.000   Min.   :  0.0   Min.   :  0.000   Min.   :   0.00   Min.   : 1.00  
+	1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:  0.000   1st Qu.:  0.0   1st Qu.:  0.000   1st Qu.:   0.00   1st Qu.: 5.00  
+	Median : 27.00   Median :  0.00   Median :  0.000   Median :  0.0   Median :  0.000   Median :   0.00   Median : 6.00  
+	Mean   : 46.13   Mean   : 21.84   Mean   :  3.349   Mean   : 16.1   Mean   :  2.935   Mean   :  23.43   Mean   : 6.34  
+	3rd Qu.: 68.00   3rd Qu.:  0.00   3rd Qu.:  0.000   3rd Qu.:  0.0   3rd Qu.:  0.000   3rd Qu.:   0.00   3rd Qu.: 8.00  
+	Max.   :547.00   Max.   :552.00   Max.   :508.000   Max.   :480.0   Max.   :648.000   Max.   :2500.00   Max.   :12.00  
 
-YrSold       SalePrice     
-Min.   :2006   Min.   : 35311  
-1st Qu.:2007   1st Qu.:131000  
-Median :2008   Median :164900  
-Mean   :2008   Mean   :185506  
-3rd Qu.:2009   3rd Qu.:219500  
-Max.   :2010   Max.   :755000  
+	YrSold       SalePrice     
+	Min.   :2006   Min.   : 35311  
+	1st Qu.:2007   1st Qu.:131000  
+	Median :2008   Median :164900  
+	Mean   :2008   Mean   :185506  
+	3rd Qu.:2009   3rd Qu.:219500  
+	Max.   :2010   Max.   :755000  
 
 # Data imputation
 
