@@ -200,9 +200,9 @@ print(dim(data))
      
  ```
 
- ```
-## Removing attributes with high incidence of na- train dataset
+Removing attributes with high incidence of na- train dataset
 Attributes that have high incidence (40% plus of missing values were removed)
+```
 train$PoolQC<-NULL
 train$MiscFeature<-NULL
 train$Alley<-NULL
@@ -214,8 +214,9 @@ sapply(train, function(x) sum(is.na(x)))
 
 ```
 
+
+Removing attributes with high incidence of na - test dataset
 ```
-## Removing attributes with high incidence of na - test dataset
 test$PoolQC<-NULL
 test$MiscFeature<-NULL
 test$Alley<-NULL
@@ -227,12 +228,17 @@ sapply(test, function(x) sum(is.na(x)))
 
 ```
 		 
-## Removed attributes 
+ Removed attributes 
 -PoolQC has 2,909 missing values
+
 -MiscFeature has 2,814 missing values
+
 -Alley has 2,721 missing values
+
 -Fence has 2,348 missing values
+
 -FireplaceQu has 1,420 missing values
+
  
 # Select Categorical Variables (factors)
 Subset only factor variables from the train dataset
