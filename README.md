@@ -201,6 +201,7 @@ print(dim(data))
  ```
 
 Removing attributes with high incidence of na- train dataset
+
 Attributes that have high incidence (40% plus of missing values were removed)
 ```
 train$PoolQC<-NULL
