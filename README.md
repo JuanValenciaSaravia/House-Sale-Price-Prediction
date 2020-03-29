@@ -847,12 +847,7 @@ boxplot(train_num$OverallCond)$out
 	
 # Variables with low variance
 
-Zero variance in a regression model could cause the model fit to be unstable.
-
-An attribute that has near zero variance is a good candidate for removal.
-
-Using caret package "nearZeroVar we look for variables that have zero or  near zero variance
-
+Zero variance in a regression model could cause the model fit to be unstable. Using caret package "nearZeroVar we look for variables that have zero or  near zero variance
 zv: remove attributes with a zero variance (all the same value).
 
 nzv: remove attributes with a near zero variance (close to the same value).
