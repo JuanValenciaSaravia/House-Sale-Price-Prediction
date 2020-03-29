@@ -152,11 +152,11 @@ print(dim(data))
 - Mean: 180,921;
 - Median: 163,000;
 
- Minimum: 34,900;
- 1st Quartile:129,975;
- Median: 163,000;
- 3rd Quartile: 189,921;
- Max: 755,000
+ - Minimum: 34,900;
+ - 1st Quartile:129,975;
+ - Median: 163,000;
+ - 3rd Quartile: 189,921;
+ - Max: 755,000
  
  # Missing values in the dataset
  
