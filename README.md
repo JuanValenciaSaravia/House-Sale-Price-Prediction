@@ -1,10 +1,8 @@
 # House-Sale-Price-Prediction
 
- title: Sale Home Price Prediction
- 
- author: Juan Valencia
-
----
+Home value predictions are used by realtors, mortgage lenders, and financial institutions to define loan types and rates. Predictions are also used by government agencies to overview the market trends, define policies in case that slower economic conditions or potential market bubbles that could affect negatively the housing market.
+The purpose of our project is to predict home values based on the characteristics of the property. Using a multivariate regression model, we will create a model that will predict the values.
+For this project, we will be using a dataset obtained from an open data portal and reflects the home sales from the city of Ames, Iowa in the USA. The dataset has several variables.
 
 ```{R, load_libraries, message=F, warning=F}
 
