@@ -888,6 +888,8 @@ barplot(table(train$PoolArea),ylab="Frequency",col="green",border="blue",main= "
 barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "MiscVal")
 
 ```
+# Data Exploration
+
 	
 ###stepwise regression
 install.packages("RCurl")
