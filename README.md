@@ -728,63 +728,9 @@ data frame inside cor()
 	MoSold   -0.1813847 -0.02691470  1.0000000 -0.33214935
 	YrSold   -0.1621155  0.04271006 -0.3321493  1.00000000
  	
-# Histogram of the dependent variable 
-
-The target variable (Sale Price) histogram shows that it is right skewed because there is a long tail on the righ side 
-
-```{r}
-library(ggplot2)
-format(x,scientific=F)
-options(scipen=999)
-ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
-
-```
-
-SalePrice and YearBuilt
-
-```{r}
-
-ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
-
-```
-
-SalePrice and GrLivArea
-
-```{r}
-ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
-
-```
-
-# Quantile-Quantile Plot (Plot/Line) dependent variable
-
-QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
-
-upper rigth some data points fall a bit off the line. 
-
-At the Q-Q Plot the sample quartiles and the theoretical quantiles are plotted against each other. If they both came from the 
-
-same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the
-
-average price, the plot deviates heavily from the qq line.
-
-```{r}
-qqnorm(train$SalePrice)
-qqline(train$SalePrice)
-
-```
-
-
 # Outliers detection
 
 ```{r}
-require(ggplot2)
-#adding normal distribution curve
-m<- mean(train$SalePrice)
-std <- sd(train$SalePrice)
-
-ggplot()+
-geom_histogram (data=train, aes(x=SalePrice, y=..density..), fill="red")+
-stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$SalePrice))
 
 ## MSSubClass
 m<- mean(train$MSSubClass)
@@ -889,6 +835,67 @@ barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "Mi
 
 ```
 # Data Exploration
+
+# Histogram of the dependent variable 
+
+The target variable (Sale Price) histogram shows that it is right skewed because there is a long tail on the righ side 
+
+```{r}
+library(ggplot2)
+format(x,scientific=F)
+options(scipen=999)
+ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
+
+```
+
+```{r}
+
+require(ggplot2)
+#adding normal distribution curve
+m<- mean(train$SalePrice)
+std <- sd(train$SalePrice)
+
+ggplot()+
+geom_histogram (data=train, aes(x=SalePrice, y=..density..), fill="red")+
+stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$SalePrice))
+
+```
+
+SalePrice and YearBuilt
+
+```{r}
+
+ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
+
+```
+
+SalePrice and GrLivArea
+
+```{r}
+ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
+
+```
+
+# Quantile-Quantile Plot (Plot/Line) dependent variable
+
+QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
+
+upper rigth some data points fall a bit off the line. 
+
+At the Q-Q Plot the sample quartiles and the theoretical quantiles are plotted against each other. If they both came from the 
+
+same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the
+
+average price, the plot deviates heavily from the qq line.
+
+```{r}
+qqnorm(train$SalePrice)
+qqline(train$SalePrice)
+
+```
+
+
+
 
 	
 ###stepwise regression
