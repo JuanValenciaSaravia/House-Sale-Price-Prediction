@@ -1,20 +1,4 @@
 # House-Sale-Price-Prediction
-````markdown
----
-title: "March30"
-author: "JuanValencia"
-date: "March 30, 2020"
-output:
-    html_document:default
-    word_document:default
-    df_print: paged
----
-
-```{r setup, include= FALSE}
-chooseCRANmirror(graphics= FALSE,ind=1)
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 Home value predictions are used by realtors, mortgage lenders, and financial institutions to define loan types and rates. Predictions are also used by government agencies to overview the market trends, define policies in case that slower economic conditions or potential market bubbles that could affect negatively the housing market.
 The purpose of the project is to predict home values based on the characteristics of the property. Using a multivariate regression, we will create a model that will predict the values.
 For this project, we will be using a dataset obtained from an open data portal and reflects the home sales from the city of Ames, Iowa in the USA. The dataset has 81 variables.
