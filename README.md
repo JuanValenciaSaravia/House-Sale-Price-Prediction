@@ -188,13 +188,10 @@ print(dim(data))
  missing <- x1 %>% gather(key = "Variable") %>% filter(value > 0) %>% mutate(value = value/nrow(data))
  ggplot(missing, aes(x = reorder(Variable, -value),y = value)) + 
  geom_bar(stat = "identity", fill = "salmon") +   coord_flip()
- 	 
  
-
+ ```	 
  ![Image 1] (https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Percent%20Missing%20Values.png)
-
  
- ``` 
  Overview of the train dataset
  
  ```{r}
