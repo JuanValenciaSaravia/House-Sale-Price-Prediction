@@ -174,7 +174,7 @@ print(dim(data))
  geom_bar(stat = "identity", fill = "salmon") +   coord_flip()
  
  ```	 
- ![Image 1] (https://github.com/JvaSar/House-Sale-Price-Prediction.wiki.git)
+ Percent_Missing_Values](https://user-images.githubusercontent.com/60321572/78100014-a1d94d80-73b1-11ea-8ab0-d75b1d1710c6.png)
  
  Overview of the train dataset
  
