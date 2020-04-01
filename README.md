@@ -173,9 +173,13 @@ print(dim(data))
  ggplot(missing, aes(x = reorder(Variable, -value),y = value)) + 
  geom_bar(stat = "identity", fill = "salmon") +   coord_flip()
  ```
- https://github.com/JvaSar/House-Sale-Price-Prediction/issues/1#issue-591618511
+ Missing Values all dataset
+  https://github.com/JvaSar/House-Sale-Price-Prediction/issues/1#issue-591618511
  
- Overview of the train dataset
+ Missing Values train dataset
+ ![Pctg_Missing_Values_Train_Dataset](https://user-images.githubusercontent.com/60321572/78101005-2331df80-73b4-11ea-9f8a- 467375402231.png)
+
+Overview of the train dataset
  
  ```{r}
  glimpse(train)
