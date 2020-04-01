@@ -174,7 +174,8 @@ print(dim(data))
  ggplot(missing, aes(x = reorder(Variable, -value),y = value)) + 
  geom_bar(stat = "identity", fill = "salmon") +   coord_flip()
  	 
- <img src="images/Percent Missing Values%20spaces.png" width="100">
+ <img src = "images/Percent Missing Values%20spaces.png" width="100">
+ <img scr = "images/github.com/JvaSar/House-Sale_Prediction/Percent Missing Values%20spaces.png width="100"
  ![](images/Percent Missing Values%20spaces.png)
  
  ``` 
