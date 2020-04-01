@@ -172,9 +172,9 @@ print(dim(data))
  missing <- x1 %>% gather(key = "Variable") %>% filter(value > 0) %>% mutate(value = value/nrow(data))
  ggplot(missing, aes(x = reorder(Variable, -value),y = value)) + 
  geom_bar(stat = "identity", fill = "salmon") +   coord_flip()
- ```	 
- https://github.com/JvaSar/House-Sale-Price-Prediction/issues/1#issue-591618511
  
+ https://github.com/JvaSar/House-Sale-Price-Prediction/issues/1#issue-591618511
+ ```
  Overview of the train dataset
  
  ```{r}
