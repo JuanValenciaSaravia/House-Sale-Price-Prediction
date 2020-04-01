@@ -191,7 +191,7 @@ print(dim(data))
  	 
  
 
- ![Image 1] (https://github.com.JvaSar/House-Sale-Price-Prediction/Percent Missing Values.png)
+ ![Image 1] (https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Percent%20Missing%20Values.png)
 
  
  ``` 
