@@ -827,7 +827,6 @@ barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "Mi
 # Histogram of the dependent variable 
 
 The target variable (Sale Price) histogram shows that it is positively skewed (right skewed), because there is a long tail on the right side 
-![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/SalePrice_Distribution.png)
 
 ```{r}
 library(ggplot2)
@@ -849,6 +848,7 @@ geom_histogram (data=train, aes(x=SalePrice, y=..density..), fill="red")+
 stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$SalePrice))
 
 ```
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/SalePrice_Distribution.png)
 
 SalePrice in Function of the Neighboorhood
 
