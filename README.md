@@ -488,17 +488,10 @@ qplot(train$GarageYrBlt,
   	geom = c("point","smooth"),
   	method = "lm",
   	alpha = I(1/5), 
-  	se = FALSE)
-
-qplot(train$GrLivArea, 
-  	train$TotRmsAbvGrd,
-  	data = train, 
-  	geom = c("point","smooth"),
-  	method = "lm",
-  	alpha = I(1/5), 
-  	se = FALSE)
-
+  	se = FALSE
 ```
+	
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/GarageYrBuitl_YearBuilt.png)
 
 Distribution levels for categorical variables
 
@@ -711,6 +704,8 @@ data frame inside cor()
 	YrSold   -0.1621155  0.04271006 -0.3321493  1.00000000
  	
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Correlation.PNG)
+
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/CorrelationValuesplot01.png)
 	
 # Outliers detection
 
