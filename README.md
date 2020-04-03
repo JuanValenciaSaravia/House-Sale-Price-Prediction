@@ -713,7 +713,7 @@ data frame inside cor()
 	MoSold   -0.1813847 -0.02691470  1.0000000 -0.33214935
 	YrSold   -0.1621155  0.04271006 -0.3321493  1.00000000
  	
-![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/CorrNumeric_Pearson.pdf)
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Correlation.PNG)
 	
 # Outliers detection
 
