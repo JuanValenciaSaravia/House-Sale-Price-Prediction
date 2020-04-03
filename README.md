@@ -422,8 +422,7 @@ mice_plot <- aggr(fact_atrib,col=c('navyblue','yellow'),
                 labels=names(train), cex.axis=.7,
                 gap=3, ylab=c("Missing data","Pattern"))
 ```
-https://github.com/JvaSar/House-Sale-Price-Prediction/issues/3#issue-591628035
-	    
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Percent_MissingValuesCategorical.png)
 
 ## Imputation to Categorical Variables
 
@@ -595,8 +594,6 @@ plot(x =fact_atrib$SaleType,y = train$SalePrice)
 plot(x =fact_atrib$SaleCondition,y = train$SalePrice)
 
 ```
-
-
 
 # Correlation for Numeric Variables 
 
