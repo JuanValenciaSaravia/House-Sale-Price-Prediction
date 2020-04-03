@@ -175,13 +175,9 @@ print(dim(data))
  ```
  Missing Values all dataset
  
-  https://github.com/JvaSar/House-Sale-Price-Prediction/issues/1#issue-591618511
+ ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Percent%20Missing%20Values.png)
  
- Missing Values train dataset
-
-  https://github.com/JvaSar/House-Sale-Price-Prediction/issues/2#issue-591626303
-
-Overview of the train dataset
+ Overview of the train dataset
  
  ```{r}
  glimpse(train)
@@ -600,19 +596,6 @@ plot(x =fact_atrib$SaleCondition,y = train$SalePrice)
 
 ```
 
-SalePrice in Function of the Neighboorhood
-
-```{r}
-ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
-
-```
-
-SalePrice in Function of Zoning Classification
-
-```{r}
-ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
-
-```
 
 
 # Correlation for Numeric Variables 
@@ -730,6 +713,8 @@ data frame inside cor()
 	MoSold   -0.1813847 -0.02691470  1.0000000 -0.33214935
 	YrSold   -0.1621155  0.04271006 -0.3321493  1.00000000
  	
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/CorrNumeric_Pearson.pdf)
+	
 # Outliers detection
 
 ```{r}
@@ -836,6 +821,8 @@ barplot(table(train$PoolArea),ylab="Frequency",col="green",border="blue",main= "
 barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "MiscVal")
 
 ```
+
+
 # Data Exploration
 
 # Histogram of the dependent variable 
@@ -864,6 +851,25 @@ stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$SalePrice))
 
 ```
 
+SalePrice in Function of the Neighboorhood
+
+```{r}
+ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
+```
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Neighborhood.png)
+
+SalePrice in Function of Zoning Classification
+
+```{r}
+ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
+```
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Zoning_Classfication.png)
+
+SalePrice in Function of Type Of Dwellling
+
+
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Type_of_Dwelling.png)
+
 SalePrice and YearBuilt
 
 ```{r}
@@ -878,6 +884,7 @@ SalePrice and GrLivArea
 ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
 
 ```
+
 
 # Quantile-Quantile Plot (Plot/Line) dependent variable
 
@@ -896,7 +903,7 @@ qqnorm(train$SalePrice)
 qqline(train$SalePrice)
 
 ```
-
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png)
 
 
 
