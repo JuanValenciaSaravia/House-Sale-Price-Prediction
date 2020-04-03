@@ -705,6 +705,7 @@ data frame inside cor()
  	
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Corrplot.PNG)
 
+
 ![](htps://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/CorrelationValuesplot01.png)
 	
 # Outliers detection
