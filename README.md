@@ -908,7 +908,34 @@ qqline(train$SalePrice)
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png)
 
+#REGRESSION ANALYSIS
 
+```{r}
+install.packages("RCurl")
+install.packages("MASS")
+install.packages("Leaps")
+library(Rcurl)
+library(MASS)
+library(leaps)
+```
+Training the model in train dataset
+
+```{r}
+str(train)
+summary(train)
+names(train)
+```
+
+Multivariate linear regression
+
+```{r}
+model1<-lm(SalePrice~ MSSubClass+MSZoning+LotFrontage+LotArea+Street+LotShape+LandContour+Utilities+LotConfig+LandSlope+Neighborhood+Condition1+Condition2+BldgType+HouseStyle+OverallQual+OverallCond+YearBuilt+YearRemodAdd+RoofStyle+RoofMatl+Exterior1st+Exterior2nd+MasVnrType+MasVnrArea+ExterQual+ExterCond+Foundation+BsmtQual+BsmtCond+BsmtExposure+BsmtFinType1+BsmtFinSF1+BsmtFinType2+BsmtFinSF2+BsmtUnfSF+TotalBsmtSF+Heating+HeatingQC+CentralAir+Electrical+X1stFlrSF+X2ndFlrSF+LowQualFinSF+GrLivArea+BsmtFullBath+BsmtHalfBath+FullBath+HalfBath+BedroomAbvGr+KitchenAbvGr+KitchenQual+TotRmsAbvGrd+Functional+Fireplaces+GarageType+GarageYrBlt+GarageFinish+GarageCars+GarageArea+GarageQual+GarageCond+PavedDrive+WoodDeckSF+OpenPorchSF+EnclosedPorch+X3SsnPorch+ScreenPorch+PoolArea+MiscVal+MoSold+YrSold+SaleType+SaleCondition, data=train)
+```
+Prediction in test dataset
+summary(test)
+```{r}
+prediction <-predict(model1,interval="prediction", newdata =test)
+```
 
 	
 
