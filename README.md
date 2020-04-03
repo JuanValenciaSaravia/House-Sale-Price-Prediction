@@ -812,7 +812,11 @@ barplot(table(train$PoolArea),ylab="Frequency",col="green",border="blue",main= "
 barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "MiscVal")
 
 ```
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables.png)
 
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables1.png)
+
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables2.png)
 
 # Data Exploration
 
