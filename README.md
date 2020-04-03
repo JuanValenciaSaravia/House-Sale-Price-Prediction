@@ -661,7 +661,7 @@ data frame inside cor()
 
 	> correlations1 <- cor(M[,9:16])
 	> print(correlations1)
-    	     	 	BsmtFinSF1  BsmtFinSF2  BsmtUnfSF TotalBsmtSF   X1stFlrSF   X2ndFlrSF LowQualFinSF   GrLivArea
+    	     	 BsmtFinSF1  BsmtFinSF2  BsmtUnfSF TotalBsmtSF   X1stFlrSF   X2ndFlrSF LowQualFinSF   GrLivArea
 	BsmtFinSF1    1.00000000  0.05794615 -0.3369508  0.64911517  0.62528283 -0.28441846  -0.21759921  0.24437901
 	BsmtFinSF2    0.05794615  1.00000000 -0.3902274 -0.06358589 -0.06531842 -0.32276866   0.02471454 -0.30906664
 	BsmtUnfSF    -0.33695078 -0.39022743  1.0000000  0.47120488  0.46528202  0.11854650  -0.07141840  0.45210860
@@ -673,7 +673,7 @@ data frame inside cor()
 
 	> correlations2 <- cor(M[,17:24])
 	> print(correlations2)
-    	     		BsmtFullBath BsmtHalfBath   FullBath   HalfBath BedroomAbvGr KitchenAbvGr TotRmsAbvGrd Fireplaces
+    	     	BsmtFullBath BsmtHalfBath   FullBath   HalfBath BedroomAbvGr KitchenAbvGr TotRmsAbvGrd Fireplaces
 	BsmtFullBath    1.0000000  -0.20541362 -0.0652792 -0.1542255  -0.38789072  -0.21741148   -0.1447363  0.2468905
 	BsmtHalfBath   -0.2054136   1.00000000 -0.3481238 -0.1254230  -0.08656331  -0.02729678   -0.2694118 -0.1534202
 	FullBath       -0.0652792  -0.34812385  1.0000000  0.3825315   0.40962501  -0.02838370    0.7620008  0.4718709
@@ -697,7 +697,7 @@ data frame inside cor()
 
 	> correlations4 <- cor(M[,33:36])
 	> print( correlations4)
-       	  	PoolArea     MiscVal     MoSold      YrSold
+       	  PoolArea     MiscVal     MoSold      YrSold
 	PoolArea  1.0000000  0.15798969 -0.1813847 -0.16211548
 	MiscVal   0.1579897  1.00000000 -0.0269147  0.04271006
 	MoSold   -0.1813847 -0.02691470  1.0000000 -0.33214935
