@@ -840,7 +840,8 @@ barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "Mi
 
 # Histogram of the dependent variable 
 
-The target variable (Sale Price) histogram shows that it is right skewed because there is a long tail on the righ side 
+The target variable (Sale Price) histogram shows that it is positively skewed (right skewed), because there is a long tail on the right side 
+
 
 ```{r}
 library(ggplot2)
