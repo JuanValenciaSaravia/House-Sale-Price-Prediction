@@ -904,8 +904,4 @@ qqline(train$SalePrice)
 
 
 	
-###stepwise regression
-install.packages("RCurl")
-install.packages("MASS")
-install.packages("Leaps")
-model1<-lm(SalePrice~MSSubClass, MSZoning, LotFrontage, LotArea, Street, LotShape, LandContour, HouseStyle, OverallQual, 		OverallCond, YearBuilt, YearRemodAdd,  RoofStyle, RoofMatl, Exterior1st, Exterior2nd, MasVnrType, MasVnrArea,ExterQual, 		ExterCond,oundation,smtQual,smtCond, BsmtExposure, BsmtFinType1, BsmtFinSF1, BsmtFinType2, BsmtFinSF2, BsmtUnfSF,TotalBsmtSF,Heating, HeatingQC, CentralAir, Electrical, X1stFlrSF, X2ndFlrSF, LowQualFinSF, GrLivArea, BsmtFullBath, BsmtHalfBath, FullBath, HalfBath, BedroomAbvGr, KitchenAbvGr,KitchenQual,TotRmsAbvGrd,Functional,Fireplaces,FireplaceQu,GarageType ,GarageYrBlt,GarageFinish,GarageCars,GarageArea,GarageQual,GarageCond,PavedDrive,WoodDeckSF,OpenPorchSF,EnclosedPorch,X3SsnPorch ,ScreenPorch,PoolArea,MiscVal,MoSold,YrSold ,SaleType ,SaleCondition,data=train_num)
+
