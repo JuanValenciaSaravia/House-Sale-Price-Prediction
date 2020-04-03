@@ -705,7 +705,7 @@ data frame inside cor()
  	
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Corrplot.PNG)
 
-![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/CorrelationValuesplot01.png)
+![](htps://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/CorrelationValuesplot01.png)
 	
 # Outliers detection
 
@@ -759,6 +759,9 @@ geom_histogram (data=train, aes(x=GrLivArea, y=..density..), fill="red")+
 stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$GrLivArea))
 boxplot(train_num$GrLivArea)$out
 
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Oultiers_GrLivArea.png)
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Oultiers_GrLivArea.png)
+
 ## OverallCond
 m<- mean(train$OverallCond)
 std <- sd(train$OverallCond)
@@ -766,9 +769,12 @@ ggplot()+
 geom_histogram (data=train, aes(x=OverallCond, y=..density..), fill="red")+ 
 stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$OverallCond))
 boxplot(train_num$OverallCond)$out
-
 ```
-	
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Oultiers_GrLivArea.png)
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Outliers_LotFrontage.png)
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Outliers_LotArea.png)
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Outliers_OverallCond.png)
+
 # Variables with low variance
 
 Zero variance in a regression model could cause the model fit to be unstable. Using caret package "nearZeroVar we looked for variables that have zero or  near zero variance
@@ -879,7 +885,6 @@ SalePrice and GrLivArea
 ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
 
 ```
-
 
 # Quantile-Quantile Plot (Plot/Line) dependent variable
 
