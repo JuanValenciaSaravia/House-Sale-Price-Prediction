@@ -1178,4 +1178,6 @@ summary(model1)
 	```{r}
 	prediction <-predict(model1,interval="prediction", newdata =test)
 	```
-
+	
+	Evaluating the model
+	RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret 	      package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values           of the error ideally should be normaly distributed
