@@ -217,7 +217,6 @@ sapply(train, function(x) sum(is.na(x)))
 
 ```
 
-
 Removing attributes with high incidence of na - test dataset
 
 ```{r}
@@ -246,6 +245,7 @@ sapply(test, function(x) sum(is.na(x)))
 
  
 # Select Categorical Variables (factors)
+
 Subset only factor variables from the train dataset
 
 ```{r}
@@ -776,7 +776,6 @@ stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$OverallCond
 boxplot(train_num$OverallCond)$out
 
 ```
-
 	
 # Variables with low variance
 
@@ -903,6 +902,7 @@ qqnorm(train$SalePrice)
 qqline(train$SalePrice)
 
 ```
+
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png)
 
 
