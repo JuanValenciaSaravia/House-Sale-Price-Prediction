@@ -927,7 +927,9 @@ names(train)
 ```
 
 Multivariate linear regression
+
 library(mlbench) 
+
 library(caret)
 
 	```{r}
@@ -940,13 +942,13 @@ library(caret)
                preProcess=c("scale","center"),
                trControl= trainControl(method="none")
 	```
-	Results 
+Results 
 	
 	```{r}
 	summary(Model)
 	```
 
-	Apply model for prediction
+Apply model for prediction
 
 	```{r}
 	Model.training <-predict(Model, Trainingset) # Apply model to make prediction on Training set
@@ -963,5 +965,7 @@ library(caret)
 	plot(TestingSet$SalePrice,Model.testing, col = "blue")
 	```
 
-	Evaluating the model
-	RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret 	      	 package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values             of the error ideally should be normaly distributed
+Evaluating the model
+	RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret 	      	 
+	package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values             
+	of the error ideally should be normaly distributed
