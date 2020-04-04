@@ -893,7 +893,7 @@ ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() +
 QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
 upper rigth some data points fall a bit off the line. If they both came from the same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the average price, the plot deviates heavily from the qq line.
 
-![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png,width =100)
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png)
 ```{r}
 	qqnorm(train$SalePrice)
 	qqline(train$SalePrice)
