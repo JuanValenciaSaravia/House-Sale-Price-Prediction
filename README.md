@@ -891,18 +891,17 @@ ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() +
 # Quantile-Quantile Plot (Plot/Line) dependent variable
 
 QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
+upper rigth some data points fall a bit off the line. If they both came from the same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the average price, the plot deviates heavily from the qq line.
 
-upper rigth some data points fall a bit off the line. 
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png,width =100)
+```{r}
+	qqnorm(train$SalePrice)
+	qqline(train$SalePrice)
 
-At the Q-Q Plot the sample quartiles and the theoretical quantiles are plotted against each other. If they both came from the 
-
-same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the
-
-average price, the plot deviates heavily from the qq line.
-
+```
 Skewness of the Dependent Variable
 
-To verify the central tendency we calculated this metric, the value obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also not normally distributed. To deal with this we transformed to log10 the target variable.
+To verify the central tendency we calculated this metric, the value obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also not normally distributed. 
 
 	```{r}
 	install.packages("e1071")
@@ -919,14 +918,12 @@ Calculating Kurtosis
 	kurtosis(TrainingSet$SalePrice)
 	[1] 6.5
 	```
+	
+Log transformation
+	To deal with the high skewness value we transformed to log10 the target variable.
+	
 
-	```{r}
-	qqnorm(train$SalePrice)
-	qqline(train$SalePrice)
 
-	```
-
-![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png)
 
 #REGRESSION ANALYSIS
 
