@@ -912,7 +912,8 @@ To verify the central tendency we calculated this metric, the value obtained  fo
 
 Calculating Kurtosis
 
-	The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around the mean. High 		Kurtosis values mean that the distribution is too peak to be considered normal.
+	The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around the mean.
+	High Kurtosis values mean that the distribution is too peak to be considered normal the curve is taller and skinier than a      	normal distribution.
 
 	```
 	kurtosis(TrainingSet$SalePrice)
