@@ -900,11 +900,31 @@ same distribution,we should see the points forming a line that is roughly straig
 
 average price, the plot deviates heavily from the qq line.
 
-```{r}
-qqnorm(train$SalePrice)
-qqline(train$SalePrice)
+Skewness of the Dependent Variable
 
-```
+To verify the central tendency we calculated this metric, the value obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also not normally distributed. To deal with this we transformed to log10 the target variable.
+
+	```{r}
+	install.packages("e1071")
+	library(e1071)
+	skewness(TrainingSet$SalePrice)
+	```
+	[1] 1.88
+
+Calculating Kurtosis
+
+The calculated value of Kurtosis is 6.5 thasignifies that the majority of the values are concentrated around the mean
+
+	```
+	kurtosis(TrainingSet$SalePrice)
+	[1] 6.5
+	```
+
+	```{r}
+	qqnorm(train$SalePrice)
+	qqline(train$SalePrice)
+
+	```
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png)
 
