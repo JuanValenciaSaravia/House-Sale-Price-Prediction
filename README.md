@@ -917,20 +917,10 @@ install.packages("Leaps")
 library(Rcurl)
 library(MASS)
 library(leaps)
-```
-Training the model in train dataset
-
-```{r}
-str(train)
-summary(train)
-names(train)
-```
-
-Multivariate linear regression
-
 library(mlbench) 
-
 library(caret)
+```
+Training the model
 
 	```{r}
 	TrainingSet <- train
@@ -951,7 +941,7 @@ Results
 Apply model for prediction
 
 	```{r}
-	Model.training <-predict(Model, Trainingset) # Apply model to make prediction on Training set
+	Model.training <-predict(Model, TrainingSet) # Apply model to make prediction on Training set
 	Model.testing <-predict(Model, TestingSet) # Apply model to make prediction on Testing set
 	summary(Model.training)
 	summary(Model.testing)
@@ -966,6 +956,7 @@ Apply model for prediction
 	```
 
 Evaluating the model
+
 	RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret 	      	 
 	package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values             
 	of the error ideally should be normaly distributed
