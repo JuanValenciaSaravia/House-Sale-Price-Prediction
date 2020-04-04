@@ -942,7 +942,6 @@ library(caret)
 	```
 	Results 
 	
-	Results
 	```{r}
 	summary(Model)
 	```
@@ -952,16 +951,17 @@ library(caret)
 	```{r}
 	Model.training <-predict(Model, Trainingset) # Apply model to make prediction on Training set
 	Model.testing <-predict(Model, TestingSet) # Apply model to make prediction on Testing set
+	summary(Model.training)
+	summary(Model.testing)
 	```
-
 	Model performance (Displays scatter plot and performance metrics)
+	
 	```{r}
 	# Scatter plot of Training set
 	format(x,scientific=F)
 	plot(TrainingSet$SalePrice,Model.training, col = "blue")
 	plot(TestingSet$SalePrice,Model.testing, col = "blue")
 	```
-	
-	
+
 	Evaluating the model
 	RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret 	      	 package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values             of the error ideally should be normaly distributed
