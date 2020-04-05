@@ -426,6 +426,9 @@ mice_plot <- aggr(fact_atrib,col=c('navyblue','yellow'),
 
 ## Imputation to Categorical Variables
 
+         Predictive mean matching only imputes values that were actually observed for other units. The range of imputed values  always 		 lies between the minimum and the maximum of the observed real  values. Compared with standard methods based on linear       		regression and the normal distribution, PMM produces imputed values that are much more like real values. If the original 		variable is skewed,the imputed values will also be skewed. If the original variable is bounded by 0 and 100, the imputed values 	will also be bounded by 0 and 100. And if the real values are discrete (like number of children), the imputed values will also 		be discrete. That’s because the imputed values are real values that are “borrowed” from individuals with real data.
+	source: https://statisticalhorizons.com/predictive-mean-matching
+
 Using 'mice package' as the imputation method we used 'polyreg'=polytomous regression, which deals with cateogorical attributes
 
 ```{r}
