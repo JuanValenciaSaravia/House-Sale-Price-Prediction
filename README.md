@@ -829,6 +829,15 @@ barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "Mi
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables2.png)
 
+# removing highly correlated numeric variables
+To find these correlated pairs we used the correlations matrix and looking to numeric variables after the imputation of missing values was performed as we can see in the grpahic.
+BasementHalfBath and BasementFullBath are hihgly correlated will remove BasmentHalfBath. Similarly,GarageCars and GarageArea have a high correlation of those two we removed GarageCars
+
+rmvVars <- c('BsmtHalfBath', 'GarageCars')
+TestingSet <- TestingSet[,!(names(TestingSet) %in% rmvVars)]
+TrainingSet <- TrainingSet[,!(names(TrainingSet) %in% rmvVars)]
+
+
 # Data Exploration
 
 # Histogram of the dependent variable 
