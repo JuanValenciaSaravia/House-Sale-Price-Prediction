@@ -941,7 +941,7 @@ Q-Qplot with Log Transformation
 
 	qqnorm(logTrainingSet$SalePrice)
 	
-	![]https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/LogTransf_SalePrice.PNG
+![]https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/LogTransf_SalePrice.PNG
 
 
 
