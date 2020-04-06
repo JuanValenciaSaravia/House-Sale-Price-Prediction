@@ -865,7 +865,8 @@ ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhoo
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Neighborhood.png)
 
 SalePrice in Function of Zoning Classification
-
+ 
+ The prices are  higher in zones located in FV (Floating Village Residential)
 ```{r}
 ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
 ```
@@ -925,6 +926,20 @@ Calculating Kurtosis
 	
 Log transformation
 	To deal with the high skewness value we transformed to log10 the target variable. By performing  the logarithmic transformation 	we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created
+	
+	```{r}
+	logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
+
+Skewness with the log transformation
+	
+	```
+	skewness(logTrainingSet$SalePrice)
+	[1] -0.0203
+	we were able to modify the curve and the skew is now quite low and the Q-Q plot is modified.
+	```
+Q-Qplot with Log Transformation
+
+	qqnorm(logTrainingSet$SalePrice)
 	
 
 
