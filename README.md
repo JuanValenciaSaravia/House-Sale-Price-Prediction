@@ -988,7 +988,15 @@ Ploting the errors
 	hist(errors)
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Hist_errors_1.PNG)
 
-Run2 Training the model
+Backward elimination
+```{r}
+full<-lm(SalePrice~ ., data=TrainingSet)
+stepB <-stepAIC(full,direction="backward",trace=TRUE)
+```
+
+```{r}
+format(x,scientific=F)
+summary(stepB)
 
 	```{r}
 	TrainingSet <- train
