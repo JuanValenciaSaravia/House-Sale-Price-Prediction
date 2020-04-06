@@ -920,7 +920,8 @@ Calculating Kurtosis
 	```
 	
 Log transformation
-	To deal with the high skewness value we transformed to log10 the target variable. By performing  the logarithmic transformation 	we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created
+	To deal with the high skewness value we transformed to log10 the target variable. By performing  the logarithmic transformation 	we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created.
+	Because of this positive skew we might expect our model to overpredict our values. by transforming  to log the Sale Price we 		migth get closer to normallity of the curve
 	
 	```{r}
 	logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
