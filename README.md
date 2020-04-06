@@ -942,17 +942,51 @@ Q-Qplot with Log Transformation
 
 #REGRESSION ANALYSIS
 
-```{r}
-install.packages("RCurl")
-install.packages("MASS")
-install.packages("Leaps")
-library(Rcurl)
-library(MASS)
-library(leaps)
-library(mlbench) 
-library(caret)
-```
-Training the model
+	```{r}
+	install.packages("RCurl")
+	install.packages("MASS")
+	install.packages("Leaps")
+	library(Rcurl)
+	library(MASS)
+	library(leaps)
+	library(mlbench) 
+	library(caret)
+	```
+# Multivariate Linear Regression first run TrainingSet
+
+	```{r}
+	Model1 <- lm (SalePrice ~ ., data = TrainingSet)
+	```
+# Results
+	```{r}
+	#format(x,scientific=F)
+	```
+	summary(model1)
+	```
+# Prediction in the TestingSet
+
+	```{r}
+	prediction <-predict (model1,interval="prediction",newdata = TestingSet)
+	prediction
+	summary(prediction)
+	str(prediction)
+	head(prediction)
+	```
+# Calculating  Error
+
+	```{r}
+	errors <- prediction [,"fit"]-TestingSet$SalePrice
+	errors
+	str(errors)
+	summary(errors)
+	```
+# Ploting the errors
+	```{r}
+	#plot errors
+	format(x,scientific=F)
+	hist(errors)
+
+ Run2 Training the model
 
 	```{r}
 	TrainingSet <- train
