@@ -830,7 +830,7 @@ barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "Mi
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables2.png)
 
 # Removing highly correlated numeric variables
-After the data imputation was performed we calculated the Pearson correlation between the numeric variables using the correlations matrix we could identify the variables thatcould be removed
+After the data imputation was performed we calculated the Pearson correlation between the numeric variables using the correlations matrix we could identify the variables that show high correlation.
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Correlation_After_Imputation_Numeric2.PNG)
 
