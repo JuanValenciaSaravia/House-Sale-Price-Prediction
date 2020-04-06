@@ -900,7 +900,7 @@ upper rigth some data points fall a bit off the line. If they both came from the
 ```
 Skewness of the Dependent Variable
 
-To verify the central tendency we calculated this metric, the value obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also not normally distributed. 
+	Skewness is a measure of symmetry where distributions with 0 skew follow a normal distribution.For skewnesses outside the range 	of -0.8 to 0.8 do not satisfy the assumption of normality.To verify the central tendency we calculated this metric, the value 		obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate 		to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also not normally 	 distributed. 
 
 	```{r}
 	install.packages("e1071")
@@ -911,9 +911,8 @@ To verify the central tendency we calculated this metric, the value obtained  fo
 
 Calculating Kurtosis
 
-	The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around the mean.
-	High Kurtosis values mean that the distribution is too peak to be considered normal the curve is taller and skinier than a             normal distribution.
-
+	Kurtosis measures the taildness of the distribution kurtosises outside the range  of -3.0 to 3.0 do not satisfy the assumption 		of normality.The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around the          mean.This high value means that the distribution is too peak to be considered normal the curve is taller and skinier than a        	 normal distribution.
+	
 	```
 	kurtosis(TrainingSet$SalePrice)
 	[1] 6.5
