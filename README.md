@@ -834,7 +834,7 @@ After the data imputation was performed we calculated the Pearson correlation be
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Correlation_After_Imputation_Numeric2.PNG)
 
-We can see that same variables have a strong positive correlation  for example BasementHalfBath and BasementFullBath are hihgly correlated therefor we removed BasmentHalfBath. Similarly, GarageCars and GarageArea have a high correlation of those two we removed GarageCars
+We can see that same variables have a strong positive correlation for example BasementHalfBath and BasementFullBath are hihgly correlated therefore we removed BasmentHalfBath. Similarly, GarageCars and GarageArea have a high correlation of those two we removed GarageCars
 
 ```
 rmvVars <- c('BsmtHalfBath', 'GarageCars')
