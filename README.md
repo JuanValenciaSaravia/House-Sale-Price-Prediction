@@ -872,11 +872,6 @@ ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZonin
 ```
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Zoning_Classfication.png)
 
-SalePrice in Function of Type Of Dwellling
-
-
-![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Type_of_Dwelling.png)
-
 SalePrice and YearBuilt
 
 ```{r}
