@@ -892,15 +892,16 @@ ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() +
 QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
 upper rigth some data points fall a bit off the line. If they both came from the same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the average price, the plot deviates heavily from the qq line.
 
-![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Q_QNormal_Plot_SalePrice.png)
 ```{r}
 	qqnorm(train$SalePrice)
 	qqline(train$SalePrice)
-
 ```
+	
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/QQplotOrig.PNG)
+
 Skewness of the Dependent Variable
 
-	Skewness is a measure of symmetry where distributions with 0 skew follow a normal distribution.For skewnesses outside the range 	of -0.8 to 0.8 do not satisfy the assumption of normality.To verify the central tendency we calculated this metric, the value 		obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate 		to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also not normally 	 distributed. 
+	Skewness is a measure of symmetry where distributions with 0 skew follow a normal distribution.For skewnesses outside the range 	of -0.8 to 0.8 do not satisfy the assumption of normality.To verify the central tendency we calculated this metric, the value 	      obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate	    to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also not                 normally distributed. 
 
 	```{r}
 	install.packages("e1071")
@@ -911,7 +912,7 @@ Skewness of the Dependent Variable
 
 Calculating Kurtosis
 
-	Kurtosis measures the taildness of the distribution kurtosises outside the range  of -3.0 to 3.0 do not satisfy the assumption 		of normality.The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around the          mean.This high value means that the distribution is too peak to be considered normal the curve is taller and skinier than a        	 normal distribution.
+	Kurtosis measures the taildness of the distribution kurtosises outside the range  of -3.0 to 3.0 do not satisfy the assumption 		of normality.The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around            the mean.This high value means that the distribution is too peak to be considered normal the curve is taller and skinier than          a normal distribution.
 	
 	```
 	kurtosis(TrainingSet$SalePrice)
@@ -920,7 +921,7 @@ Calculating Kurtosis
 	
 Log transformation
 	To deal with the high skewness value we transformed to log10 the target variable. By performing  the logarithmic transformation 	we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created.
-	Because of this positive skew we might expect our model to overpredict our values. by transforming  to log the Sale Price we 		migth get closer to normallity of the curve
+	Because of this positive skew we might expect our model to overpredict our values. by transforming  to log the Sale Price we 	     migth get closer to normallity of the curve
 	
 	```{r}
 	logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
@@ -952,18 +953,18 @@ Q-Qplot with Log Transformation
 	library(mlbench) 
 	library(caret)
 	```
-# Multivariate Linear Regression first run TrainingSet
+Multivariate Linear Regression first run TrainingSet
 
 	```{r}
 	Model1 <- lm (SalePrice ~ ., data = TrainingSet)
 	```
-# Results
+Results
 	```{r}
 	#format(x,scientific=F)
 	```
 	summary(model1)
 	```
-# Prediction in the TestingSet
+Prediction in the TestingSet
 
 	```{r}
 	prediction <-predict (model1,interval="prediction",newdata = TestingSet)
@@ -972,7 +973,7 @@ Q-Qplot with Log Transformation
 	str(prediction)
 	head(prediction)
 	```
-# Calculating  Error
+Calculating  Error
 
 	```{r}
 	errors <- prediction [,"fit"]-TestingSet$SalePrice
@@ -980,13 +981,14 @@ Q-Qplot with Log Transformation
 	str(errors)
 	summary(errors)
 	```
-# Ploting the errors
+Ploting the errors
 	```{r}
 	#plot errors
 	format(x,scientific=F)
 	hist(errors)
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Hist_errors_1.PNG)
 
- Run2 Training the model
+Run2 Training the model
 
 	```{r}
 	TrainingSet <- train
