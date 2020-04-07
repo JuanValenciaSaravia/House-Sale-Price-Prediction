@@ -793,7 +793,6 @@ names(train)[nearZeroVar(train)]
 	[17] "X3SsnPorch"    "ScreenPorch"   "PoolArea"      "MiscVal"     
 
 # Plot variables with low variance
-
 barplot(table(train$Street),ylab="Frequency",col="green",border="blue",main= "Street")
 barplot(table(train$LandContour),ylab="Frequency",col="green",border="blue",main= "LandContour")
 barplot(table(train$LandSlope),ylab="Frequency",col="green",border="blue",main= "LandSlope")
@@ -821,6 +820,7 @@ barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "Mi
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables2.png)
 
 # Removing highly correlated numeric variables
+
 After the data imputation was performed we calculated the Pearson correlation between the numeric variables
 The correlation matrix allowed us to identify the variables that show high correlation.
 
@@ -834,7 +834,7 @@ TrainingSet <- TrainingSet[,!(names(TrainingSet) %in% rmvVars)]
 
 # Histogram of the dependent variable 
 
-The target variable (Sale Price) histogram shows that it is positively skewed (right skewed), because there is a long tail on the right side . The Sales Prices as expected do not follow a normal distribution. It will be necessary to reduce the skew of the target variable in order to avoid our incorrect predictions
+The target variable (Sale Price) histogram shows that it is positively skewed (right skewed), because there is a long tail on the right side . The Sales Prices as expected do not follow a normal distribution. It will be necessary to reduce the skew of the target variable in order to avoid incorrect predictions
 
 library(ggplot2)
 ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
@@ -986,7 +986,7 @@ summary(errors)
 # Ploting the errors
 	
 Plot errors
-	
+
 hist(errors)
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Histogram%20Errors_logtrans.PNG)
