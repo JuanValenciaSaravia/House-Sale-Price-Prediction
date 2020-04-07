@@ -947,14 +947,15 @@ Q-Qplot with Log Transformation
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/LogTransf_SalePrice.PNG)
 
 # Regression Analysis -Multivariate linear regression
-install.packages("RCurl")
-install.packages("MASS")
-install.packages("Leaps")
-library(Rcurl)
-library(MASS)
-library(leaps)
-library(mlbench) 
-library(caret)
+
+	install.packages("RCurl")
+	install.packages("MASS")
+	install.packages("Leaps")
+	library(Rcurl)
+	library(MASS)
+	library(leaps)
+	library(mlbench) 
+	library(caret)
 	
 first run TrainingSet
 
@@ -986,51 +987,7 @@ first run TrainingSet
 	MSSubClasssplit/multilevel         0.000485662  0.090707013   0.005             0.995729    
 	MSSubClassstory pud_46_newer      -0.059325374  0.107935465  -0.550             0.582670    
 	StreetPave                         0.116275023  0.060543965   1.921             0.055029 .  
-	LotShapeIR2                        0.021841338  0.019735608   1.107             0.268645    
-	LotShapeIR3                        0.023914940  0.041488632   0.576             0.564438    
-	LotShapeReg                        0.012075533  0.007551586   1.599             0.110066    
-	LandContourHLS                     0.034327565  0.024356337   1.409             0.158978    
-	LandContourLow                     0.015281776  0.030596317   0.499             0.617543    
-	LandContourLvl                     0.027105576  0.017451812   1.553             0.120645    
-	LotConfigCulDSac                   0.037126451  0.015499844   2.395             0.016759 *  
-	LotConfigFR2                      -0.029443081  0.018947975  -1.554             0.120473    
-	LotConfigFR3                      -0.080765731  0.058900757  -1.371             0.170562    
-	LotConfigInside                   -0.015968942  0.008420306  -1.896             0.058135 .  
-	LandSlopeMod                       0.039638430  0.018885415   2.099             0.036034 *  
-	LandSlopeSev                      -0.196622359  0.053262661  -3.692             0.000233 ***
-	NeighborhoodBlueste                0.044708654  0.092779051   0.482             0.629976    
-	NeighborhoodBrDale                -0.021097948  0.054770348  -0.385             0.700152    
-	NeighborhoodBrkSide                0.020378022  0.044959956   0.453             0.650451    
-	NeighborhoodClearCr                0.012874782  0.043691741   0.295             0.768294    
-	NeighborhoodCollgCr               -0.021783277  0.034143228  -0.638             0.523597    
-	NeighborhoodCrawfor                0.095092923  0.040663916   2.339             0.019523 *  
-	NeighborhoodEdwards               -0.096965698  0.037925434  -2.557             0.010687 *  
-	NeighborhoodGilbert               -0.016717446  0.036314037  -0.460             0.645342    
-	NeighborhoodIDOTRR                -0.016137379  0.050702013  -0.318             0.750328    
-	NeighborhoodMeadowV               -0.154587817  0.057751466  -2.677             0.007534 ** 
-	NeighborhoodMitchel               -0.062025747  0.038544761  -1.609             0.107837    
-	NeighborhoodNAmes                 -0.044069428  0.036943286  -1.193             0.233145    
-	NeighborhoodNoRidge                0.035496720  0.040019859   0.887             0.375268    
-	NeighborhoodNPkVill                0.012546654  0.065557453   0.191             0.848257    
-	NeighborhoodNridgHt                0.079106325  0.035203218   2.247             0.024812 *  
-	NeighborhoodNWAmes                -0.034056753  0.038033334  -0.895             0.370728    
-	NeighborhoodOldTown               -0.034359484  0.045341750  -0.758             0.448725    
-	NeighborhoodSawyer                -0.035139307  0.038327354  -0.917             0.359420    
-	NeighborhoodSawyerW               -0.013956306  0.036928222  -0.378             0.705549    
-	NeighborhoodSomerst                0.038234025  0.042618199   0.897             0.369829    
-	NeighborhoodStoneBr                0.119888369  0.039676831   3.022             0.002567 ** 
-	NeighborhoodSWISU                 -0.012758289  0.045909977  -0.278             0.781138    
-	NeighborhoodTimber                 0.011994630  0.038535416   0.311             0.755655    
-	NeighborhoodVeenker                0.056940274  0.049573849   1.149             0.250951    
-	Condition1Feedr                    0.027814441  0.023436548   1.187             0.235541    
-	Condition1Norm                     0.081794369  0.019551519   4.184 0.000030779622290172 ***
-	Condition1PosA                     0.040634961  0.046716834   0.870             0.384575    
-	Condition1PosN                     0.091104600  0.034873041   2.612             0.009101 ** 
-	Condition1RRAe                    -0.028383759  0.042477922  -0.668             0.504134    
-	OverallQual3                       0.665657919  0.139696964   4.765 0.000002117763324022 ***
-	OverallQual4                       0.703324764  0.139289381   5.049 0.000000511427747420 ***
-	OverallQual5                       0.741054628  0.139641825   5.307 0.000000132637833644 ***
-	OverallQual6                       0.774780877  0.139874341   5.539 0.000000037283452407 ***
+  	NeighborhoodSomerst                0.038234025  0.042618199   0.897             0.369829    
 	SaleConditionAlloca                0.067820425  0.040979449   1.655             0.098187 .  
 	SaleConditionFamily                0.024917054  0.028514409   0.874             0.382379    
 	SaleConditionNormal                0.074327132  0.013453115   5.525 0.000000040351531307 ***
@@ -1052,11 +1009,14 @@ summary(errors)
 
 Ploting the errors
 	```{r}
-	#plot errors
-	hist(errors)
+Plot errors
+	
+hist(errors)
+
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Histogram%20Errors_logtrans.PNG)
 
 Calculating the root mean square error 
+
 ```{r}
 rmse <- sqrt(sum((prediction[,"fit"]- TestingSet$SalePrice)^2)/nrow(TestingSet))
 rel_change <- 1-((TestingSet$SalePrice - abs(errors))/TestingSet$Saleprice)
@@ -1067,9 +1027,43 @@ Results
 Regression Using Backward elimination Method
 ```{r}
 full<-lm(SalePrice~ ., data=logTrainingSet)
-null <-lm(SalePrice~1,data=logTestingSet)
-stepF <- stepAIC(null,scope=list(lower=null, upper=full), direction="forward",trace=TRUE)
+stepB <- stepAIC(full, direction="backward",trace=TRUE)
 summary(stepB)
+
+Call:
+lm(formula = SalePrice ~ MSSubClass + Street + LotConfig + LandSlope + 
+    Neighborhood + Condition1 + Condition2 + OverallQual + OverallCond + 
+    RoofStyle + RoofMatl + ExterQual + ExterCond + Foundation + 
+    Heating + HeatingQC + CentralAir + SaleCondition + MSZoning + 
+    Exterior1st + BsmtCond + BsmtExposure + KitchenQual + Functional + 
+    GarageQual + GarageCond + LotFrontage + LotArea + YearBuilt + 
+    YearRemodAdd + MasVnrArea + BsmtFinSF1 + BsmtFinSF2 + BsmtUnfSF + 
+    X1stFlrSF + X2ndFlrSF + BsmtFullBath + FullBath + HalfBath + 
+    KitchenAbvGr + Fireplaces + WoodDeckSF + EnclosedPorch + 
+    X3SsnPorch + ScreenPorch + PoolArea, data = logTrainingSet)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.75306 -0.04778  0.00207  0.05316  0.75306 
+
+Coefficients:
+                                       Estimate    Std. Error t value             Pr(>|t|)    
+(Intercept)                        1.8094988422  0.8515963720   2.125             0.033792 *  
+MSSubClass1 story 1945_ older      0.0075268173  0.0670361996   0.112             0.910619    
+MSSubClass1 story 1946+            0.0716050086  0.0661510239   1.082             0.279257    
+MSSubClass1 story pud_46_newer     0.0306672512  0.0678586486   0.452             0.651397    
+MSSubClass1,5 story finish         0.0836660879  0.0658300062   1.271             0.203980    
+MSSubClass1,5 story_unfinish       0.0551948824  0.0730381383   0.756             0.449968    
+MSSubClass2 family_conversion_all  0.0814615414  0.0705357800   1.155             0.248348    
+MSSubClass2 story_45_older         0.1022304462  0.0677094183   1.510             0.131330    
+MSSubClass2 story_46_newer         0.0647429445  0.0678237973   0.955             0.339972  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1063 on 1282 degrees of freedom
+Multiple R-squared:  0.9378,	Adjusted R-squared:  0.9292 
+F-statistic: 109.2 on 177 and 1282 DF,  p-value: < 0.00000000000000022
+
 
 Evaluating the model
 
