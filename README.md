@@ -925,24 +925,20 @@ Calculating Kurtosis
 
 Kurtosis measures the taildness of the distribution kurtosises outside the range  of -3.0 to 3.0 do not satisfy the assumption 	of normality.The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around  the mean.This high value means that the distribution is too peak to be considered normal the curve is taller and skinier than a normal distribution.
 	
-	```
 	kurtosis(TrainingSet$SalePrice)
 	[1] 6.5
-	```
+	Log transformation
+To deal with the high skewness value we transformed to log10 the target variable. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created.
+Because of this positive skew we might expect our model to overpredict our values. by transforming  to log the Sale Price we 	     migth get closer to normallity of the curve
 	
-Log transformation
-	To deal with the high skewness value we transformed to log10 the target variable. By performing  the logarithmic transformation 	we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created.
-	Because of this positive skew we might expect our model to overpredict our values. by transforming  to log the Sale Price we 	     migth get closer to normallity of the curve
-	
-	```{r}
 	logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
 
 Skewness with the log transformation
-	
-	```
+we were able to reduce the skew. Te curve aproximates with the normal distribution.
+
 	skewness(logTrainingSet$SalePrice)
 	[1] -0.0203
-	we were able to modify the curve and the skew is now quite low and the Q-Q plot is modified.
+
 	```
 Q-Qplot with Log Transformation
 
@@ -950,19 +946,18 @@ Q-Qplot with Log Transformation
 	
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/LogTransf_SalePrice.PNG)
 
-#Regression Analysis -Multivariate linear regression
-	```{r}
-	install.packages("RCurl")
-	install.packages("MASS")
-	install.packages("Leaps")
-	library(Rcurl)
-	library(MASS)
-	library(leaps)
-	library(mlbench) 
-	library(caret)
-	```
+# Regression Analysis -Multivariate linear regression
+install.packages("RCurl")
+install.packages("MASS")
+install.packages("Leaps")
+library(Rcurl)
+library(MASS)
+library(leaps)
+library(mlbench) 
+library(caret)
+	
 first run TrainingSet
-	```{r}
+
 	Model1 <- lm (SalePrice ~ ., data =logTrainingSet)
 	
 	Results
@@ -1032,27 +1027,6 @@ first run TrainingSet
 	Condition1PosA                     0.040634961  0.046716834   0.870             0.384575    
 	Condition1PosN                     0.091104600  0.034873041   2.612             0.009101 ** 
 	Condition1RRAe                    -0.028383759  0.042477922  -0.668             0.504134    
-	Condition1RRAn                     0.043141361  0.031875017   1.353             0.176164    
-	Condition1RRNe                     0.006244182  0.081703767   0.076             0.939094    
-	Condition1RRNn                     0.036561530  0.059977375   0.610             0.542249    
-	Condition2Feedr                    0.198916299  0.124783534   1.594             0.111177    
-	Condition2Norm                     0.170004885  0.112295342   1.514             0.130311    
-	Condition2PosA                     0.399279337  0.184039384   2.170             0.030237 *  
-	Condition2PosN                    -0.671315594  0.143227971  -4.687 0.000003086794699893 ***
-	Condition2RRAe                    -0.399902249  0.237355324  -1.685             0.092281 .  
-	Condition2RRAn                     0.076274750  0.160129230   0.476             0.633924    
-	Condition2RRNn                     0.185300106  0.141607902   1.309             0.190938    
-	BldgType2fmCon                    -0.132780605  0.131194695  -1.012             0.311699    
-	BldgTypeTwnhs                     -0.025871487  0.073225349  -0.353             0.723915    
-	BldgTypeTwnhsE                     0.016589982  0.069551432   0.239             0.811512    
-	HouseStyle1.5Unf                   0.200017799  0.111041247   1.801             0.071906 .  
-	HouseStyle1Story                  -0.008479783  0.042146931  -0.201             0.840579    
-	HouseStyle2.5Fin                  -0.034076382  0.081230408  -0.420             0.674923    
-	HouseStyle2.5Unf                   0.062634891  0.077990127   0.803             0.422067    
-	HouseStyle2Story                   0.000267864  0.038791435   0.007             0.994492    
-	HouseStyleSFoyer                  -0.003852269  0.055758946  -0.069             0.944931    
-	HouseStyleSLvl                     0.078066648  0.065105040   1.199             0.230729    
-	OverallQual2                       0.596506782  0.150204296   3.971 0.000075705822579773 ***
 	OverallQual3                       0.665657919  0.139696964   4.765 0.000002117763324022 ***
 	OverallQual4                       0.703324764  0.139289381   5.049 0.000000511427747420 ***
 	OverallQual5                       0.741054628  0.139641825   5.307 0.000000132637833644 ***
@@ -1061,79 +1035,43 @@ first run TrainingSet
 	SaleConditionFamily                0.024917054  0.028514409   0.874             0.382379    
 	SaleConditionNormal                0.074327132  0.013453115   5.525 0.000000040351531307 ***
 	SaleConditionPartial               0.025166150  0.069782559   0.361             0.718434    
-	```
-	Residual standard error: 0.1059 on 1207 degrees of freedom
-	Multiple R-squared:  0.9419,	Adjusted R-squared:  0.9297 
-	F-statistic:  77.6 on 252 and 1207 DF,  p-value: < 0.00000000000000022
 	
-	Prediction in the TestingSet
-
-	```{r}
-	prediction <-predict (model1,interval="prediction",newdata = TestingSet)
-	prediction
-	summary(prediction)
-	str(prediction)
-	head(prediction)
+Residual standard error: 0.1059 on 1207 degrees of freedom
+Multiple R-squared:  0.9419,	Adjusted R-squared:  0.9297 
+F-statistic:  77.6 on 252 and 1207 DF,  p-value: < 0.00000000000000022
+	
+Prediction in the TestingSet
+prediction <-predict (model1,interval="prediction",newdata = TestingSet)
+prediction
+head(prediction)
 	```
 Calculating  Error
+errors <- prediction [,"fit"]-TestingSet$SalePrice
+errors
+summary(errors)
 
-	```{r}
-	errors <- prediction [,"fit"]-TestingSet$SalePrice
-	errors
-	str(errors)
-	summary(errors)
-	```
 Ploting the errors
 	```{r}
 	#plot errors
-	format(x,scientific=F)
 	hist(errors)
-![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Hist_errors_1.PNG)
+![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Histogram%20Errors_logtrans.PNG)
 
-Backward elimination
+Calculating the root mean square error 
 ```{r}
-full<-lm(SalePrice~ ., data=LogTrainingSet)
-stepB <-stepAIC(full,direction="backward",trace=TRUE)
-```
-```{r}
+rmse <- sqrt(sum((prediction[,"fit"]- TestingSet$SalePrice)^2)/nrow(TestingSet))
+rel_change <- 1-((TestingSet$SalePrice - abs(errors))/TestingSet$Saleprice)
+paste ("RMSE:",rmse)
+Results
+[1] "RMSE: 196088.02864194"
 
+Regression Using Backward elimination Method
+```{r}
+full<-lm(SalePrice~ ., data=logTrainingSet)
+null <-lm(SalePrice~1,data=logTestingSet)
+stepF <- stepAIC(null,scope=list(lower=null, upper=full), direction="forward",trace=TRUE)
 summary(stepB)
-
-	```{r}
-	TrainingSet <- train
-	TestingSet <- newtest
-
-	Model <- train(SalePrice ~ ., data = TrainingSet,
-               method = "lm",
-               na.action = na.omit,
-               preProcess=c("scale","center"),
-               trControl= trainControl(method="none")
-	```
-Results 
-	
-	```{r}
-	summary(Model)
-	```
-
-Apply model for prediction
-
-	```{r}
-	Model.training <-predict(Model, TrainingSet) # Apply model to make prediction on Training set
-	Model.testing <-predict(Model, TestingSet) # Apply model to make prediction on Testing set
-	summary(Model.training)
-	summary(Model.testing)
-	```
-	Model performance (Displays scatter plot and performance metrics)
-	
-	```{r}
-	# Scatter plot of Training set
-	format(x,scientific=F)
-	plot(TrainingSet$SalePrice,Model.training, col = "blue")
-	plot(TestingSet$SalePrice,Model.testing, col = "blue")
-	```
 
 Evaluating the model
 
-	RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret 	      	 
-	package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values             
-	of the error ideally should be normaly distributed
+RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret 	       
+package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values            of the error ideally should be normaly distributed
