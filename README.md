@@ -912,7 +912,7 @@ upper rigth some data points fall a bit off the line. If they both came from the
 
 Skewness of the Dependent Variable
 
-	Skewness is a measure of symmetry where distributions with 0 skew follow a normal distribution.For skewnesses outside the range 	of -0.8 to 0.8 do not satisfy the assumption of normality.To verify the central tendency we calculated this metric, the value 	      obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate	    to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also not                 normally distributed. 
+Skewness is a measure of symmetry where distributions with 0 skew follow a normal distribution.For skewnesses outside the range of -0.8 to 0.8 do not satisfy the assumption of normality.To verify the central tendency we calculated this metric, the value obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also notnormally distributed. 
 
 	```{r}
 	install.packages("e1071")
@@ -923,7 +923,7 @@ Skewness of the Dependent Variable
 
 Calculating Kurtosis
 
-	Kurtosis measures the taildness of the distribution kurtosises outside the range  of -3.0 to 3.0 do not satisfy the assumption 		of normality.The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around            the mean.This high value means that the distribution is too peak to be considered normal the curve is taller and skinier than          a normal distribution.
+Kurtosis measures the taildness of the distribution kurtosises outside the range  of -3.0 to 3.0 do not satisfy the assumption 	of normality.The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around  the mean.This high value means that the distribution is too peak to be considered normal the curve is taller and skinier than a normal distribution.
 	
 	```
 	kurtosis(TrainingSet$SalePrice)
@@ -950,10 +950,7 @@ Q-Qplot with Log Transformation
 	
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/LogTransf_SalePrice.PNG)
 
-
-
-#REGRESSION ANALYSIS
-
+#Regression Analysis -Multivariate linear regression
 	```{r}
 	install.packages("RCurl")
 	install.packages("MASS")
@@ -964,10 +961,11 @@ Q-Qplot with Log Transformation
 	library(mlbench) 
 	library(caret)
 	```
-Multivariate Linear Regression first run TrainingSet
-
+first run TrainingSet
 	```{r}
 	Model1 <- lm (SalePrice ~ ., data =logTrainingSet)
+	
+	Results
 	Call:
 	lm(formula = SalePrice ~ ., data = logTrainingSet)
 
@@ -976,7 +974,7 @@ Multivariate Linear Regression first run TrainingSet
 	-0.72648 -0.04784  0.00216  0.05056  0.72648 
 
 	Coefficients: (20 not defined because of singularities)
-                                      Estimate   Std. Error t value             Pr(>|t|)    
+                                     	 Estimate   Std. Error t value             Pr(>|t|)    
 	(Intercept)                        8.734953717  4.921776685   1.775             0.076190 .  
 	MSSubClass1 story 1945_ older     -0.005320876  0.069576495  -0.076             0.939054    
 	MSSubClass1 story 1946+            0.076560671  0.068767822   1.113             0.265792    
@@ -1059,55 +1057,6 @@ Multivariate Linear Regression first run TrainingSet
 	OverallQual4                       0.703324764  0.139289381   5.049 0.000000511427747420 ***
 	OverallQual5                       0.741054628  0.139641825   5.307 0.000000132637833644 ***
 	OverallQual6                       0.774780877  0.139874341   5.539 0.000000037283452407 ***
-	OverallQual7                       0.810492483  0.139856896   5.795 0.000000008702655490 ***
-	OverallQual8                       0.870406750  0.140425713   6.198 0.000000000781790667 ***
-	OverallQual9                       0.935960538  0.142905644   6.550 0.000000000085233166 ***
-	OverallQual10                      0.933617651  0.146741880   6.362 0.000000000281546026 ***
-	OverallCond2                      -0.779504221  0.258445032  -3.016             0.002614 ** 
-	OverallCond3                      -0.928853150  0.237909402  -3.904 0.000099756880492195 ***
-	OverallCond4                      -0.848913747  0.240633387  -3.528             0.000435 ***
-	OverallCond5                      -0.809741099  0.239875722  -3.376             0.000760 ***
-	OverallCond6                      -0.774866596  0.239595787  -3.234             0.001254 ** 
-	OverallCond7                      -0.739733454  0.239952169  -3.083             0.002097 ** 
-	OverallCond8                      -0.723454909  0.239681157  -3.018             0.002594 ** 
-	OverallCond9                      -0.673963457  0.241128848  -2.795             0.005272 ** 
-	RoofStyleGable                    -0.032995506  0.085776587  -0.385             0.700551    
-	RoofStyleGambrel                  -0.047633360  0.093902914  -0.507             0.612064    
-	RoofStyleHip                      -0.035616551  0.085938572  -0.414             0.678624    
-	RoofStyleMansard                   0.025968482  0.100089501   0.259             0.795330    
-	RoofStyleShed                      0.491252175  0.174946036   2.808             0.005065 ** 
-	RoofMatlCompShg                    2.694187993  0.153480256  17.554 < 0.0000000000000002 ***
-	RoofMatlMembran                    3.060477398  0.221127229  13.840 < 0.0000000000000002 ***
-	RoofMatlMetal                      2.923389686  0.216900946  13.478 < 0.0000000000000002 ***
-	RoofMatlRoll                       2.702118004  0.194430873  13.898 < 0.0000000000000002 ***
-	RoofMatlTar&Grv                    2.682225756  0.175170400  15.312 < 0.0000000000000002 ***
-	RoofMatlWdShake                    2.610871523  0.170615093  15.303 < 0.0000000000000002 ***
-	RoofMatlWdShngl                    2.736759059  0.159112291  17.200 < 0.0000000000000002 ***
-	ExterQualFa                        0.124643132  0.062458763   1.996             0.046201 *  
-	ExterQualGd                       -0.004150892  0.024530928  -0.169             0.865659    
-	ExterQualTA                       -0.007724441  0.026574618  -0.291             0.771354    
-	ExterCondFa                       -0.064261708  0.087538326  -0.734             0.463032    
-	ExterCondGd                       -0.041581207  0.083518508  -0.498             0.618668    
-	ExterCondPo                       -0.287753633  0.170732957  -1.685             0.092170 .  
-	ExterCondTA                       -0.023917911  0.083675482  -0.286             0.775049    
-	FoundationCBlock                  -0.011441616  0.015225247  -0.751             0.452504    
-	FoundationPConc                    0.019322747  0.016368255   1.181             0.238033    
-	FoundationSlab                    -0.022291676  0.038635207  -0.577             0.564062    
-	FoundationStone                    0.074060541  0.051974403   1.425             0.154432    
-	FoundationWood                    -0.131656485  0.069043197  -1.907             0.056774 .  
-	HeatingGasA                        0.190837705  0.119209541   1.601             0.109670    
-	HeatingGasW                        0.256857289  0.123246808   2.084             0.037362 *  
-	HeatingGrav                       -0.079758155  0.131498309  -0.607             0.544274    
-	HeatingOthW                        0.167067282  0.147461659   1.133             0.257459    
-	HeatingWall                        0.228416211  0.137764723   1.658             0.097574 .  
-	HeatingQCFa                       -0.006574916  0.022359979  -0.294             0.768771    
-	HeatingQCGd                       -0.015118181  0.009706361  -1.558             0.119601    
-	HeatingQCPo                       -0.062926356  0.124499081  -0.505             0.613345    
-	HeatingQCTA                       -0.027028393  0.009689552  -2.789             0.005363 ** 
-	CentralAirY                        0.061091257  0.018408396   3.319             0.000931 ***
-	PavedDriveP                        0.000838318  0.025808561   0.032             0.974093    
-	PavedDriveY                        0.031599897  0.016156505   1.956             0.050712 .  
-	SaleConditionAdjLand               0.092780323  0.067985428   1.365             0.172599    
 	SaleConditionAlloca                0.067820425  0.040979449   1.655             0.098187 .  
 	SaleConditionFamily                0.024917054  0.028514409   0.874             0.382379    
 	SaleConditionNormal                0.074327132  0.013453115   5.525 0.000000040351531307 ***
