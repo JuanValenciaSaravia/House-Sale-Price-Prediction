@@ -977,7 +977,15 @@ Prediction in the TestingSet
 	prediction <-predict (model1,interval="prediction",newdata = TestingSet)
 	prediction
 	head(prediction)
-	```
+	
+	      	fit                lwr              upr        
+ 	Min.   :   636.8   Min.   :-53327   Min.   : 54601  
+	1st Qu.:126499.5   1st Qu.: 77527   1st Qu.:175415  
+	Median :160669.0   Median :110119   Median :209918  
+ 	Mean   :179261.7   Mean   :129820   Mean   :228703  
+ 	3rd Qu.:213597.9   3rd Qu.:164617   3rd Qu.:261450  
+ 	Max.   :700075.3   Max.   :626642   Max.   :773508  
+	
 # Calculating  Error
 	errors <- prediction [,"fit"]-TestingSet$SalePrice
 	errors
