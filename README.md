@@ -967,15 +967,157 @@ Q-Qplot with Log Transformation
 Multivariate Linear Regression first run TrainingSet
 
 	```{r}
-	Model1 <- lm (SalePrice ~ ., data = TrainingSet)
+	Model1 <- lm (SalePrice ~ ., data =logTrainingSet)
+	Call:
+	lm(formula = SalePrice ~ ., data = logTrainingSet)
+
+	Residuals:
+     	Min       1Q   Median       3Q      Max 
+	-0.72648 -0.04784  0.00216  0.05056  0.72648 
+
+	Coefficients: (20 not defined because of singularities)
+                                      Estimate   Std. Error t value             Pr(>|t|)    
+	(Intercept)                        8.734953717  4.921776685   1.775             0.076190 .  
+	MSSubClass1 story 1945_ older     -0.005320876  0.069576495  -0.076             0.939054    
+	MSSubClass1 story 1946+            0.076560671  0.068767822   1.113             0.265792    
+	MSSubClass1 story pud_46_newer     0.015977582  0.096943287   0.165             0.869118    
+	MSSubClass1,5 story finish         0.068875478  0.079469626   0.867             0.386284    
+	MSSubClass1,5 story_unfinish      -0.159674085  0.131285462  -1.216             0.224133    
+	MSSubClass2 family_conversion_all  0.186311993  0.149305067   1.248             0.212324    
+	MSSubClass2 story_45_older         0.093406985  0.077361354   1.207             0.227510    
+	MSSubClass2 story_46_newer         0.053576680  0.078350979   0.684             0.494230    
+	MSSubClass2,5 story                0.034538384  0.098686083   0.350             0.726413    
+	MSSubClassduplex_allstyles_age     0.053280578  0.077308365   0.689             0.490833    
+	MSSubClasspud_ multilevel         -0.012308949  0.114996969  -0.107             0.914777    
+	MSSubClasssplit foyer              0.082493356  0.085256951   0.968             0.333445    
+	MSSubClasssplit/multilevel         0.000485662  0.090707013   0.005             0.995729    
+	MSSubClassstory pud_46_newer      -0.059325374  0.107935465  -0.550             0.582670    
+	StreetPave                         0.116275023  0.060543965   1.921             0.055029 .  
+	LotShapeIR2                        0.021841338  0.019735608   1.107             0.268645    
+	LotShapeIR3                        0.023914940  0.041488632   0.576             0.564438    
+	LotShapeReg                        0.012075533  0.007551586   1.599             0.110066    
+	LandContourHLS                     0.034327565  0.024356337   1.409             0.158978    
+	LandContourLow                     0.015281776  0.030596317   0.499             0.617543    
+	LandContourLvl                     0.027105576  0.017451812   1.553             0.120645    
+	LotConfigCulDSac                   0.037126451  0.015499844   2.395             0.016759 *  
+	LotConfigFR2                      -0.029443081  0.018947975  -1.554             0.120473    
+	LotConfigFR3                      -0.080765731  0.058900757  -1.371             0.170562    
+	LotConfigInside                   -0.015968942  0.008420306  -1.896             0.058135 .  
+	LandSlopeMod                       0.039638430  0.018885415   2.099             0.036034 *  
+	LandSlopeSev                      -0.196622359  0.053262661  -3.692             0.000233 ***
+	NeighborhoodBlueste                0.044708654  0.092779051   0.482             0.629976    
+	NeighborhoodBrDale                -0.021097948  0.054770348  -0.385             0.700152    
+	NeighborhoodBrkSide                0.020378022  0.044959956   0.453             0.650451    
+	NeighborhoodClearCr                0.012874782  0.043691741   0.295             0.768294    
+	NeighborhoodCollgCr               -0.021783277  0.034143228  -0.638             0.523597    
+	NeighborhoodCrawfor                0.095092923  0.040663916   2.339             0.019523 *  
+	NeighborhoodEdwards               -0.096965698  0.037925434  -2.557             0.010687 *  
+	NeighborhoodGilbert               -0.016717446  0.036314037  -0.460             0.645342    
+	NeighborhoodIDOTRR                -0.016137379  0.050702013  -0.318             0.750328    
+	NeighborhoodMeadowV               -0.154587817  0.057751466  -2.677             0.007534 ** 
+	NeighborhoodMitchel               -0.062025747  0.038544761  -1.609             0.107837    
+	NeighborhoodNAmes                 -0.044069428  0.036943286  -1.193             0.233145    
+	NeighborhoodNoRidge                0.035496720  0.040019859   0.887             0.375268    
+	NeighborhoodNPkVill                0.012546654  0.065557453   0.191             0.848257    
+	NeighborhoodNridgHt                0.079106325  0.035203218   2.247             0.024812 *  
+	NeighborhoodNWAmes                -0.034056753  0.038033334  -0.895             0.370728    
+	NeighborhoodOldTown               -0.034359484  0.045341750  -0.758             0.448725    
+	NeighborhoodSawyer                -0.035139307  0.038327354  -0.917             0.359420    
+	NeighborhoodSawyerW               -0.013956306  0.036928222  -0.378             0.705549    
+	NeighborhoodSomerst                0.038234025  0.042618199   0.897             0.369829    
+	NeighborhoodStoneBr                0.119888369  0.039676831   3.022             0.002567 ** 
+	NeighborhoodSWISU                 -0.012758289  0.045909977  -0.278             0.781138    
+	NeighborhoodTimber                 0.011994630  0.038535416   0.311             0.755655    
+	NeighborhoodVeenker                0.056940274  0.049573849   1.149             0.250951    
+	Condition1Feedr                    0.027814441  0.023436548   1.187             0.235541    
+	Condition1Norm                     0.081794369  0.019551519   4.184 0.000030779622290172 ***
+	Condition1PosA                     0.040634961  0.046716834   0.870             0.384575    
+	Condition1PosN                     0.091104600  0.034873041   2.612             0.009101 ** 
+	Condition1RRAe                    -0.028383759  0.042477922  -0.668             0.504134    
+	Condition1RRAn                     0.043141361  0.031875017   1.353             0.176164    
+	Condition1RRNe                     0.006244182  0.081703767   0.076             0.939094    
+	Condition1RRNn                     0.036561530  0.059977375   0.610             0.542249    
+	Condition2Feedr                    0.198916299  0.124783534   1.594             0.111177    
+	Condition2Norm                     0.170004885  0.112295342   1.514             0.130311    
+	Condition2PosA                     0.399279337  0.184039384   2.170             0.030237 *  
+	Condition2PosN                    -0.671315594  0.143227971  -4.687 0.000003086794699893 ***
+	Condition2RRAe                    -0.399902249  0.237355324  -1.685             0.092281 .  
+	Condition2RRAn                     0.076274750  0.160129230   0.476             0.633924    
+	Condition2RRNn                     0.185300106  0.141607902   1.309             0.190938    
+	BldgType2fmCon                    -0.132780605  0.131194695  -1.012             0.311699    
+	BldgTypeTwnhs                     -0.025871487  0.073225349  -0.353             0.723915    
+	BldgTypeTwnhsE                     0.016589982  0.069551432   0.239             0.811512    
+	HouseStyle1.5Unf                   0.200017799  0.111041247   1.801             0.071906 .  
+	HouseStyle1Story                  -0.008479783  0.042146931  -0.201             0.840579    
+	HouseStyle2.5Fin                  -0.034076382  0.081230408  -0.420             0.674923    
+	HouseStyle2.5Unf                   0.062634891  0.077990127   0.803             0.422067    
+	HouseStyle2Story                   0.000267864  0.038791435   0.007             0.994492    
+	HouseStyleSFoyer                  -0.003852269  0.055758946  -0.069             0.944931    
+	HouseStyleSLvl                     0.078066648  0.065105040   1.199             0.230729    
+	OverallQual2                       0.596506782  0.150204296   3.971 0.000075705822579773 ***
+	OverallQual3                       0.665657919  0.139696964   4.765 0.000002117763324022 ***
+	OverallQual4                       0.703324764  0.139289381   5.049 0.000000511427747420 ***
+	OverallQual5                       0.741054628  0.139641825   5.307 0.000000132637833644 ***
+	OverallQual6                       0.774780877  0.139874341   5.539 0.000000037283452407 ***
+	OverallQual7                       0.810492483  0.139856896   5.795 0.000000008702655490 ***
+	OverallQual8                       0.870406750  0.140425713   6.198 0.000000000781790667 ***
+	OverallQual9                       0.935960538  0.142905644   6.550 0.000000000085233166 ***
+	OverallQual10                      0.933617651  0.146741880   6.362 0.000000000281546026 ***
+	OverallCond2                      -0.779504221  0.258445032  -3.016             0.002614 ** 
+	OverallCond3                      -0.928853150  0.237909402  -3.904 0.000099756880492195 ***
+	OverallCond4                      -0.848913747  0.240633387  -3.528             0.000435 ***
+	OverallCond5                      -0.809741099  0.239875722  -3.376             0.000760 ***
+	OverallCond6                      -0.774866596  0.239595787  -3.234             0.001254 ** 
+	OverallCond7                      -0.739733454  0.239952169  -3.083             0.002097 ** 
+	OverallCond8                      -0.723454909  0.239681157  -3.018             0.002594 ** 
+	OverallCond9                      -0.673963457  0.241128848  -2.795             0.005272 ** 
+	RoofStyleGable                    -0.032995506  0.085776587  -0.385             0.700551    
+	RoofStyleGambrel                  -0.047633360  0.093902914  -0.507             0.612064    
+	RoofStyleHip                      -0.035616551  0.085938572  -0.414             0.678624    
+	RoofStyleMansard                   0.025968482  0.100089501   0.259             0.795330    
+	RoofStyleShed                      0.491252175  0.174946036   2.808             0.005065 ** 
+	RoofMatlCompShg                    2.694187993  0.153480256  17.554 < 0.0000000000000002 ***
+	RoofMatlMembran                    3.060477398  0.221127229  13.840 < 0.0000000000000002 ***
+	RoofMatlMetal                      2.923389686  0.216900946  13.478 < 0.0000000000000002 ***
+	RoofMatlRoll                       2.702118004  0.194430873  13.898 < 0.0000000000000002 ***
+	RoofMatlTar&Grv                    2.682225756  0.175170400  15.312 < 0.0000000000000002 ***
+	RoofMatlWdShake                    2.610871523  0.170615093  15.303 < 0.0000000000000002 ***
+	RoofMatlWdShngl                    2.736759059  0.159112291  17.200 < 0.0000000000000002 ***
+	ExterQualFa                        0.124643132  0.062458763   1.996             0.046201 *  
+	ExterQualGd                       -0.004150892  0.024530928  -0.169             0.865659    
+	ExterQualTA                       -0.007724441  0.026574618  -0.291             0.771354    
+	ExterCondFa                       -0.064261708  0.087538326  -0.734             0.463032    
+	ExterCondGd                       -0.041581207  0.083518508  -0.498             0.618668    
+	ExterCondPo                       -0.287753633  0.170732957  -1.685             0.092170 .  
+	ExterCondTA                       -0.023917911  0.083675482  -0.286             0.775049    
+	FoundationCBlock                  -0.011441616  0.015225247  -0.751             0.452504    
+	FoundationPConc                    0.019322747  0.016368255   1.181             0.238033    
+	FoundationSlab                    -0.022291676  0.038635207  -0.577             0.564062    
+	FoundationStone                    0.074060541  0.051974403   1.425             0.154432    
+	FoundationWood                    -0.131656485  0.069043197  -1.907             0.056774 .  
+	HeatingGasA                        0.190837705  0.119209541   1.601             0.109670    
+	HeatingGasW                        0.256857289  0.123246808   2.084             0.037362 *  
+	HeatingGrav                       -0.079758155  0.131498309  -0.607             0.544274    
+	HeatingOthW                        0.167067282  0.147461659   1.133             0.257459    
+	HeatingWall                        0.228416211  0.137764723   1.658             0.097574 .  
+	HeatingQCFa                       -0.006574916  0.022359979  -0.294             0.768771    
+	HeatingQCGd                       -0.015118181  0.009706361  -1.558             0.119601    
+	HeatingQCPo                       -0.062926356  0.124499081  -0.505             0.613345    
+	HeatingQCTA                       -0.027028393  0.009689552  -2.789             0.005363 ** 
+	CentralAirY                        0.061091257  0.018408396   3.319             0.000931 ***
+	PavedDriveP                        0.000838318  0.025808561   0.032             0.974093    
+	PavedDriveY                        0.031599897  0.016156505   1.956             0.050712 .  
+	SaleConditionAdjLand               0.092780323  0.067985428   1.365             0.172599    
+	SaleConditionAlloca                0.067820425  0.040979449   1.655             0.098187 .  
+	SaleConditionFamily                0.024917054  0.028514409   0.874             0.382379    
+	SaleConditionNormal                0.074327132  0.013453115   5.525 0.000000040351531307 ***
+	SaleConditionPartial               0.025166150  0.069782559   0.361             0.718434    
 	```
-Results
-	```{r}
-	#format(x,scientific=F)
-	```
-	summary(model1)
-	```
-Prediction in the TestingSet
+	Residual standard error: 0.1059 on 1207 degrees of freedom
+	Multiple R-squared:  0.9419,	Adjusted R-squared:  0.9297 
+	F-statistic:  77.6 on 252 and 1207 DF,  p-value: < 0.00000000000000022
+	
+	Prediction in the TestingSet
 
 	```{r}
 	prediction <-predict (model1,interval="prediction",newdata = TestingSet)
@@ -1001,12 +1143,11 @@ Ploting the errors
 
 Backward elimination
 ```{r}
-full<-lm(SalePrice~ ., data=TrainingSet)
+full<-lm(SalePrice~ ., data=LogTrainingSet)
 stepB <-stepAIC(full,direction="backward",trace=TRUE)
 ```
-
 ```{r}
-format(x,scientific=F)
+
 summary(stepB)
 
 	```{r}
