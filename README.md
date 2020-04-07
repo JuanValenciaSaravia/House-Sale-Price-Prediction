@@ -783,17 +783,10 @@ boxplot(train_num$OverallCond)$out
 # Variables with low variance
 
 Zero variance in a regression model could cause the model fit to be unstable. Using caret package "nearZeroVar we looked for variables that have zero or  near zero variance
-
 zv: remove attributes with a zero variance (all the same value).
-
 nzv: remove attributes with a near zero variance (close to the same value).
-
-
-```{r}
 install.packages("caret")
 names(train)[nearZeroVar(train)]
-
-```
 
 	[1] "Street"        "LandContour"   "Utilities"     "LandSlope"     "Condition2"    "RoofMatl"      "BsmtCond"      			    "BsmtFinType2" 
 	[9] "BsmtFinSF2"    "Heating"       "LowQualFinSF"  "KitchenAbvGr"  "Functional"    "GarageQual"    "GarageCond"    			    "EnclosedPorch"
@@ -801,7 +794,6 @@ names(train)[nearZeroVar(train)]
 
 # Plot variables with low variance
 
-```{r}
 barplot(table(train$Street),ylab="Frequency",col="green",border="blue",main= "Street")
 barplot(table(train$LandContour),ylab="Frequency",col="green",border="blue",main= "LandContour")
 barplot(table(train$LandSlope),ylab="Frequency",col="green",border="blue",main= "LandSlope")
@@ -822,7 +814,6 @@ barplot(table(train$ScreenPorch),ylab="Frequency",col="green",border="blue",main
 barplot(table(train$PoolArea),ylab="Frequency",col="green",border="blue",main= "PoolArea")
 barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "MiscVal")
 
-```
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables.png)
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables1.png)
@@ -830,31 +821,23 @@ barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "Mi
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables2.png)
 
 # Removing highly correlated numeric variables
-After the data imputation was performed we calculated the Pearson correlation between the numeric variables using the correlations matrix we could identify the variables that show high correlation.
+After the data imputation was performed we calculated the Pearson correlation between the numeric variables
+The correlation matrix allowed us to identify the variables that show high correlation.
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Correlation_After_Imputation_Numeric2.PNG)
 
-We can see that same variables have a strong positive correlation for example BasementHalfBath and BasementFullBath are hihgly correlated therefore we removed BasmentHalfBath. Similarly, GarageCars and GarageArea have a high correlation of those two we removed GarageCars
+We can see that some variables have a strong positive correlation for example BasementHalfBath and BasementFullBath are hihgly correlated therefore we removed BasmentHalfBath. Similarly, GarageCars and GarageArea have a high correlation of those two we removed GarageCars
 
-```
 rmvVars <- c('BsmtHalfBath', 'GarageCars')
 TestingSet <- TestingSet[,!(names(TestingSet) %in% rmvVars)]
 TrainingSet <- TrainingSet[,!(names(TrainingSet) %in% rmvVars)]
-```
 
 # Histogram of the dependent variable 
 
-The target variable (Sale Price) histogram shows that it is positively skewed (right skewed), because there is a long tail on the right side 
+The target variable (Sale Price) histogram shows that it is positively skewed (right skewed), because there is a long tail on the right side . The Sales Prices as expected do not follow a normal distribution. It will be necessary to reduce the skew of the target variable in order to avoid our incorrect predictions
 
-```{r}
 library(ggplot2)
-format(x,scientific=F)
-options(scipen=999)
 ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
-
-```
-
-```{r}
 
 require(ggplot2)
 #adding normal distribution curve
@@ -865,19 +848,19 @@ ggplot()+
 geom_histogram (data=train, aes(x=SalePrice, y=..density..), fill="red")+
 stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$SalePrice))
 
-```
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/SalePrice_Distribution.png)
 
-SalePrice in Function of the Neighboorhood
+#SalePrice in Function of the Neighboorhood
+The categorical variable Neighborhoods plays a significant role in determining the sale prices as we can see in the chart
 
-```{r}
 ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
-```
+
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Neighborhood.png)
 
-SalePrice in Function of Zoning Classification
+# SalePrice in Function of Zoning Classification
  
- The prices are  higher in zones located in FV (Floating Village Residential)
+ The prices are  higher certain Zone for example we see that high prices are geographicaly located in zones like FV (Floating Village Residential)
+ 
 ```{r}
 ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
 ```
@@ -885,28 +868,21 @@ ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZonin
 
 SalePrice and YearBuilt
 
-```{r}
-
 ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
 
-```
 
 SalePrice and GrLivArea
 
-```{r}
 ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
 
-```
 
 # Quantile-Quantile Plot (Plot/Line) dependent variable
 
 QQPlot compares the quartiles of the datset with the ideal theoretical normal distribution. We can see that the lower left and 
 upper rigth some data points fall a bit off the line. If they both came from the same distribution,we should see the points forming a line that is roughly straight. However, for prices that are far away from the average price, the plot deviates heavily from the qq line.
 
-```{r}
 	qqnorm(train$SalePrice)
 	qqline(train$SalePrice)
-```
 	
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/QQplotOrig.PNG)
 
@@ -914,11 +890,10 @@ Skewness of the Dependent Variable
 
 Skewness is a measure of symmetry where distributions with 0 skew follow a normal distribution.For skewnesses outside the range of -0.8 to 0.8 do not satisfy the assumption of normality.To verify the central tendency we calculated this metric, the value obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also notnormally distributed. 
 
-	```{r}
 	install.packages("e1071")
 	library(e1071)
 	skewness(TrainingSet$SalePrice)
-	```
+	
 	[1] 1.88
 
 Calculating Kurtosis
@@ -927,20 +902,20 @@ Kurtosis measures the taildness of the distribution kurtosises outside the range
 	
 	kurtosis(TrainingSet$SalePrice)
 	[1] 6.5
-	Log transformation
-To deal with the high skewness value we transformed to log10 the target variable. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created.
-Because of this positive skew we might expect our model to overpredict our values. by transforming  to log the Sale Price we 	     migth get closer to normallity of the curve
+#Log transformation of the dependent variable
+
+To deal with the high skewness of the distribution of SalePrice we transformed to log10 the target variable. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created.Because of this positive skew we might expect our model to overpredict our values if do not transform the variable.	     
 	
-	logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
+logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
 
 Skewness with the log transformation
-we were able to reduce the skew. Te curve aproximates with the normal distribution.
+we were able to reduce the skew. The curve aproximates with the normal distribution.
 
 	skewness(logTrainingSet$SalePrice)
 	[1] -0.0203
 
 	```
-Q-Qplot with Log Transformation
+Q-Q-plot with Log Transformation
 
 	qqnorm(logTrainingSet$SalePrice)
 	
@@ -998,33 +973,33 @@ Multiple R-squared:  0.9419,	Adjusted R-squared:  0.9297
 F-statistic:  77.6 on 252 and 1207 DF,  p-value: < 0.00000000000000022
 	
 Prediction in the TestingSet
+
 prediction <-predict (model1,interval="prediction",newdata = TestingSet)
 prediction
 head(prediction)
 	```
-Calculating  Error
+# Calculating  Error
 errors <- prediction [,"fit"]-TestingSet$SalePrice
 errors
 summary(errors)
 
-Ploting the errors
-	```{r}
+# Ploting the errors
+	
 Plot errors
 	
 hist(errors)
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Histogram%20Errors_logtrans.PNG)
 
-Calculating the root mean square error 
+# Calculating the root mean square error 
 
-```{r}
 rmse <- sqrt(sum((prediction[,"fit"]- TestingSet$SalePrice)^2)/nrow(TestingSet))
 rel_change <- 1-((TestingSet$SalePrice - abs(errors))/TestingSet$Saleprice)
 paste ("RMSE:",rmse)
 Results
 [1] "RMSE: 196088.02864194"
 
-Regression Using Backward elimination Method
+# Regression using Backward elimination Method
 ```{r}
 full<-lm(SalePrice~ ., data=logTrainingSet)
 stepB <- stepAIC(full, direction="backward",trace=TRUE)
