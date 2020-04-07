@@ -1015,7 +1015,7 @@ full<-lm(SalePrice~ ., data=logTrainingSet)
 stepB <- stepAIC(full, direction="backward",trace=TRUE)
 summary(stepB)
 
-The number of variables has been reduced to 46.Tthose explanatory variables have more influence in the prediction of SalePrice
+The number of variables has been reduced to 46.Those explanatory variables have more influence in the prediction of SalePrice
 Call:
 
 lm(formula = SalePrice ~ MSSubClass + Street + LotConfig + LandSlope + 
@@ -1056,5 +1056,5 @@ F-statistic: 109.2 on 177 and 1282 DF,  p-value: < 0.00000000000000022
 
 Evaluating the model
 
-RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret 	       
+RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret        
 package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values            of the error ideally should be normaly distributed
