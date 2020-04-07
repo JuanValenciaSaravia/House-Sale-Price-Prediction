@@ -1015,6 +1015,7 @@ full<-lm(SalePrice~ ., data=logTrainingSet)
 stepB <- stepAIC(full, direction="backward",trace=TRUE)
 summary(stepB)
 
+The number of variables has been reduced to 46.Tthose explanatory variables have more influence in the prediction of SalePrice
 Call:
 
 lm(formula = SalePrice ~ MSSubClass + Street + LotConfig + LandSlope + 
