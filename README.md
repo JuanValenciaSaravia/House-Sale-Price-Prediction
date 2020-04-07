@@ -902,14 +902,14 @@ Kurtosis measures the taildness of the distribution kurtosises outside the range
 	
 	kurtosis(TrainingSet$SalePrice)
 	[1] 6.5
+	
 #Log transformation of the dependent variable
 
-To deal with the high skewness of the distribution of SalePrice we transformed to log10 the target variable. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created.Because of this positive skew we might expect our model to overpredict our values if do not transform the variable.	     
-	
+To deal with the high skewness of the distribution of SalePrice we transformed it to log10. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created. 	    	
 logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
 
 Skewness with the log transformation
-we were able to reduce the skew. The curve aproximates with the normal distribution.
+The q-q-plot after the log transformation looks better we were able to reduce the skew of the dependent variable
 
 	skewness(logTrainingSet$SalePrice)
 	[1] -0.0203
@@ -968,44 +968,47 @@ first run TrainingSet
 	SaleConditionNormal                0.074327132  0.013453115   5.525 0.000000040351531307 ***
 	SaleConditionPartial               0.025166150  0.069782559   0.361             0.718434    
 	
-Residual standard error: 0.1059 on 1207 degrees of freedom
-Multiple R-squared:  0.9419,	Adjusted R-squared:  0.9297 
-F-statistic:  77.6 on 252 and 1207 DF,  p-value: < 0.00000000000000022
+	Residual standard error: 0.1059 on 1207 degrees of freedom
+	Multiple R-squared:  0.9419,	Adjusted R-squared:  0.9297 
+	F-statistic:  77.6 on 252 and 1207 DF,  p-value: < 0.00000000000000022
 	
 Prediction in the TestingSet
 
-prediction <-predict (model1,interval="prediction",newdata = TestingSet)
-prediction
-head(prediction)
+	prediction <-predict (model1,interval="prediction",newdata = TestingSet)
+	prediction
+	head(prediction)
 	```
 # Calculating  Error
-errors <- prediction [,"fit"]-TestingSet$SalePrice
-errors
-summary(errors)
+	errors <- prediction [,"fit"]-TestingSet$SalePrice
+	errors
+	summary(errors)
 
 # Ploting the errors
 	
-Plot errors
+	Plot errors
 
-hist(errors)
+	hist(errors)
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Histogram%20Errors_logtrans.PNG)
 
 # Calculating the root mean square error 
 
-rmse <- sqrt(sum((prediction[,"fit"]- TestingSet$SalePrice)^2)/nrow(TestingSet))
-rel_change <- 1-((TestingSet$SalePrice - abs(errors))/TestingSet$Saleprice)
-paste ("RMSE:",rmse)
-Results
-[1] "RMSE: 196088.02864194"
+	rmse <- sqrt(sum((prediction[,"fit"]- TestingSet$SalePrice)^2)/nrow(TestingSet))
+	rel_change <- 1-((TestingSet$SalePrice - abs(errors))/TestingSet$Saleprice)
+	paste ("RMSE:",rmse)
+	
+	Results
+	[1] "RMSE: 196088.02864194"
 
 # Regression using Backward elimination Method
+
 ```{r}
 full<-lm(SalePrice~ ., data=logTrainingSet)
 stepB <- stepAIC(full, direction="backward",trace=TRUE)
 summary(stepB)
 
 Call:
+
 lm(formula = SalePrice ~ MSSubClass + Street + LotConfig + LandSlope + 
     Neighborhood + Condition1 + Condition2 + OverallQual + OverallCond + 
     RoofStyle + RoofMatl + ExterQual + ExterCond + Foundation + 
@@ -1036,7 +1039,9 @@ MSSubClass2 story_46_newer         0.0647429445  0.0678237973   0.955           
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.1063 on 1282 degrees of freedom
+
 Multiple R-squared:  0.9378,	Adjusted R-squared:  0.9292 
+
 F-statistic: 109.2 on 177 and 1282 DF,  p-value: < 0.00000000000000022
 
 
