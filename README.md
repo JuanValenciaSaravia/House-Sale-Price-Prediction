@@ -998,44 +998,44 @@ Byusing linear regression usin all the variables I had a very large RMSE value
 
 I used this method to see which will be the variables with higher explanatory power .The number of variables was reduced to 46.Those explanatory variables have more influence in the prediction of SalePrice
 
-Call:
+	Call:
 
-full<-lm(SalePrice~ ., data=logTrainingSet)
-stepB <- stepAIC(full, direction="backward",trace=TRUE)
-summary(stepB)
+	full<-lm(SalePrice~ ., data=logTrainingSet)
+	stepB <- stepAIC(full, direction="backward",trace=TRUE)
+	summary(stepB)
 
-lm(formula = SalePrice ~ MSSubClass + Street + LotConfig + LandSlope + 
-    Neighborhood + Condition1 + Condition2 + OverallQual + OverallCond + 
-    RoofStyle + RoofMatl + ExterQual + ExterCond + Foundation + 
-    Heating + HeatingQC + CentralAir + SaleCondition + MSZoning + 
-    Exterior1st + BsmtCond + BsmtExposure + KitchenQual + Functional + 
-    GarageQual + GarageCond + LotFrontage + LotArea + YearBuilt + 
-    YearRemodAdd + MasVnrArea + BsmtFinSF1 + BsmtFinSF2 + BsmtUnfSF + 
-    X1stFlrSF + X2ndFlrSF + BsmtFullBath + FullBath + HalfBath + 
-    KitchenAbvGr + Fireplaces + WoodDeckSF + EnclosedPorch + 
-    X3SsnPorch + ScreenPorch + PoolArea, data = logTrainingSet)
+	lm(formula = SalePrice ~ MSSubClass + Street + LotConfig + LandSlope + 
+    	Neighborhood + Condition1 + Condition2 + OverallQual + OverallCond + 
+    	RoofStyle + RoofMatl + ExterQual + ExterCond + Foundation + 
+    	Heating + HeatingQC + CentralAir + SaleCondition + MSZoning + 
+    	Exterior1st + BsmtCond + BsmtExposure + KitchenQual + Functional + 
+    	GarageQual + GarageCond + LotFrontage + LotArea + YearBuilt + 
+    	YearRemodAdd + MasVnrArea + BsmtFinSF1 + BsmtFinSF2 + BsmtUnfSF + 
+    	X1stFlrSF + X2ndFlrSF + BsmtFullBath + FullBath + HalfBath + 
+    	KitchenAbvGr + Fireplaces + WoodDeckSF + EnclosedPorch + 
+    	X3SsnPorch + ScreenPorch + PoolArea, data = logTrainingSet)
 
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.75306 -0.04778  0.00207  0.05316  0.75306 
+	Residuals:
+     	Min       1Q   Median       3Q      Max 
+	-0.75306 -0.04778  0.00207  0.05316  0.75306 
 
-Coefficients:
-                                       Estimate    Std. Error t value             Pr(>|t|)    
-(Intercept)                        1.8094988422  0.8515963720   2.125             0.033792 *  
-MSSubClass1 story 1945_ older      0.0075268173  0.0670361996   0.112             0.910619    
-MSSubClass1 story 1946+            0.0716050086  0.0661510239   1.082             0.279257    
-MSSubClass1 story pud_46_newer     0.0306672512  0.0678586486   0.452             0.651397    
-MSSubClass1,5 story finish         0.0836660879  0.0658300062   1.271             0.203980    
-MSSubClass1,5 story_unfinish       0.0551948824  0.0730381383   0.756             0.449968    
-MSSubClass2 family_conversion_all  0.0814615414  0.0705357800   1.155             0.248348    
-MSSubClass2 story_45_older         0.1022304462  0.0677094183   1.510             0.131330    
-MSSubClass2 story_46_newer         0.0647429445  0.0678237973   0.955             0.339972  
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+	Coefficients:
+                                       		Estimate    Std. Error t value             Pr(>|t|)    
+	(Intercept)                        1.8094988422  0.8515963720   2.125             0.033792 *  
+	MSSubClass1 story 1945_ older      0.0075268173  0.0670361996   0.112             0.910619    
+	MSSubClass1 story 1946+            0.0716050086  0.0661510239   1.082             0.279257    
+	MSSubClass1 story pud_46_newer     0.0306672512  0.0678586486   0.452             0.651397    
+	MSSubClass1,5 story finish         0.0836660879  0.0658300062   1.271             0.203980    
+	MSSubClass1,5 story_unfinish       0.0551948824  0.0730381383   0.756             0.449968    
+	MSSubClass2 family_conversion_all  0.0814615414  0.0705357800   1.155             0.248348    
+	MSSubClass2 story_45_older         0.1022304462  0.0677094183   1.510             0.131330    
+	MSSubClass2 story_46_newer         0.0647429445  0.0678237973   0.955             0.339972  
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 0.1063 on 1282 degrees of freedom
+	Residual standard error: 0.1063 on 1282 degrees of freedom
 
-Multiple R-squared:  0.9378,	Adjusted R-squared:  0.9292 
+	Multiple R-squared:  0.9378,	Adjusted R-squared:  0.9292 
 
 F-statistic: 109.2 on 177 and 1282 DF,  p-value: < 0.00000000000000022
 
@@ -1129,5 +1129,6 @@ The final values used for the model were nrounds = 150, max_depth = 3, eta = 0.3
 
 # Conclusions
 
-Using 10 fold cross validation the models gave a lower RMSE and a reasonable Rsquare. The explanatory power of the models are below the 0.92 that we had originally using the conventional multivariate linear regression. The linear regressin using 10 fold cross validation gave  a Rsquare of 0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquare of 0.87 and RMSE (root mean square error) of 0.145. The machine learning methods allowed us initially to use cross validation to maximize the value of the limited data points and later to avoid overfitting the models.
+Using 10 fold cross validation the models gave a lower RMSE and a reasonable Rsquare. After using cross validation the explanatory power of the models were below the 0.92 that we had originally using the conventional multivariate linear regression and stepwise regression.The stepwise regression selected 46 variables out of the 72 variables we had after performing data cleaning and processing.However, the Rsquare values were considered still high  0.92. The calculated  RMSE values were high once we run the conventinal regression.
+The linear regression using 10 fold cross validation gave  a Rsquare of 0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquare of 0.87 and RMSE (root mean square error) of 0.145. Cross validation allowed us to maximize the value of the limited data points and later to avoid overfitting the models.
 
