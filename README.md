@@ -923,16 +923,13 @@ Q-Q-plot with Log Transformation
 
 # Regression Analysis -Multivariate linear regression
 
-	install.packages("RCurl")
-	install.packages("MASS")
-	install.packages("Leaps")
 	library(Rcurl)
 	library(MASS)
 	library(leaps)
 	library(mlbench) 
 	library(caret)
 	
-first run TrainingSet
+first run in  logTrainingSet 
 
 	Model1 <- lm (SalePrice ~ ., data =logTrainingSet)
 	
@@ -1001,22 +998,24 @@ Prediction in the TestingSet
 
 # Calculating the root mean square error 
 
+Byusing linear regression usin all the variables I had a very large RMSE value 
+
 	rmse <- sqrt(sum((prediction[,"fit"]- TestingSet$SalePrice)^2)/nrow(TestingSet))
 	rel_change <- 1-((TestingSet$SalePrice - abs(errors))/TestingSet$Saleprice)
 	paste ("RMSE:",rmse)
 	
 	Results
-	[1] "RMSE: 196088.02864194"
+	[1] "RMSE: 196088.024"
 
-# Regression using Backward elimination Method
+# Stepwise Regression using Backward elimination Method
 
-```{r}
+I used this method to see which will be the variables with higher explanatory power .The number of variables was reduced to 46.Those explanatory variables have more influence in the prediction of SalePrice
+
+Call:
+
 full<-lm(SalePrice~ ., data=logTrainingSet)
 stepB <- stepAIC(full, direction="backward",trace=TRUE)
 summary(stepB)
-
-The number of variables has been reduced to 46.Those explanatory variables have more influence in the prediction of SalePrice
-Call:
 
 lm(formula = SalePrice ~ MSSubClass + Street + LotConfig + LandSlope + 
     Neighborhood + Condition1 + Condition2 + OverallQual + OverallCond + 
@@ -1057,7 +1056,9 @@ F-statistic: 109.2 on 177 and 1282 DF,  p-value: < 0.00000000000000022
 Evaluating the model
 
 RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret        
-package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values            of the error ideally should be normaly distributed
+package.The R square values look a litle bit high using the conventional linear regression. Ajusted R square of .92 and 0.9297.
+To find out how other methodologies will work  we used the 10 fold cross validation method for linear regression,random forest,and
+xgboosting.
 
 # Using Cross validation
 First we instaled the caret package. Using 10 Fold cross validation the Testing dataset was divided in 10 blocks. This computation intensive approach "cross validation" will help to estimate how well the model will function.
@@ -1133,4 +1134,8 @@ No pre-processing
 Resampling: Cross-Validated (10 fold) 
 Summary of sample sizes: 1314, 1313, 1314, 1314, 1313, 1314, ... 
 Resampling results across tuning parameters:
+
+# Conclusions
+
+Using 10 fold cross validation the models gave a lower RMSE and a reasonable R2. The explanatory power of the models are below the 0.92 that we had originally using the conventional multivariate linear regression. The linear regressin using 10 fold cross validation gave  a Rsquare of 0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquare of 0.87 and RMSE (root mean square error) of 0.145 The machine learning methods allowed us initially to use cross validation to maximize the value of the limited data points and later to avoid overfitting the models.
 
