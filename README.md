@@ -989,16 +989,19 @@ Prediction in the TestingSet
  	Max.   :700075.3   Max.   :626642   Max.   :773508  
 	
 # Calculating  Error
-
+```{r}
 	errors <- prediction [,"fit"]-TestingSet$SalePrice
 	errors
 	summary(errors)
+	```
 
 # Ploting the errors
 	
+```{r}
 	Plot errors
 
 	hist(errors)
+```
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Histogram%20Errors_logtrans.PNG)
 
@@ -1014,7 +1017,7 @@ By using linear regression usin all the variables I had a very large RMSE value
 	Results
 	[1] "RMSE: 196088.024"
 
-# Stepwise Regression using Backward elimination Method
+# Stepwise Regression using backward elimination method
 
 I used this method to see which will be the variables with higher explanatory power .The number of variables was reduced to 46.Those explanatory variables have more influence in the prediction of SalePrice
 
@@ -1067,7 +1070,7 @@ package.The R square values look a litle bit high using the conventional linear 
 To find out how other methodologies will work  we used the 10 fold cross validation method for linear regression,random forest,and
 xgboosting.
 
-# Using Cross validation
+# Using cross validation
 
 First we installed the caret package. Using 10 Fold cross validation the Testing dataset was divided in 10 blocks. This computation intensive approach "cross validation" will help to estimate how well the model will function.
 
@@ -1085,7 +1088,7 @@ First we train the control function and define the parameters
                               search ="grid",
                               verboseIter =TRUE)
 	```	      
-# 10 Fold Cross validation Using Linear regression
+# 10 Fold cross validation using Linear Regression
 	
 	```{r}
 	mmodelk1 <-train (SalePrice ~ .,logTrainingSet,
@@ -1107,7 +1110,7 @@ First we train the control function and define the parameters
   	RMSE       Rsquared   MAE       
   	0.1760512  0.8155415  0.09484531
 
- # 10 Fold Cross validation Using Random Forest
+ # 10 Fold cross validation using Random Forest
  
  	```{r}
 	modelrf <-train (SalePrice ~ .,logTrainingSet,
@@ -1135,7 +1138,7 @@ First we train the control function and define the parameters
 	The final value used for the model was mtry = 130.
 	
 
-# 10 Fold Cross validation Using xgboost
+# 10 Fold cross validation using xgboost
 	
 	```{r}
 	modelxb <- train(SalePrice ~ .,logTrainingSet,
