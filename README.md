@@ -1058,3 +1058,40 @@ Evaluating the model
 
 RMSE (root mean square error) and R2 (regression were the metrics used to evaluate the regression model for that we use caret        
 package. RMSE or Root Mean Squared Error represent the average deviation of the predictions from the observations. The values            of the error ideally should be normaly distributed
+
+# Using Cross validation
+First we instaled the caret package. Using 10 Fold cross validation the Testing dataset was divided in 10 blocks. This computation intensive approach "cross validation" will help to estimate how well the model will function.
+```{r}
+library(caret)
+data(logTestingSet)
+set.seed(42)
+
+First we train the control function and define the parameters
+#train control function
+
+train.control <- trainControl (method ="cv",
+                              number =10,
+                              search ="grid",
+                              verboseIter =TRUE)
+		      
+#fit linear regression
+mmodelk1 <-train (SalePrice ~ .,logTrainingSet,
+                 method = "lm",
+                 trControl = train.control)
+               
+Results 
+
+Linear Regression 
+
+1460 samples
+  72 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 1314, 1314, 1316, 1314, 1314, 1314, ... 
+Resampling results:
+
+  RMSE       Rsquared   MAE       
+  0.1760512  0.8155415  0.09484531
+
+Tuning parameter 'intercept' was held constant at a value of TRUE
