@@ -2,7 +2,7 @@
 Home value predictions are used by realtors, mortgage lenders, and financial institutions to define loan types and rates. Predictions are also used by government agencies to overview the market trends, define policies in case that slower economic conditions or potential market bubbles that could affect negatively the housing market.
 The purpose of the project is to predict home values based on the characteristics of the property. Using a multivariate regression, we will create a model that will predict the values.
 For this project, we will be using a dataset obtained from an open data portal and reflects the home sales from the city of Ames, Iowa in the USA. The dataset has 81 variables.
-
+```{r}
 install.packages("stringr")
 install.packages("caret")
 install.packages("boot")
@@ -412,8 +412,7 @@ mice_plot <- aggr(fact_atrib,col=c('navyblue','yellow'),
 
 ## Imputation to Categorical Variables
 
-         Predictive mean matching only imputes values that were actually observed for other units. The range of imputed values  always 		lies between the minimum and the maximum of the observed real  values. Compared with standard methods based on linear       	     egression and the normal distribution, PMM produces imputed values that are much more like real values. If the original 		variable is skewed,the imputed values will also be skewed. If the original variable is bounded by 0 and 100, the imputed values 	will also be bounded by 0 and 100. And if the real values are discrete (like number of children), the imputed values will also 		be discrete. That’s because the imputed values are real values that are “borrowed” from individuals with real data.
-	source: https://statisticalhorizons.com/predictive-mean-matching
+Predictive mean matching only imputes values that were actually observed for other units. The range of imputed values  always lies between the minimum and the maximum of the observed real  values. Compared with standard methods based on linear       	    regression and the normal distribution, PMM produces imputed values that are much more like real values. If the original 		variable is skewed,the imputed values will also be skewed. If the original variable is bounded by 0 and 100, the imputed values will also be bounded by 0 and 100. And if the real values are discrete (like number of children), the imputed values will also 	be discrete. That’s because the imputed values are real values that are “borrowed” from individuals with real data.
 
 Using 'mice package' as the imputation method we used 'polyreg'=polytomous regression, which deals with cateogorical attributes
 
