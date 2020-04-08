@@ -875,7 +875,8 @@ upper rigth some data points fall a bit off the line. If they both came from the
 Skewness of the Dependent Variable
 
 Skewness is a measure of symmetry where distributions with 0 skew follow a normal distribution.For skewnesses outside the range of -0.8 to 0.8 do not satisfy the assumption of normality.To verify the central tendency we calculated this metric, the value obtained  for skewness was 1.88 (right skew distribution) which is considered high. That means that values tend to concentrate to the left. The low values are more frequent than the high values and the Q-Q plot shows that sale prices are also notnormally distributed. 
-
+	
+	```
 	install.packages("e1071")
 	library(e1071)
 	skewness(TrainingSet$SalePrice)
@@ -886,17 +887,21 @@ Calculating Kurtosis
 
 Kurtosis measures the taildness of the distribution kurtosises outside the range  of -3.0 to 3.0 do not satisfy the assumption 	of normality.The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around  the mean.This high value means that the distribution is too peak to be considered normal the curve is taller and skinier than a normal distribution.
 	
+	```
 	kurtosis(TrainingSet$SalePrice)
 	[1] 6.5
 	
 #Log transformation of the dependent variable
 
-To deal with the high skewness of the distribution of SalePrice we transformed it to log10. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore increase the accuracy of the models that will be created. 	    	
-logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
+To deal with the high skewness of the distribution of SalePrice we transformed it to log10. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore increase the accuracy of the models that will be created. 	    		
+	```
+	logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
+
 
 Skewness with the log transformation
 The q-q-plot after the log transformation looks better we were able to reduce the skew of the dependent variable
 
+	```
 	skewness(logTrainingSet$SalePrice)
 	[1] -0.0203
 
@@ -916,7 +921,7 @@ Q-Q-plot with Log Transformation
 	library(caret)
 	
 first run in the training dataset 
-
+	```
 	Model1 <- lm (SalePrice ~ ., data =logTrainingSet)
 	
 	Results
@@ -950,6 +955,7 @@ first run in the training dataset
 	SaleConditionFamily                0.024917054  0.028514409   0.874             0.382379    
 	SaleConditionNormal                0.074327132  0.013453115   5.525 0.000000040351531307 ***
 	SaleConditionPartial               0.025166150  0.069782559   0.361             0.718434    
+	
 	
 	Residual standard error: 0.1059 on 1207 degrees of freedom
 	Multiple R-squared:  0.9419,	Adjusted R-squared:  0.9297 
@@ -985,8 +991,9 @@ Prediction in the TestingSet
 
 # Calculating the root mean square error 
 
-Byusing linear regression usin all the variables I had a very large RMSE value 
+By using linear regression usin all the variables I had a very large RMSE value 
 
+	```
 	rmse <- sqrt(sum((prediction[,"fit"]- TestingSet$SalePrice)^2)/nrow(TestingSet))
 	rel_change <- 1-((TestingSet$SalePrice - abs(errors))/TestingSet$Saleprice)
 	paste ("RMSE:",rmse)
@@ -1050,19 +1057,22 @@ xgboosting.
 # Using Cross validation
 First we instaled the caret package. Using 10 Fold cross validation the Testing dataset was divided in 10 blocks. This computation intensive approach "cross validation" will help to estimate how well the model will function.
 
+```
 library(caret)
 data(logTestingSet)
 set.seed(42)
 
 First we train the control function and define the parameters
 
-train.control <- trainControl (method ="cv",
+	```
+	train.control <- trainControl (method ="cv",
                               number =10,
                               search ="grid",
                               verboseIter =TRUE)
 		      
 # fit linear regression
-mmodelk1 <-train (SalePrice ~ .,logTrainingSet,
+	```
+	mmodelk1 <-train (SalePrice ~ .,logTrainingSet,
                  method = "lm",
                  trControl = train.control)
                
