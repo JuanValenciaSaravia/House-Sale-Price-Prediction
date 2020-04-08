@@ -1129,5 +1129,5 @@ The final values used for the model were nrounds = 150, max_depth = 3, eta = 0.3
 
 # Conclusions
 
-Using 10 fold cross validation the models gave a lower RMSE and a reasonable R2. The explanatory power of the models are below the 0.92 that we had originally using the conventional multivariate linear regression. The linear regressin using 10 fold cross validation gave  a Rsquare of 0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquare of 0.87 and RMSE (root mean square error) of 0.145 The machine learning methods allowed us initially to use cross validation to maximize the value of the limited data points and later to avoid overfitting the models.
+Using 10 fold cross validation the models gave a lower RMSE and a reasonable Rsquare. The explanatory power of the models are below the 0.92 that we had originally using the conventional multivariate linear regression. The linear regressin using 10 fold cross validation gave  a Rsquare of 0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquare of 0.87 and RMSE (root mean square error) of 0.145. The machine learning methods allowed us initially to use cross validation to maximize the value of the limited data points and later to avoid overfitting the models.
 
