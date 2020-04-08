@@ -695,7 +695,6 @@ data frame inside cor()
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Corrplot.PNG)
 
 
-
 ![](htps://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/CorrelationValuesplot01.png)
 	
 # Outliers detection
@@ -779,25 +778,25 @@ names(train)[nearZeroVar(train)]
 	[17] "X3SsnPorch"    "ScreenPorch"   "PoolArea"      "MiscVal"     
 
 # Plot variables with low variance
-barplot(table(train$Street),ylab="Frequency",col="green",border="blue",main= "Street")
-barplot(table(train$LandContour),ylab="Frequency",col="green",border="blue",main= "LandContour")
-barplot(table(train$LandSlope),ylab="Frequency",col="green",border="blue",main= "LandSlope")
-barplot(table(train$Condition2),ylab="Frequency",col="green",border="blue",main= "Condition2")
-barplot(table(train$RoofMatl),ylab="Frequency",col="green",border="blue",main= "RoofMatl")
-barplot(table(train$BsmtCond),ylab="Frequency",col="green",border="blue",main= "BsmtCond")
-barplot(table(train$BsmtFinType2),ylab="Frequency",col="green",border="blue",main= "BsmtFinType2")
-barplot(table(train$BsmtFinSF2),ylab="Frequency",col="green",border="blue",main= "BsmtFinSF2")
-barplot(table(train$Heating),ylab="Frequency",col="green",border="blue",main= "Heating2")
-barplot(table(train$LowQualFinSF),ylab="Frequency",col="green",border="blue",main= "LowQualFinSF")
-barplot(table(train$KitchenAbvGr),ylab="Frequency",col="green",border="blue",main= "KitchenAbvGr")
-barplot(table(train$Functional),ylab="Frequency",col="green",border="blue",main= "Functional")
-barplot(table(train$GarageQual),ylab="Frequency",col="green",border="blue",main= "GarageQual")
-barplot(table(train$GarageCond),ylab="Frequency",col="green",border="blue",main= "GarageCond")
-barplot(table(train$EnclosedPorch),ylab="Frequency",col="green",border="blue",main= "EnclosedPorch")
-barplot(table(train$X3SsnPorch),ylab="Frequency",col="green",border="blue",main= "X3SsnPorch")
-barplot(table(train$ScreenPorch),ylab="Frequency",col="green",border="blue",main= "ScreenPorch")
-barplot(table(train$PoolArea),ylab="Frequency",col="green",border="blue",main= "PoolArea")
-barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "MiscVal")
+	barplot(table(train$Street),ylab="Frequency",col="green",border="blue",main= "Street")
+	barplot(table(train$LandContour),ylab="Frequency",col="green",border="blue",main= "LandContour")
+	barplot(table(train$LandSlope),ylab="Frequency",col="green",border="blue",main= "LandSlope")
+	barplot(table(train$Condition2),ylab="Frequency",col="green",border="blue",main= "Condition2")
+	barplot(table(train$RoofMatl),ylab="Frequency",col="green",border="blue",main= "RoofMatl")
+	barplot(table(train$BsmtCond),ylab="Frequency",col="green",border="blue",main= "BsmtCond")
+	barplot(table(train$BsmtFinType2),ylab="Frequency",col="green",border="blue",main= "BsmtFinType2")
+	barplot(table(train$BsmtFinSF2),ylab="Frequency",col="green",border="blue",main= "BsmtFinSF2")
+	barplot(table(train$Heating),ylab="Frequency",col="green",border="blue",main= "Heating2")
+	barplot(table(train$LowQualFinSF),ylab="Frequency",col="green",border="blue",main= "LowQualFinSF")
+	barplot(table(train$KitchenAbvGr),ylab="Frequency",col="green",border="blue",main= "KitchenAbvGr")
+	barplot(table(train$Functional),ylab="Frequency",col="green",border="blue",main= "Functional")
+	barplot(table(train$GarageQual),ylab="Frequency",col="green",border="blue",main= "GarageQual")
+	barplot(table(train$GarageCond),ylab="Frequency",col="green",border="blue",main= "GarageCond")
+	barplot(table(train$EnclosedPorch),ylab="Frequency",col="green",border="blue",main= "EnclosedPorch")
+	barplot(table(train$X3SsnPorch),ylab="Frequency",col="green",border="blue",main= "X3SsnPorch")
+	barplot(table(train$ScreenPorch),ylab="Frequency",col="green",border="blue",main= "ScreenPorch")
+	barplot(table(train$PoolArea),ylab="Frequency",col="green",border="blue",main= "PoolArea")
+	barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "MiscVal")
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables.png)
 
@@ -1055,6 +1054,7 @@ To find out how other methodologies will work  we used the 10 fold cross validat
 xgboosting.
 
 # Using Cross validation
+
 First we instaled the caret package. Using 10 Fold cross validation the Testing dataset was divided in 10 blocks. This computation intensive approach "cross validation" will help to estimate how well the model will function.
 
 ```
@@ -1070,75 +1070,79 @@ First we train the control function and define the parameters
                               search ="grid",
                               verboseIter =TRUE)
 		      
-# fit linear regression
+# 10 Fold Cross validation Using Linear regression
 	```
 	mmodelk1 <-train (SalePrice ~ .,logTrainingSet,
                  method = "lm",
                  trControl = train.control)
                
-Results 
+	Results 
 
-Linear Regression 
+	Linear Regression 
 
-1460 samples
-  72 predictor
+	1460 samples
+ 	 72 predictor
 
-No pre-processing
-Resampling: Cross-Validated (10 fold) 
-Summary of sample sizes: 1314, 1314, 1316, 1314, 1314, 1314, ... 
-Resampling results:
+	No pre-processing
+	Resampling: Cross-Validated (10 fold) 
+	Summary of sample sizes: 1314, 1314, 1316, 1314, 1314, 1314, ... 
+	Resampling results:
 
-  RMSE       Rsquared   MAE       
-  0.1760512  0.8155415  0.09484531
+  	RMSE       Rsquared   MAE       
+  	0.1760512  0.8155415  0.09484531
 
-# 10 Fold Cross validation Using Random Forest
-
-modelrf <-train (SalePrice ~ .,logTrainingSet,
+ # 10 Fold Cross validation Using Random Forest
+ 
+ 	```
+	modelrf <-train (SalePrice ~ .,logTrainingSet,
                  method = "rf",
                  trControl = train.control)
-Results
+	```
+	Results
 
-Random Forest 
+	Random Forest 
 
-1460 samples
-  72 predictor
+	1460 samples
+  	72 predictor
 
-No pre-processing
-Resampling: Cross-Validated (10 fold) 
-Summary of sample sizes: 1314, 1314, 1313, 1314, 1313, 1315, ... 
-Resampling results across tuning parameters:
+	No pre-processing
+	Resampling: Cross-Validated (10 fold) 
+	Summary of sample sizes: 1314, 1314, 1313, 1314, 1313, 1315, ... 
+	Resampling results across tuning parameters:
 
-  mtry  RMSE       Rsquared   MAE       
-    2   0.2303668  0.7999045  0.16202084
-  130   0.1451655  0.8729648  0.09745148
-  259   0.1476896  0.8671786  0.09885738
+ 	 mtry 	 RMSE       Rsquared   MAE       
+    	2   0.2303668  0.7999045  0.16202084
+  	130   0.1451655  0.8729648  0.09745148
+  	259   0.1476896  0.8671786  0.09885738
 
-RMSE was used to select the optimal model using the smallest value.
-The final value used for the model was mtry = 130.
+	RMSE was used to select the optimal model using the smallest value.
+	The final value used for the model was mtry = 130.
+	
 
 # 10 Fold Cross validation Using xgboost
-
-modelxb <- train(SalePrice ~ .,logTrainingSet,
+	
+	```
+	modelxb <- train(SalePrice ~ .,logTrainingSet,
                   method = "xgbTree",
                   trControl = train.control)
-Results
-eXtreme Gradient Boosting 
+	```
+	Results
+	eXtreme Gradient Boosting 
 
-1460 samples
-  72 predictor
+	1460 samples
+  	72 predictor
 
-No pre-processing
-Resampling: Cross-Validated (10 fold) 
-Summary of sample sizes: 1314, 1313, 1314, 1314, 1313, 1314, ... 
-Resampling results across tuning parameters:
-Tuning parameter 'gamma' was held constant at a value of 0
-Tuning parameter 'min_child_weight' was  held constant at a value of 1
-RMSE was used to select the optimal model using the smallest value.
-The final values used for the model were nrounds = 150, max_depth = 3, eta = 0.3, gamma =
- 0, colsample_bytree = 0.8, min_child_weight = 1 and subsample = 1.mode
+	No pre-processing
+	Resampling: Cross-Validated (10 fold) 
+	Summary of sample sizes: 1314, 1313, 1314, 1314, 1313, 1314, ... 
+	Resampling results across tuning parameters:
+	Tuning parameter 'gamma' was held constant at a value of 0
+	Tuning parameter 'min_child_weight' was  held constant at a value of 1
+	RMSE was used to select the optimal model using the smallest value.
+	The final values used for the model were nrounds = 150, max_depth = 3, eta = 0.3, gamma =
+ 	0, colsample_bytree = 0.8, min_child_weight = 1 and subsample = 1.mode
 
 # Conclusions
 
-Using 10 fold cross validation the models gave a lower RMSE and a reasonable Rsquare. After using cross validation the explanatory power of the models were below the 0.92 that we had originally using the conventional multivariate linear regression and stepwise regression.The stepwise regression selected 46 variables out of the 72 variables we had after performing data cleaning and processing.However, the Rsquare values were considered still high  0.92. The calculated  RMSE values were high once we run the conventinal regression.
-The linear regression using 10 fold cross validation gave  a Rsquare of 0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquare of 0.87 and RMSE (root mean square error) of 0.145. Cross validation allowed us to maximize the value of the limited data points and later to avoid overfitting the models.
+	Using 10 fold cross validation the models gave a lower RMSE and a reasonable Rsquare. After using cross validation the 		explanatory power of the models were below the 0.92 that we had originally using the conventional multivariate linear 		regression and stepwise regression.The stepwise regression selected 46 variables out of the 72 variables we had after 		performing data cleaning and processing.However, the Rsquare values were considered still high  0.92. The calculated  RMSE	  values were high once we run the conventinal regression.The linear regression using 10 fold cross validation gave  a Rsquare of 	  0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquareof 0.87 and RMSE (root mean square error) of 0.145. Cross 		validation allowed us to maximize the value of the limited data points and later to avoid overfitting the models.
 
