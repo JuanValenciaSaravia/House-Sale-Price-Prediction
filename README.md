@@ -1061,20 +1061,19 @@ package. RMSE or Root Mean Squared Error represent the average deviation of the 
 
 # Using Cross validation
 First we instaled the caret package. Using 10 Fold cross validation the Testing dataset was divided in 10 blocks. This computation intensive approach "cross validation" will help to estimate how well the model will function.
-```{r}
+
 library(caret)
 data(logTestingSet)
 set.seed(42)
 
 First we train the control function and define the parameters
-#train control function
 
 train.control <- trainControl (method ="cv",
                               number =10,
                               search ="grid",
                               verboseIter =TRUE)
 		      
-#fit linear regression
+# fit linear regression
 mmodelk1 <-train (SalePrice ~ .,logTrainingSet,
                  method = "lm",
                  trControl = train.control)
@@ -1094,10 +1093,8 @@ Resampling results:
   RMSE       Rsquared   MAE       
   0.1760512  0.8155415  0.09484531
 
-Tuning parameter 'intercept' was held constant at a value of TRUE
-
 # 10 Fold Cross validation Using Random Forest
-```{r}
+
 modelrf <-train (SalePrice ~ .,logTrainingSet,
                  method = "rf",
                  trControl = train.control)
@@ -1120,3 +1117,20 @@ Resampling results across tuning parameters:
 
 RMSE was used to select the optimal model using the smallest value.
 The final value used for the model was mtry = 130.
+
+# 10 Fold Cross validation Using xgboost
+
+modelxb <- train(SalePrice ~ .,logTrainingSet,
+                  method = "xgbTree",
+                  trControl = train.control)
+Results
+eXtreme Gradient Boosting 
+
+1460 samples
+  72 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 1314, 1313, 1314, 1314, 1313, 1314, ... 
+Resampling results across tuning parameters:
+
