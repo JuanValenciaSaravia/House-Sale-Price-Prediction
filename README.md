@@ -1095,3 +1095,28 @@ Resampling results:
   0.1760512  0.8155415  0.09484531
 
 Tuning parameter 'intercept' was held constant at a value of TRUE
+
+# 10 Fold Cross validation Using Random Forest
+```{r}
+modelrf <-train (SalePrice ~ .,logTrainingSet,
+                 method = "rf",
+                 trControl = train.control)
+Results
+
+Random Forest 
+
+1460 samples
+  72 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 1314, 1314, 1313, 1314, 1313, 1315, ... 
+Resampling results across tuning parameters:
+
+  mtry  RMSE       Rsquared   MAE       
+    2   0.2303668  0.7999045  0.16202084
+  130   0.1451655  0.8729648  0.09745148
+  259   0.1476896  0.8671786  0.09885738
+
+RMSE was used to select the optimal model using the smallest value.
+The final value used for the model was mtry = 130.
