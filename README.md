@@ -438,7 +438,7 @@ summary(imp)
 imputed<-complete(imp)
 
 ```
-	
+
 Check for missings in the imputed dataset
 
 ```{r}
@@ -455,7 +455,6 @@ imp$method
 ```
  
 # Correlation for Categorical Variables
-
 
 ```{r}
 library(corrplot)
@@ -759,6 +758,7 @@ ggplot()+
 geom_histogram (data=train, aes(x=OverallCond, y=..density..), fill="red")+ 
 stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$OverallCond))
 boxplot(train_num$OverallCond)$out
+
 ```
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Oultiers_GrLivArea.png)
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Outliers_LotFrontage.png)
@@ -778,6 +778,7 @@ names(train)[nearZeroVar(train)]
 	[17] "X3SsnPorch"    "ScreenPorch"   "PoolArea"      "MiscVal"     
 
 # Plot variables with low variance
+```{r}
 	barplot(table(train$Street),ylab="Frequency",col="green",border="blue",main= "Street")
 	barplot(table(train$LandContour),ylab="Frequency",col="green",border="blue",main= "LandContour")
 	barplot(table(train$LandSlope),ylab="Frequency",col="green",border="blue",main= "LandSlope")
@@ -797,7 +798,7 @@ names(train)[nearZeroVar(train)]
 	barplot(table(train$ScreenPorch),ylab="Frequency",col="green",border="blue",main= "ScreenPorch")
 	barplot(table(train$PoolArea),ylab="Frequency",col="green",border="blue",main= "PoolArea")
 	barplot(table(train$iscVal),ylab="Frequency",col="green",border="blue",main= "MiscVal")
-
+```
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables.png)
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Low_Variance_Variables1.png)
@@ -813,14 +814,16 @@ The correlation matrix allowed us to identify the variables that show high corre
 
 We can see that some variables have a strong positive correlation for example BasementHalfBath and BasementFullBath are hihgly correlated therefore we removed BasmentHalfBath. Similarly, GarageCars and GarageArea have a high correlation of those two we removed GarageCars
 
+```{r}
 rmvVars <- c('BsmtHalfBath', 'GarageCars')
 TestingSet <- TestingSet[,!(names(TestingSet) %in% rmvVars)]
 TrainingSet <- TrainingSet[,!(names(TrainingSet) %in% rmvVars)]
-
+```
 # Histogram of the dependent variable 
 
 The target variable (Sale Price) histogram shows that it is positively skewed (right skewed), because there is a long tail on the right side . The Sales Prices as expected do not follow a normal distribution. It will be necessary to reduce the skew of the target variable in order to avoid incorrect predictions
 
+```{r}
 library(ggplot2)
 ggplot(train, aes(SalePrice))+geom_histogram(color="black",fill = "steelblue")
 
@@ -832,14 +835,18 @@ std <- sd(train$SalePrice)
 ggplot()+
 geom_histogram (data=train, aes(x=SalePrice, y=..density..), fill="red")+
 stat_function(fun=dnorm, args =list (mean =m, sd =std), aes (x=train$SalePrice))
+```
 
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/SalePrice_Distribution.png)
 
-#SalePrice in Function of the Neighboorhood
+# SalePrice in Function of the Neighboorhood
+
 The categorical variable Neighborhoods plays a significant role in determining the sale prices as we can see in the chart
 
-ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + labs(title = "Prices In Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
-
+```{r}
+ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhood))+geom_boxplot() + 
+labs(title = "Prices In Function Of The Neighborhood", y =" SalePrice")+coord_flip() 
+```
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Neighborhood.png)
 
 # SalePrice in Function of Zoning Classification
@@ -847,19 +854,25 @@ ggplot(train, aes(reorder(x= district, -price), y=SalePrice, color = Neighborhoo
  The prices are  higher certain Zone for example we see that high prices are geographicaly located in zones like FV (Floating Village Residential)
  
 ```{r}
+
 ggplot(train, aes(reorder(x= MSZoning, -SalePrice), y=SalePrice, color = MSZoning))+geom_boxplot() + labs(title = "Prices In Function Of Zoning Classification", y =" SalePrice")+coord_flip() 
 ```
 ![](https://github.com/JvaSar/House-Sale-Price-Prediction/blob/master/Price_Vs_Zoning_Classfication.png)
 
 SalePrice and YearBuilt
 
-ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
+```{r}
 
+ggplot(train, aes(x=YearBuilt, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~YearBuilt ") + xlab("YearBuilt") 	 + ylab("SalePrice")
+```
 
 SalePrice and GrLivArea
 
+```{r}
+
 ggplot(train, aes(x=GrLivArea, y=SalePrice, group=YearBuilt)) + geom_boxplot() + ggtitle("train~GrLivArea ") + xlab("GrLivArea") 	 + ylab("SalePrice") 
 
+```
 
 # Quantile-Quantile Plot (Plot/Line) dependent variable
 
