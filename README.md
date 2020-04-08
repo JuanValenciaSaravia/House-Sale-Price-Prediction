@@ -899,16 +899,18 @@ Calculating Kurtosis
 
 Kurtosis measures the taildness of the distribution kurtosises outside the range  of -3.0 to 3.0 do not satisfy the assumption 	of normality.The calculated value of Kurtosis is 6.5 that signifies that the majority of the values are concentrated around  the mean.This high value means that the distribution is too peak to be considered normal the curve is taller and skinier than a normal distribution.
 	
-	```
+```{r}
 	kurtosis(TrainingSet$SalePrice)
 	[1] 6.5
-	
+```
+
 #Log transformation of the dependent variable
 
 To deal with the high skewness of the distribution of SalePrice we transformed it to log10. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore increase the accuracy of the models that will be created. 	    		
-	```
+```{r}
 	logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
 
+```
 
 Skewness with the log transformation
 The q-q-plot after the log transformation looks better we were able to reduce the skew of the dependent variable
@@ -1077,18 +1079,19 @@ set.seed(42)
 
 First we train the control function and define the parameters
 
-	```
+	```{r}
 	train.control <- trainControl (method ="cv",
                               number =10,
                               search ="grid",
                               verboseIter =TRUE)
-		      
+	```	      
 # 10 Fold Cross validation Using Linear regression
-	```
+	
+	```{r}
 	mmodelk1 <-train (SalePrice ~ .,logTrainingSet,
                  method = "lm",
                  trControl = train.control)
-               
+         ```      
 	Results 
 
 	Linear Regression 
@@ -1106,7 +1109,7 @@ First we train the control function and define the parameters
 
  # 10 Fold Cross validation Using Random Forest
  
- 	```
+ 	```{r}
 	modelrf <-train (SalePrice ~ .,logTrainingSet,
                  method = "rf",
                  trControl = train.control)
@@ -1134,7 +1137,7 @@ First we train the control function and define the parameters
 
 # 10 Fold Cross validation Using xgboost
 	
-	```
+	```{r}
 	modelxb <- train(SalePrice ~ .,logTrainingSet,
                   method = "xgbTree",
                   trControl = train.control)
@@ -1152,10 +1155,10 @@ First we train the control function and define the parameters
 	Tuning parameter 'gamma' was held constant at a value of 0
 	Tuning parameter 'min_child_weight' was  held constant at a value of 1
 	RMSE was used to select the optimal model using the smallest value.
-	The final values used for the model were nrounds = 150, max_depth = 3, eta = 0.3, gamma =
- 	0, colsample_bytree = 0.8, min_child_weight = 1 and subsample = 1.mode
+	The final values used for the model were nrounds = 150, max_depth = 3, eta = 0.3, gamma =0, 
+	colsample_bytree = 0.8, min_child_weight = 1 and subsample = 1.mode
 
 # Conclusions
 
-	Using 10 fold cross validation the models gave a lower RMSE and a reasonable Rsquare. After using cross validation the 		explanatory power of the models were below the 0.92 that we had originally using the conventional multivariate linear 		regression and stepwise regression.The stepwise regression selected 46 variables out of the 72 variables we had after 		performing data cleaning and processing.However, the Rsquare values were considered still high  0.92. The calculated  RMSE	  values were high once we run the conventinal regression.The linear regression using 10 fold cross validation gave  a Rsquare of 	  0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquareof 0.87 and RMSE (root mean square error) of 0.145. Cross 		validation allowed us to maximize the value of the limited data points and later to avoid overfitting the models.
+Using 10 fold cross validation the models gave a lower RMSE and a reasonable Rsquare. After using cross validation the 		explanatory power of the models were below the 0.92 that we had originally using the conventional multivariate linear 		regression and stepwise regression.The stepwise regression selected 46 variables out of the 72 variables we had after 		performing data cleaning and processing.However, the Rsquare values were considered still high  0.92. The calculated  RMSE	  values were high once we run the conventinal regression.The linear regression using 10 fold cross validation gave  a Rsquare of 	  0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquareof 0.87 and RMSE (root mean square error) of 0.145. Cross 		validation allowed us to maximize the value of the limited data points and later to avoid overfitting the models.
 
