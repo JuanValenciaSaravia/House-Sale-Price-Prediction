@@ -3,8 +3,6 @@ Home value predictions are used by realtors, mortgage lenders, and financial ins
 The purpose of the project is to predict home values based on the characteristics of the property. Using a multivariate regression, we will create a model that will predict the values.
 For this project, we will be using a dataset obtained from an open data portal and reflects the home sales from the city of Ames, Iowa in the USA. The dataset has 81 variables.
 
-```{R, load_libraries, message=F, warning=F}
-
 install.packages("stringr")
 install.packages("caret")
 install.packages("boot")
@@ -30,7 +28,6 @@ library("ggplot2")
 library(downloader)
 
 ```
-		
 # Connceting Data
 Sale Price and attributes of houses in the city of Ames, state of Iowa in United States of America
 
@@ -44,7 +41,6 @@ attach(train)
 attach(test)
 # Merge data sets
 data <- bind_rows(train, test)
-
 ```
 
 ```{r}
@@ -52,7 +48,6 @@ glimpse(data)
 summary(data)
 head(data)
 print(dim(data))
-
 ```
 
 # Dataset
@@ -148,8 +143,6 @@ print(dim(data))
 
 ## Description of the dependent variable
 - Mean: 180,921;
-
-
  - Minimum: 34,900;
  - 1st Quartile:129,975;
  - Median: 163,000;
@@ -162,7 +155,6 @@ print(dim(data))
  sum(is.na(data))
  sapply(data, function(x) sum(is.na(x)))
  sapply(data,class)
- 
  ```
  
  Graphic of missing values
@@ -200,7 +192,6 @@ print(dim(data))
  sapply(test, function(x) sum(is.na(x)))
      
  ```
-
 Removing attributes with high incidence of na- train dataset
 
 Attributes that have high incidence (40% plus of missing values were removed)
@@ -216,7 +207,6 @@ sapply(train, function(x) sum(is.na(x)))
 [1] 1460 records and   75 variables
 
 ```
-
 Removing attributes with high incidence of na - test dataset
 
 ```{r}
@@ -228,7 +218,6 @@ test$FireplaceQu<-NULL
 sapply(test, function(x) sum(is.na(x)))
 >print(dim(test))
 [1] 1459  records and  74 variables
-
 ```
 		 
  Removed attributes 
@@ -256,7 +245,6 @@ is.factor(fact_atrib)
 is.numeric(fact_atrib)
 is.integer(fact_atrib)
 summary(fact_atrib)
-
 ```
 
 Summary of Categorical variables -train dataset	
@@ -318,7 +306,6 @@ num_cols
 train_num<-train[,num_cols]
 train_num
 train_num<-na.omit(train_num)
-
 ```
 
 ## Summary of Numeric variables -train set
@@ -395,7 +382,6 @@ train$GarageFinish <-ifelse(is.na(train$GarageFinish),median(train$GarageFinish,
 train$BsmtFullBath <-ifelse(is.na(train$BsmtFullBath),median(train$BsmtFullBath,na.rm=TRUE),train$BsmtFullBath)
 train$BsmtHalfBath <-ifelse(is.na(train$BsmtHalfBath),median(train$BsmtHalfBath,na.rm=TRUE),train$BsmtHalfBath)
 train$TotRmsAbvGrd<-ifelse(is.na(train$TotRmsAbvGrd),median(train$TotRmsAbvGrd,na.rm=TRUE),train$TotRmsAbvGrd)
-
 ```
 
 ## Categorical
@@ -426,7 +412,7 @@ mice_plot <- aggr(fact_atrib,col=c('navyblue','yellow'),
 
 ## Imputation to Categorical Variables
 
-         Predictive mean matching only imputes values that were actually observed for other units. The range of imputed values  always 		 lies between the minimum and the maximum of the observed real  values. Compared with standard methods based on linear       		regression and the normal distribution, PMM produces imputed values that are much more like real values. If the original 		variable is skewed,the imputed values will also be skewed. If the original variable is bounded by 0 and 100, the imputed values 	will also be bounded by 0 and 100. And if the real values are discrete (like number of children), the imputed values will also 		be discrete. That’s because the imputed values are real values that are “borrowed” from individuals with real data.
+         Predictive mean matching only imputes values that were actually observed for other units. The range of imputed values  always 		lies between the minimum and the maximum of the observed real  values. Compared with standard methods based on linear       	     egression and the normal distribution, PMM produces imputed values that are much more like real values. If the original 		variable is skewed,the imputed values will also be skewed. If the original variable is bounded by 0 and 100, the imputed values 	will also be bounded by 0 and 100. And if the real values are discrete (like number of children), the imputed values will also 		be discrete. That’s because the imputed values are real values that are “borrowed” from individuals with real data.
 	source: https://statisticalhorizons.com/predictive-mean-matching
 
 Using 'mice package' as the imputation method we used 'polyreg'=polytomous regression, which deals with cateogorical attributes
@@ -905,7 +891,7 @@ Kurtosis measures the taildness of the distribution kurtosises outside the range
 	
 #Log transformation of the dependent variable
 
-To deal with the high skewness of the distribution of SalePrice we transformed it to log10. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore  increase the accuracy of the models that will be created. 	    	
+To deal with the high skewness of the distribution of SalePrice we transformed it to log10. By performing  the logarithmic transformation we intend to remove and deal with the skewness therefore increase the accuracy of the models that will be created. 	    	
 logTrainingSet$SalePrice <- log(logTrainingSet$SalePrice) 
 
 Skewness with the log transformation
@@ -929,7 +915,7 @@ Q-Q-plot with Log Transformation
 	library(mlbench) 
 	library(caret)
 	
-first run in  logTrainingSet 
+first run in the training dataset 
 
 	Model1 <- lm (SalePrice ~ ., data =logTrainingSet)
 	
@@ -984,6 +970,7 @@ Prediction in the TestingSet
  	Max.   :700075.3   Max.   :626642   Max.   :773508  
 	
 # Calculating  Error
+
 	errors <- prediction [,"fit"]-TestingSet$SalePrice
 	errors
 	summary(errors)
@@ -1134,6 +1121,11 @@ No pre-processing
 Resampling: Cross-Validated (10 fold) 
 Summary of sample sizes: 1314, 1313, 1314, 1314, 1313, 1314, ... 
 Resampling results across tuning parameters:
+Tuning parameter 'gamma' was held constant at a value of 0
+Tuning parameter 'min_child_weight' was  held constant at a value of 1
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were nrounds = 150, max_depth = 3, eta = 0.3, gamma =
+ 0, colsample_bytree = 0.8, min_child_weight = 1 and subsample = 1.mode
 
 # Conclusions
 
