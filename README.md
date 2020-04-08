@@ -1072,10 +1072,11 @@ xgboosting.
 
 First we installed the caret package. Using 10 Fold cross validation the Testing dataset was divided in 10 blocks. This computation intensive approach "cross validation" will help to estimate how well the model will function.
 
-```
+```{r}
 library(caret)
 data(logTestingSet)
 set.seed(42)
+```
 
 First we train the control function and define the parameters
 
