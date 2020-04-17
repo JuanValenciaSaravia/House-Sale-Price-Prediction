@@ -935,58 +935,54 @@ Q-Q-plot with Log Transformation
 	
 first run in the training dataset 
 	```
-	Model1 <- lm (SalePrice ~ ., data =logTrainingSet)
-	
-	Results
+	> summary(Model1)
+
 	Call:
-	lm(formula = SalePrice ~ ., data = logTrainingSet)
+	lm(formula = SalePrice ~ ., data = logTrainingSet, na.action = na.omit)
 
 	Residuals:
-     	Min       1Q   Median       3Q      Max 
-	-0.72648 -0.04784  0.00216  0.05056  0.72648 
+    	 Min       1Q   Median       3Q      Max 
+	-0.05788 -0.00381  0.00017  0.00418  0.05433 
 
-	Coefficients: (20 not defined because of singularities)
-                                     	 Estimate   Std. Error t value             Pr(>|t|)    
-	(Intercept)                        8.734953717  4.921776685   1.775             0.076190 .  
-	MSSubClass1 story 1945_ older     -0.005320876  0.069576495  -0.076             0.939054    
-	MSSubClass1 story 1946+            0.076560671  0.068767822   1.113             0.265792    
-	MSSubClass1 story pud_46_newer     0.015977582  0.096943287   0.165             0.869118    
-	MSSubClass1,5 story finish         0.068875478  0.079469626   0.867             0.386284    
-	MSSubClass1,5 story_unfinish      -0.159674085  0.131285462  -1.216             0.224133    
-	MSSubClass2 family_conversion_all  0.186311993  0.149305067   1.248             0.212324    
-	MSSubClass2 story_45_older         0.093406985  0.077361354   1.207             0.227510    
-	MSSubClass2 story_46_newer         0.053576680  0.078350979   0.684             0.494230    
-	MSSubClass2,5 story                0.034538384  0.098686083   0.350             0.726413    
-	MSSubClassduplex_allstyles_age     0.053280578  0.077308365   0.689             0.490833    
-	MSSubClasspud_ multilevel         -0.012308949  0.114996969  -0.107             0.914777    
-	MSSubClasssplit foyer              0.082493356  0.085256951   0.968             0.333445    
-	MSSubClasssplit/multilevel         0.000485662  0.090707013   0.005             0.995729    
-	MSSubClassstory pud_46_newer      -0.059325374  0.107935465  -0.550             0.582670    
-	StreetPave                         0.116275023  0.060543965   1.921             0.055029 .  
-  	NeighborhoodSomerst                0.038234025  0.042618199   0.897             0.369829    
-	SaleConditionAlloca                0.067820425  0.040979449   1.655             0.098187 .  
-	SaleConditionFamily                0.024917054  0.028514409   0.874             0.382379    
-	SaleConditionNormal                0.074327132  0.013453115   5.525 0.000000040351531307 ***
-	SaleConditionPartial               0.025166150  0.069782559   0.361             0.718434    
+	Coefficients: (5 not defined because of singularities)
+                       	 Estimate  Std. Error t value             Pr(>|t|)    
+	(Intercept)           2.14596768  0.02924374   73.38 < 0.0000000000000002 ***
+	MSSubClass30         -0.00639227  0.00181830   -3.52              0.00046 ***
+	MSSubClass40         -0.00654286  0.00562697   -1.16              0.24515    
+	MSSubClass45         -0.01344893  0.00971410   -1.38              0.16647    
+	MSSubClass50         -0.00003318  0.00335947   -0.01              0.99212    
+	NeighborhoodBlueste   0.00038107  0.00759143    0.05              0.95997    
+	NeighborhoodBrDale   -0.00144435  0.00449682   -0.32              0.74812    
+	NeighborhoodBrkSide   0.00221184  0.00368562    0.60              0.54853    
+	NeighborhoodClearCr   0.00181107  0.00357525    0.51              0.61256    
+	NeighborhoodCollgCr  -0.00146870  0.00279483   -0.53              0.59933    
+	NeighborhoodCrawfor   0.00906610  0.00332321    2.73              0.00646 ** 
+	NeighborhoodEdwards  -0.00689528  0.00310431   -2.22              0.02652 *  
+	NeighborhoodGilbert   0.00054384  0.00297796    0.18              0.85512    
+	NeighborhoodIDOTRR   -0.00185932  0.00414133   -0.45              0.65354    
+	NeighborhoodMeadowV  -0.01360896  0.00472941   -2.88              0.00408 ** 
+	NeighborhoodMitchel  -0.00416339  0.00316442   -1.32              0.18853    
+ 
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	Residual standard error: 0.0087 on 1206 degrees of freedom
+	Multiple R-squared:  0.944,	Adjusted R-squared:  0.932 
+	F-statistic: 79.9 on 253 and 1206 DF,  p-value: <0.0000000000000002
 	
-	
-	Residual standard error: 0.1059 on 1207 degrees of freedom
-	Multiple R-squared:  0.9419,	Adjusted R-squared:  0.9297 
-	F-statistic:  77.6 on 252 and 1207 DF,  p-value: < 0.00000000000000022
-	
+		
 Prediction in the TestingSet
 
-	prediction <-predict (model1,interval="prediction",newdata = TestingSet)
-	prediction
-	head(prediction)
+	prediction <-predict (model1,interval="prediction",newdata = TestingSet6)
 	
-	      	fit                lwr              upr        
- 	Min.   :   636.8   Min.   :-53327   Min.   : 54601  
-	1st Qu.:126499.5   1st Qu.: 77527   1st Qu.:175415  
-	Median :160669.0   Median :110119   Median :209918  
- 	Mean   :179261.7   Mean   :129820   Mean   :228703  
- 	3rd Qu.:213597.9   3rd Qu.:164617   3rd Qu.:261450  
- 	Max.   :700075.3   Max.   :626642   Max.   :773508  
+	> summary(prediction)
+	
+     	fit            lwr            upr      
+ 	Min.   :2.35   Min.   :2.33   Min.   :2.37  
+ 	1st Qu.:2.46   1st Qu.:2.44   1st Qu.:2.48  
+	Median :2.48   Median :2.46   Median :2.50  
+	Mean   :2.48   Mean   :2.46   Mean   :2.50  
+ 	3rd Qu.:2.50   3rd Qu.:2.49   3rd Qu.:2.52  
+ 	Max.   :2.59   Max.   :2.57   Max.   :2.61  
 	
 # Calculating  Error
 ```{r}
