@@ -1134,15 +1134,21 @@ First we train the control function and define the parameters
 	The final value used for the model was mtry = 130.
 	
 
-# 10 Fold cross validation using xgboost
+# 10 Fold cross validation using Gradient Boosting Machine
+
+	Gradient Boosting Machine  (GBM) or gradient boosted regression tree (GBRT) produces a prediction model in the form of an 	  ensemble of weak prediction models, typically decision trees to create a stronger model. Multiple models are created  in a 		gradual, additive and sequential manner. Each additional model reduces the mean squared error  of the overall model. 
+
 	
 	```{r}
-	modelxb <- train(SalePrice ~ .,logTrainingSet,
-                  method = "xgbTree",
-                  trControl = train.control)
+	model_gbm = train(SalePrice ~ ., 
+                 data = logTrainingSet,
+                 tuneLength = 2,
+                 method = "gbm",
+                 trControl = train.control)
 	```
+	
 	Results
-	eXtreme Gradient Boosting 
+	 Gradient Boosting 
 
 	1460 samples
   	72 predictor
@@ -1160,4 +1166,15 @@ First we train the control function and define the parameters
 # Conclusions
 
 Using 10 fold cross validation the models gave a lower RMSE and a reasonable Rsquare. After using cross validation the 		explanatory power of the models were below the 0.92 that we had originally using the conventional multivariate linear 		regression and stepwise regression.The stepwise regression selected 46 variables out of the 72 variables we had after 		performing data cleaning and processing.However, the Rsquare values were considered still high  0.92. The calculated  RMSE	  values were high once we run the conventinal regression.The linear regression using 10 fold cross validation gave  a Rsquare of 	  0.81 and a RMSE of 0.17  whereas Random Forest gave a Rsquareof 0.87 and RMSE (root mean square error) of 0.145. Cross 		validation allowed us to maximize the value of the limited data points and later to avoid overfitting the models.
+
+# Summary
+Five  attributes had from 48% to 99% of missing values.
+Logarithm Transformation was necessary due to high skewness of the target variable Sale Price
+For data imputation we tried a different method  “predictive mean matching  for numeric variables and polyreg for categorical variables using (MICE package)
+Normalization via z-scores (scale) was performed for all numeric variables
+Correlation matrices before data transformation and after data transformation 
+We tested the Ordinary least squares regression , Stepwise linear regression, 10-k cross validation for linear regression, and 10-k cross validation for Random Forest regressor,  Gradient boosting machine
+Cross validation  (10k) improved to lower down the RMSE values 
+Random Forest regressor performed better  than Linear Regression
+
 
