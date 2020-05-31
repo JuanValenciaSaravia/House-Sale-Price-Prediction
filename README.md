@@ -1169,11 +1169,10 @@ Using 10 fold cross-validation the models gave a lower RMSE and a reasonable R s
 
 # Summary
 Five attributes had between 48% to 99% of missing values.
-Logarithm Transformation was necessary due to high skewness of the target variable Sales Price.
-For data imputation, we used the method “predictive mean matching for numeric variables and polyreg for categorical variables using (MICE package).
+Logarithm Transformation was necessary due to high skewness of the target variable "Sales Price".
+For data imputation, we used the method “predictive mean matching" for numeric variables and "polyreg" for categorical variables using (MICE package).
 Normalization via z-scores (scale) was performed for all numeric variables.
 Correlation matrices were created before data transformation and after data transformation.
-We tested the Ordinary least squares regression, Stepwise linear regression, 
-10-k cross-validation for linear regression, Random Forest, and Gradient boosting machine
+We tested the Ordinary least squares regressiion, 10-k cross-validation for linear regression, Random Forest, and Gradient boosting machine.
 Random Forest regressor, and Gradient Boosting Machine performed better than the Linear Regression, 
 
